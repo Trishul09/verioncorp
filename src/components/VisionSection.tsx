@@ -99,11 +99,9 @@ export const VisionSection = () => {
         <div className="text-center mt-20">
           <div className="glass-morphism rounded-2xl p-12 max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold mb-4">Ready for Change?</h3>
-            <p className="text-muted-foreground mb-6">
+            <p className="text-muted-foreground">
               Join thousands building the future of digital interaction.
             </p>
-            <div className="text-4xl font-bold text-gradient">10,000+</div>
-            <div className="text-sm text-muted-foreground">Early Adopters</div>
           </div>
         </div>
       </div>
