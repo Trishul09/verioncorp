@@ -61,7 +61,7 @@ export const WaitlistSection = () => {
 
   if (isSubmitted) {
     return (
-      <section className="py-32 px-4">
+      <section id="waitlist" className="py-32 px-4">
         <div className="container max-w-4xl mx-auto text-center">
           <Card className="gradient-subtle border-primary/20 p-12">
             <div className="w-20 h-20 rounded-full gradient-primary flex items-center justify-center mx-auto mb-6">
@@ -82,7 +82,7 @@ export const WaitlistSection = () => {
   }
 
   return (
-    <section className="py-32 px-4">
+    <section id="roadmap" className="py-32 px-4">
       <div className="container max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-20">

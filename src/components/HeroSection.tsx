@@ -8,6 +8,49 @@ export const HeroSection = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <AnimatedBackground />
       
+      {/* Floating Elements */}
+      <motion.div
+        className="absolute top-20 left-1/4 w-4 h-4 rounded-full bg-primary/30"
+        animate={{
+          y: [0, -20, 0],
+          opacity: [0.3, 0.8, 0.3],
+          scale: [1, 1.2, 1]
+        }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+      <motion.div
+        className="absolute top-32 right-1/3 w-3 h-3 rounded-full bg-accent/40"
+        animate={{
+          y: [0, 15, 0],
+          opacity: [0.4, 0.7, 0.4],
+          x: [0, 10, 0]
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1
+        }}
+      />
+      <motion.div
+        className="absolute bottom-32 left-1/3 w-2 h-2 rounded-full bg-primary/50"
+        animate={{
+          y: [0, -10, 0],
+          opacity: [0.2, 0.6, 0.2],
+          scale: [0.8, 1.3, 0.8]
+        }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2
+        }}
+      />
+      
       {/* Main Content */}
       <div className="container relative z-10 text-center px-4">
         <div className="max-w-4xl mx-auto">

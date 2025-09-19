@@ -60,7 +60,7 @@ export const ArchitectureSection = () => {
   ];
 
   return (
-    <section className="py-32 px-4">
+    <section id="architecture" className="py-32 px-4">
       <div className="container max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-20">

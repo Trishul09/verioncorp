@@ -1,7 +1,30 @@
 import { Shield, Github, Twitter, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { ComingSoon } from "@/components/ComingSoon";
 
 export const Footer = () => {
+  const [showComingSoon, setShowComingSoon] = useState<string | null>(null);
+
+  const smoothScrollTo = (elementId: string) => {
+    const element = document.getElementById(elementId);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
+  const handleNavigation = (href: string, name: string) => {
+    if (href.startsWith('#') && !['#privacy', '#terms', '#security'].includes(href)) {
+      const sectionId = href.replace('#', '');
+      smoothScrollTo(sectionId);
+    } else if (['#privacy', '#terms', '#security'].includes(href)) {
+      setShowComingSoon(name);
+    }
+  };
+
   const links = {
     platform: [
       { name: "Vision", href: "#vision" },
@@ -41,10 +64,17 @@ export const Footer = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="gradient-primary hover:shadow-glow">
+              <Button 
+                className="gradient-primary hover:shadow-glow"
+                onClick={() => smoothScrollTo('waitlist')}
+              >
                 Join Waitlist
               </Button>
-              <Button variant="secondary" className="glass-morphism">
+              <Button 
+                variant="secondary" 
+                className="glass-morphism"
+                onClick={() => setShowComingSoon('Read Whitepaper')}
+              >
                 Read Whitepaper
               </Button>
             </div>
@@ -56,12 +86,12 @@ export const Footer = () => {
             <ul className="space-y-3">
               {links.platform.map((link, index) => (
                 <li key={index}>
-                  <a 
-                    href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors text-sm"
+                  <button 
+                    onClick={() => handleNavigation(link.href, link.name)}
+                    className="text-muted-foreground hover:text-foreground transition-colors text-sm text-left"
                   >
                     {link.name}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -106,18 +136,18 @@ export const Footer = () => {
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-border/50">
           <div className="text-sm text-muted-foreground mb-4 md:mb-0">
-            © 2024 PrivacyFirst. Building the decentralized future.
+            © 2025 PrivacyFirst. Building the decentralized future.
           </div>
           
           <div className="flex items-center gap-6 text-sm">
             {links.legal.map((link, index) => (
-              <a 
+              <button 
                 key={index}
-                href={link.href}
+                onClick={() => setShowComingSoon(link.name)}
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
                 {link.name}
-              </a>
+              </button>
             ))}
           </div>
         </div>
@@ -129,6 +159,13 @@ export const Footer = () => {
           </p>
         </div>
       </div>
+      
+      {showComingSoon && (
+        <ComingSoon 
+          title={showComingSoon}
+          onBack={() => setShowComingSoon(null)}
+        />
+      )}
     </footer>
   );
 };
