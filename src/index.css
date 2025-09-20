@@ -42,6 +42,13 @@
     --gradient-subtle: linear-gradient(135deg, hsl(217 19% 6%) 0%, hsl(217 19% 12%) 100%);
     --gradient-hero: linear-gradient(135deg, hsl(217 19% 3%) 0%, hsl(217 19% 8%) 50%, hsl(217 19% 3%) 100%);
     
+    /* Section Themes */
+    --theme-purple: linear-gradient(135deg, hsl(280 100% 15%) 0%, hsl(260 100% 20%) 100%);
+    --theme-blue: linear-gradient(135deg, hsl(220 100% 15%) 0%, hsl(200 100% 20%) 100%);
+    --theme-green: linear-gradient(135deg, hsl(160 100% 15%) 0%, hsl(140 100% 20%) 100%);
+    --theme-orange: linear-gradient(135deg, hsl(25 100% 15%) 0%, hsl(10 100% 20%) 100%);
+    --theme-pink: linear-gradient(135deg, hsl(320 100% 15%) 0%, hsl(340 100% 20%) 100%);
+    
     --shadow-glow: 0 0 40px hsl(230 100% 65% / 0.1);
     --shadow-card: 0 8px 32px hsl(217 19% 3% / 0.5);
     --shadow-elegant: 0 20px 60px hsl(217 19% 3% / 0.3);
