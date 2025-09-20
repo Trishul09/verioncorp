@@ -141,12 +141,6 @@ export const WaitlistSection = () => {
                 </Button>
               </div>
 
-              <div className="mt-8 p-4 glass-morphism rounded-lg">
-                <div className="flex items-center justify-between text-sm">
-                  <span className="text-muted-foreground">Current waitlist:</span>
-                  <span className="font-bold text-gradient">12,847 people</span>
-                </div>
-              </div>
             </Card>
           </div>
 
@@ -174,19 +168,9 @@ export const WaitlistSection = () => {
                 <Globe className="w-6 h-6 text-accent" />
                 <h4 className="font-semibold">Global Community</h4>
               </div>
-              <p className="text-muted-foreground text-sm mb-4">
+              <p className="text-muted-foreground text-sm">
                 Connect with privacy advocates, technologists, and forward-thinkers from around the world.
               </p>
-              <div className="flex gap-4 text-xs">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-primary"></div>
-                  <span>127 countries</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-accent"></div>
-                  <span>50+ languages</span>
-                </div>
-              </div>
             </Card>
           </div>
         </div>

@@ -34,7 +34,7 @@ export const Footer = () => {
     ],
     community: [
       { name: "Discord", href: "#", icon: MessageCircle },
-      { name: "Twitter", href: "#", icon: Twitter },
+      { name: "Twitter", href: "https://x.com/VerionPT?t=5Wjl3g3uSERu1Uk6KpO-iQ&s=08", icon: Twitter },
       { name: "GitHub", href: "#", icon: Github }
     ],
     legal: [
@@ -97,7 +97,7 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Community Links */}
+           {/* Community Links */}
           <div>
             <h4 className="font-semibold mb-4">Community</h4>
             <ul className="space-y-3">
@@ -105,6 +105,8 @@ export const Footer = () => {
                 <li key={index}>
                   <a 
                     href={link.href}
+                    target={link.href.startsWith('http') ? '_blank' : '_self'}
+                    rel={link.href.startsWith('http') ? 'noopener noreferrer' : ''}
                     className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-sm"
                   >
                     <link.icon className="w-4 h-4" />

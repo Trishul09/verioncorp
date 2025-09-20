@@ -95,11 +95,31 @@ export const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.8 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Button variant="hero" size="lg" className="text-lg px-8 py-6">
+            <Button 
+              variant="hero" 
+              size="lg" 
+              className="text-lg px-8 py-6"
+              onClick={() => {
+                const element = document.getElementById('waitlist');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }}
+            >
               Join Waitlist
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
-            <Button variant="secondary" size="lg" className="text-lg px-8 py-6">
+            <Button 
+              variant="secondary" 
+              size="lg" 
+              className="text-lg px-8 py-6"
+              onClick={() => {
+                const element = document.getElementById('vision');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }}
+            >
               <Network className="mr-2 w-5 h-5" />
               Explore Vision
             </Button>
