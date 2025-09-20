@@ -82,7 +82,7 @@ export const WaitlistSection = () => {
   }
 
   return (
-    <section id="roadmap" className="py-32 px-4">
+    <section id="waitlist" className="py-32 px-4">
       <div className="container max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-20">
@@ -176,7 +176,7 @@ export const WaitlistSection = () => {
         </div>
 
         {/* Roadmap */}
-        <div className="text-center mb-12">
+        <div id="roadmap" className="text-center mb-12">
           <h3 className="text-3xl font-bold mb-4">Development Roadmap</h3>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Track our progress and see what's coming next in the journey toward digital sovereignty.
