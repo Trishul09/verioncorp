@@ -4,12 +4,12 @@ import { Button } from '@/components/ui/button';
 import { Shield, ArrowRight, Menu, X } from 'lucide-react';
 
 const navigationItems = [
-  { id: 'hero', label: 'Home', theme: 'dark' },
-  { id: 'vision', label: 'Vision', theme: 'purple' },
-  { id: 'architecture', label: 'Architecture', theme: 'blue' },
-  { id: 'features', label: 'Features', theme: 'green' },
-  { id: 'comparison', label: 'Compare', theme: 'orange' },
-  { id: 'waitlist', label: 'Join', theme: 'pink' }
+  { id: 'hero', label: 'Home', theme: 'steel' },
+  { id: 'vision', label: 'Vision', theme: 'steel' },
+  { id: 'architecture', label: 'Architecture', theme: 'carbon' },
+  { id: 'features', label: 'Features', theme: 'quantum' },
+  { id: 'comparison', label: 'Compare', theme: 'matrix' },
+  { id: 'waitlist', label: 'Join', theme: 'neural' }
 ];
 
 export const ScrollNavigation = () => {
@@ -58,14 +58,14 @@ export const ScrollNavigation = () => {
 
   const getThemeClasses = (theme: string) => {
     const themes = {
-      dark: 'from-gray-900/90 to-gray-800/90 border-gray-700/30',
-      purple: 'from-purple-900/90 to-indigo-900/90 border-purple-500/30',
-      blue: 'from-blue-900/90 to-cyan-900/90 border-blue-500/30',
-      green: 'from-emerald-900/90 to-teal-900/90 border-emerald-500/30',
-      orange: 'from-orange-900/90 to-red-900/90 border-orange-500/30',
-      pink: 'from-pink-900/90 to-rose-900/90 border-pink-500/30'
+      steel: 'from-slate-900/90 to-slate-800/90 border-slate-600/30',
+      carbon: 'from-gray-900/90 to-slate-900/90 border-gray-600/30',
+      quantum: 'from-slate-900/90 to-cyan-900/90 border-cyan-600/30',
+      matrix: 'from-slate-900/90 to-emerald-900/90 border-emerald-600/30',
+      neural: 'from-slate-900/90 to-amber-900/90 border-amber-600/30',
+      crypto: 'from-slate-900/90 to-violet-900/90 border-violet-600/30'
     };
-    return themes[theme as keyof typeof themes] || themes.dark;
+    return themes[theme as keyof typeof themes] || themes.steel;
   };
 
   return (

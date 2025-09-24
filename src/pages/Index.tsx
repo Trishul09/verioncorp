@@ -19,42 +19,42 @@ const Index = () => {
           <div id="hero">
             <HeroSection />
           </div>
-          <DataStream isVisible={true} theme="blue" />
+          <DataStream isVisible={true} theme="steel" />
         </SectionTheme>
 
-        <SectionTheme theme="purple" sectionId="vision">
+        <SectionTheme theme="steel" sectionId="vision">
           <div id="vision">
             <VisionSection />
           </div>
-          <DataStream isVisible={true} theme="purple" />
+          <DataStream isVisible={true} theme="steel" />
         </SectionTheme>
 
-        <SectionTheme theme="blue" sectionId="architecture">
+        <SectionTheme theme="carbon" sectionId="architecture">
           <div id="architecture">
             <ArchitectureSection />
           </div>
-          <DataStream isVisible={true} theme="blue" />
+          <DataStream isVisible={true} theme="carbon" />
         </SectionTheme>
 
-        <SectionTheme theme="green" sectionId="features">
+        <SectionTheme theme="quantum" sectionId="features">
           <div id="features">
             <FeaturesSection />
           </div>
-          <DataStream isVisible={true} theme="green" />
+          <DataStream isVisible={true} theme="quantum" />
         </SectionTheme>
 
-        <SectionTheme theme="orange" sectionId="comparison">
+        <SectionTheme theme="matrix" sectionId="comparison">
           <div id="comparison">
             <ComparisonSection />
           </div>
-          <DataStream isVisible={true} theme="orange" />
+          <DataStream isVisible={true} theme="matrix" />
         </SectionTheme>
 
-        <SectionTheme theme="pink" sectionId="waitlist">
+        <SectionTheme theme="neural" sectionId="waitlist">
           <div id="waitlist">
             <WaitlistSection />
           </div>
-          <DataStream isVisible={true} theme="pink" />
+          <DataStream isVisible={true} theme="neural" />
         </SectionTheme>
 
         <Footer />

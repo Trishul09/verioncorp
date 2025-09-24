@@ -42,12 +42,21 @@
     --gradient-subtle: linear-gradient(135deg, hsl(217 19% 6%) 0%, hsl(217 19% 12%) 100%);
     --gradient-hero: linear-gradient(135deg, hsl(217 19% 3%) 0%, hsl(217 19% 8%) 50%, hsl(217 19% 3%) 100%);
     
-    /* Section Themes */
-    --theme-purple: linear-gradient(135deg, hsl(280 100% 15%) 0%, hsl(260 100% 20%) 100%);
-    --theme-blue: linear-gradient(135deg, hsl(220 100% 15%) 0%, hsl(200 100% 20%) 100%);
-    --theme-green: linear-gradient(135deg, hsl(160 100% 15%) 0%, hsl(140 100% 20%) 100%);
-    --theme-orange: linear-gradient(135deg, hsl(25 100% 15%) 0%, hsl(10 100% 20%) 100%);
-    --theme-pink: linear-gradient(135deg, hsl(320 100% 15%) 0%, hsl(340 100% 20%) 100%);
+    /* Professional Tech Themes */
+    --theme-steel: linear-gradient(135deg, hsl(210 15% 8%) 0%, hsl(215 20% 12%) 100%);
+    --theme-carbon: linear-gradient(135deg, hsl(225 12% 6%) 0%, hsl(230 18% 10%) 100%);
+    --theme-quantum: linear-gradient(135deg, hsl(195 25% 8%) 0%, hsl(200 30% 12%) 100%);
+    --theme-matrix: linear-gradient(135deg, hsl(165 20% 8%) 0%, hsl(170 25% 12%) 100%);
+    --theme-neural: linear-gradient(135deg, hsl(45 15% 8%) 0%, hsl(50 20% 12%) 100%);
+    --theme-crypto: linear-gradient(135deg, hsl(270 18% 8%) 0%, hsl(275 22% 12%) 100%);
+    
+    /* Accent Colors - Professional */
+    --accent-steel: hsl(210 25% 35%);
+    --accent-carbon: hsl(225 20% 30%);
+    --accent-quantum: hsl(195 35% 40%);
+    --accent-matrix: hsl(165 30% 35%);
+    --accent-neural: hsl(45 25% 40%);
+    --accent-crypto: hsl(270 25% 35%);
     
     --shadow-glow: 0 0 40px hsl(230 100% 65% / 0.1);
     --shadow-card: 0 8px 32px hsl(217 19% 3% / 0.5);

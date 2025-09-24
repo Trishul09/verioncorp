@@ -3,7 +3,7 @@ import { ReactNode, useEffect, useState } from 'react';
 
 interface SectionThemeProps {
   children: ReactNode;
-  theme: 'hero' | 'purple' | 'blue' | 'green' | 'orange' | 'pink';
+  theme: 'hero' | 'steel' | 'carbon' | 'quantum' | 'matrix' | 'neural' | 'crypto';
   sectionId: string;
 }
 
@@ -34,34 +34,46 @@ export const SectionTheme = ({ children, theme, sectionId }: SectionThemeProps) 
   const getThemeStyles = () => {
     const themes = {
       hero: {
-        bg: 'bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950',
-        accent: 'from-blue-500/10 to-purple-500/10',
-        particles: 'bg-blue-500/30'
+        bg: 'bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950',
+        accent: 'from-slate-700/20 to-slate-600/20',
+        particles: 'bg-slate-400/20',
+        glow: 'hsl(210 25% 35% / 0.1)'
       },
-      purple: {
-        bg: 'bg-gradient-to-br from-purple-950 via-indigo-950 to-purple-900',
-        accent: 'from-purple-500/10 to-pink-500/10',
-        particles: 'bg-purple-500/30'
+      steel: {
+        bg: 'bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950',
+        accent: 'from-slate-600/15 to-blue-600/15',
+        particles: 'bg-slate-400/15',
+        glow: 'hsl(210 25% 35% / 0.1)'
       },
-      blue: {
-        bg: 'bg-gradient-to-br from-blue-950 via-cyan-950 to-blue-900',
-        accent: 'from-blue-500/10 to-cyan-500/10',
-        particles: 'bg-cyan-500/30'
+      carbon: {
+        bg: 'bg-gradient-to-br from-gray-950 via-slate-950 to-gray-900',
+        accent: 'from-gray-600/15 to-slate-600/15',
+        particles: 'bg-gray-400/15',
+        glow: 'hsl(225 20% 30% / 0.1)'
       },
-      green: {
-        bg: 'bg-gradient-to-br from-emerald-950 via-teal-950 to-emerald-900',
-        accent: 'from-emerald-500/10 to-teal-500/10',
-        particles: 'bg-emerald-500/30'
+      quantum: {
+        bg: 'bg-gradient-to-br from-slate-950 via-cyan-950 to-slate-900',
+        accent: 'from-cyan-600/15 to-teal-600/15',
+        particles: 'bg-cyan-400/15',
+        glow: 'hsl(195 35% 40% / 0.1)'
       },
-      orange: {
-        bg: 'bg-gradient-to-br from-orange-950 via-red-950 to-orange-900',
-        accent: 'from-orange-500/10 to-red-500/10',
-        particles: 'bg-orange-500/30'
+      matrix: {
+        bg: 'bg-gradient-to-br from-slate-950 via-emerald-950 to-slate-900',
+        accent: 'from-emerald-600/15 to-teal-600/15',
+        particles: 'bg-emerald-400/15',
+        glow: 'hsl(165 30% 35% / 0.1)'
       },
-      pink: {
-        bg: 'bg-gradient-to-br from-pink-950 via-rose-950 to-pink-900',
-        accent: 'from-pink-500/10 to-rose-500/10',
-        particles: 'bg-pink-500/30'
+      neural: {
+        bg: 'bg-gradient-to-br from-slate-950 via-amber-950 to-slate-900',
+        accent: 'from-amber-600/15 to-yellow-600/15',
+        particles: 'bg-amber-400/15',
+        glow: 'hsl(45 25% 40% / 0.1)'
+      },
+      crypto: {
+        bg: 'bg-gradient-to-br from-slate-950 via-violet-950 to-slate-900',
+        accent: 'from-violet-600/15 to-purple-600/15',
+        particles: 'bg-violet-400/15',
+        glow: 'hsl(270 25% 35% / 0.1)'
       }
     };
     return themes[theme];
@@ -128,12 +140,15 @@ export const SectionTheme = ({ children, theme, sectionId }: SectionThemeProps) 
         {children}
       </div>
 
-      {/* Section Transition Effect */}
+      {/* Subtle Bottom Glow */}
       <motion.div
-        className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-current/10 to-transparent"
+        className="absolute bottom-0 left-0 right-0 h-24 opacity-30"
+        style={{
+          background: `linear-gradient(to top, ${themeStyles.glow}, transparent)`
+        }}
         initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 0.5 }}
+        animate={isInView ? { opacity: 0.3 } : { opacity: 0 }}
+        transition={{ duration: 1 }}
       />
     </motion.div>
   );
@@ -170,7 +185,7 @@ export const DataStream = ({ isVisible, theme }: { isVisible: boolean; theme: st
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1 - (index * 0.2), x: 0 }}
           exit={{ opacity: 0, x: -20 }}
-          className={`px-2 py-1 rounded bg-${theme}-500/20 text-${theme}-300 border border-${theme}-500/30`}
+          className="px-2 py-1 rounded bg-slate-800/60 text-slate-300 border border-slate-600/30 backdrop-blur-sm"
         >
           {point}: {Math.random().toString(36).substr(2, 8)}
         </motion.div>
