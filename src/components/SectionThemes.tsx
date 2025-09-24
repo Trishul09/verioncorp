@@ -83,38 +83,38 @@ export const SectionTheme = ({ children, theme, sectionId }: SectionThemeProps) 
 
   return (
     <motion.div
-      className={`relative min-h-screen ${themeStyles.bg} transition-all duration-1000`}
+      className={`relative ${themeStyles.bg} will-change-transform`}
       style={{ opacity }}
     >
       {/* Animated Background Elements */}
       <motion.div
         className={`absolute inset-0 bg-gradient-to-r ${themeStyles.accent} opacity-50`}
         style={{ y: backgroundY }}
-        animate={isInView ? { opacity: [0.3, 0.6, 0.3] } : {}}
-        transition={{ duration: 8, repeat: Infinity }}
+        animate={isInView ? { opacity: [0.3, 0.5, 0.3] } : {}}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
       />
       
-      {/* Floating Particles */}
+      {/* Floating Particles - Reduced for performance */}
       {isInView && (
         <>
-          {[...Array(6)].map((_, i) => (
+          {[...Array(3)].map((_, i) => (
             <motion.div
               key={i}
-              className={`absolute w-2 h-2 ${themeStyles.particles} rounded-full`}
+              className={`absolute w-1.5 h-1.5 ${themeStyles.particles} rounded-full will-change-transform`}
               initial={{ 
-                x: Math.random() * window.innerWidth,
-                y: window.innerHeight + 50,
+                x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1200),
+                y: typeof window !== 'undefined' ? window.innerHeight + 50 : 850,
                 opacity: 0
               }}
               animate={isInView ? {
                 y: -50,
-                opacity: [0, 0.8, 0],
-                scale: [0.5, 1.2, 0.5]
+                opacity: [0, 0.6, 0],
+                scale: [0.5, 1, 0.5]
               } : {}}
               transition={{
-                duration: 6 + Math.random() * 4,
+                duration: 8 + Math.random() * 3,
                 repeat: Infinity,
-                delay: i * 0.8,
+                delay: i * 1.2,
                 ease: "easeInOut"
               }}
             />
@@ -122,17 +122,16 @@ export const SectionTheme = ({ children, theme, sectionId }: SectionThemeProps) 
         </>
       )}
 
-      {/* Gradient Mesh */}
+      {/* Gradient Mesh - Simplified */}
       <motion.div
-        className="absolute inset-0 opacity-30"
+        className="absolute inset-0 opacity-20 will-change-auto"
         animate={isInView ? {
-          background: [
-            `radial-gradient(circle at 20% 30%, ${themeStyles.particles} 0%, transparent 50%)`,
-            `radial-gradient(circle at 80% 70%, ${themeStyles.particles} 0%, transparent 50%)`,
-            `radial-gradient(circle at 40% 90%, ${themeStyles.particles} 0%, transparent 50%)`
-          ]
+          opacity: [0.15, 0.25, 0.15]
         } : {}}
-        transition={{ duration: 10, repeat: Infinity }}
+        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+        style={{
+          background: `radial-gradient(circle at 30% 40%, ${themeStyles.glow}, transparent 60%)`
+        }}
       />
 
       {/* Content */}
@@ -154,7 +153,7 @@ export const SectionTheme = ({ children, theme, sectionId }: SectionThemeProps) 
   );
 };
 
-// Data Generation Effect Component
+// Data Generation Effect Component - Optimized
 export const DataStream = ({ isVisible, theme }: { isVisible: boolean; theme: string }) => {
   const [dataPoints, setDataPoints] = useState<string[]>([]);
   
@@ -169,25 +168,26 @@ export const DataStream = ({ isVisible, theme }: { isVisible: boolean; theme: st
     const interval = setInterval(() => {
       setDataPoints(prev => {
         const newPoint = dataTypes[Math.floor(Math.random() * dataTypes.length)];
-        const updated = [newPoint, ...prev.slice(0, 4)];
+        const updated = [newPoint, ...prev.slice(0, 2)]; // Reduced from 4 to 2
         return updated;
       });
-    }, 1500);
+    }, 2500); // Increased interval from 1500 to 2500
     
     return () => clearInterval(interval);
   }, [isVisible]);
 
   return (
-    <div className="absolute top-4 right-4 space-y-2 font-mono text-xs">
+    <div className="absolute top-4 right-4 space-y-2 font-mono text-xs will-change-transform">
       {dataPoints.map((point, index) => (
         <motion.div
           key={`${point}-${index}`}
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1 - (index * 0.2), x: 0 }}
-          exit={{ opacity: 0, x: -20 }}
+          initial={{ opacity: 0, x: 15 }}
+          animate={{ opacity: Math.max(0.8 - (index * 0.3), 0.2), x: 0 }}
+          exit={{ opacity: 0, x: -15 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
           className="px-2 py-1 rounded bg-slate-800/60 text-slate-300 border border-slate-600/30 backdrop-blur-sm"
         >
-          {point}: {Math.random().toString(36).substr(2, 8)}
+          {point}: {Math.random().toString(36).substr(2, 6)}
         </motion.div>
       ))}
     </div>

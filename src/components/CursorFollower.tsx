@@ -12,21 +12,25 @@ export const CursorFollower = () => {
     };
 
     const handleMouseEnter = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (target.matches('button, a, [data-cursor="pointer"]')) {
-        setIsHovering(true);
-        setCursorVariant('hover');
-      } else if (target.matches('h1, h2, h3, .text-gradient')) {
-        setIsHovering(true);
-        setCursorVariant('text');
+      const target = e.target as Element;
+      if (target && typeof target.matches === 'function') {
+        if (target.matches('button, a, [data-cursor="pointer"]')) {
+          setIsHovering(true);
+          setCursorVariant('hover');
+        } else if (target.matches('h1, h2, h3, .text-gradient')) {
+          setIsHovering(true);
+          setCursorVariant('text');
+        }
       }
     };
 
     const handleMouseLeave = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (target.matches('button, a, [data-cursor="pointer"], h1, h2, h3, .text-gradient')) {
-        setIsHovering(false);
-        setCursorVariant('default');
+      const target = e.target as Element;
+      if (target && typeof target.matches === 'function') {
+        if (target.matches('button, a, [data-cursor="pointer"], h1, h2, h3, .text-gradient')) {
+          setIsHovering(false);
+          setCursorVariant('default');
+        }
       }
     };
 
