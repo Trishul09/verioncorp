@@ -37,10 +37,16 @@
 
     --radius: 0.75rem;
 
-    /* Custom Design Tokens */
+    /* Custom Design Tokens - Artistic Privacy Theme */
     --gradient-primary: linear-gradient(135deg, hsl(230 100% 65%), hsl(260 100% 70%));
     --gradient-subtle: linear-gradient(135deg, hsl(217 19% 6%) 0%, hsl(217 19% 12%) 100%);
     --gradient-hero: linear-gradient(135deg, hsl(217 19% 3%) 0%, hsl(217 19% 8%) 50%, hsl(217 19% 3%) 100%);
+    
+    /* Artistic Gradients */
+    --gradient-warm: linear-gradient(135deg, hsl(30 50% 25%) 0%, hsl(45 40% 35%) 50%, hsl(25 45% 20%) 100%);
+    --gradient-earth: linear-gradient(135deg, hsl(25 35% 15%) 0%, hsl(35 30% 25%) 100%);
+    --gradient-artistic: linear-gradient(135deg, hsl(200 30% 12%) 0%, hsl(230 25% 18%) 50%, hsl(180 20% 15%) 100%);
+    --gradient-organic: radial-gradient(ellipse at center, hsl(240 25% 8%) 0%, hsl(220 30% 12%) 50%, hsl(200 25% 6%) 100%);
     
     /* Professional Tech Themes */
     --theme-steel: linear-gradient(135deg, hsl(210 15% 8%) 0%, hsl(215 20% 12%) 100%);
@@ -50,13 +56,19 @@
     --theme-neural: linear-gradient(135deg, hsl(45 15% 8%) 0%, hsl(50 20% 12%) 100%);
     --theme-crypto: linear-gradient(135deg, hsl(270 18% 8%) 0%, hsl(275 22% 12%) 100%);
     
-    /* Accent Colors - Professional */
+    /* Accent Colors - Artistic & Professional */
     --accent-steel: hsl(210 25% 35%);
     --accent-carbon: hsl(225 20% 30%);
     --accent-quantum: hsl(195 35% 40%);
     --accent-matrix: hsl(165 30% 35%);
     --accent-neural: hsl(45 25% 40%);
     --accent-crypto: hsl(270 25% 35%);
+    
+    /* New Artistic Accents */
+    --accent-warm-gold: hsl(40 60% 55%);
+    --accent-earth-brown: hsl(25 45% 35%);
+    --accent-deep-teal: hsl(180 40% 45%);
+    --accent-muted-lavender: hsl(260 30% 60%);
     
     --shadow-glow: 0 0 40px hsl(230 100% 65% / 0.1);
     --shadow-card: 0 8px 32px hsl(217 19% 3% / 0.5);
@@ -169,8 +181,20 @@
     background: var(--gradient-subtle);
   }
   
-  .gradient-hero {
-    background: var(--gradient-hero);
+  .gradient-artistic {
+    background: var(--gradient-artistic);
+  }
+  
+  .gradient-warm {
+    background: var(--gradient-warm);
+  }
+  
+  .gradient-earth {
+    background: var(--gradient-earth);
+  }
+  
+  .gradient-organic {
+    background: var(--gradient-organic);
   }
   
   .shadow-glow {
@@ -329,5 +353,64 @@
   .ripple-effect:hover::after {
     width: 100px;
     height: 100px;
+  }
+  
+  /* Artistic UI Elements */
+  .artistic-circle {
+    position: relative;
+  }
+  
+  .artistic-circle::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px solid var(--accent-warm-gold);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: pulse-border 3s infinite ease-in-out;
+  }
+  
+  .organic-shape {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transition: border-radius 0.8s ease-in-out;
+  }
+  
+  .organic-shape:hover {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  
+  .layered-card {
+    position: relative;
+    transform-style: preserve-3d;
+  }
+  
+  .layered-card::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: -8px;
+    bottom: -8px;
+    background: var(--gradient-earth);
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0.6;
+    filter: blur(1px);
+  }
+  
+  .artistic-text-shadow {
+    text-shadow: 0 4px 20px hsl(230 100% 65% / 0.3), 0 0 40px hsl(260 100% 70% / 0.2);
+  }
+  
+  @keyframes pulse-border {
+    0%, 100% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.05); opacity: 0.6; }
+  }
+  
+  .asymmetric-layout {
+    clip-path: polygon(0 0, 95% 0, 100% 100%, 5% 100%);
   }
 }

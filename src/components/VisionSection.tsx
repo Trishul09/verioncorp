@@ -53,7 +53,11 @@ export const VisionSection = () => {
       ref={ref}
       id="vision" 
       className="py-32 px-4 relative overflow-hidden"
+      style={{ background: 'var(--gradient-artistic)' }}
     >
+      {/* Artistic Background Elements */}
+      <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-br from-accent-earth-brown/8 to-transparent organic-shape"></div>
+      <div className="absolute bottom-0 right-0 w-2/3 h-2/3 bg-gradient-to-tl from-accent-warm-gold/5 to-transparent asymmetric-layout"></div>
       {/* Floating Elements */}
       <motion.div
         style={{ y }}
@@ -83,10 +87,25 @@ export const VisionSection = () => {
         }}
       />
       <div className="container max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            Why Privacy-First <span className="text-gradient">Matters</span>
+        {/* Artistic Header */}
+        <div className="text-center mb-20 relative">
+          <motion.div 
+            className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-24 h-2 bg-accent-warm-gold rounded-full"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+          ></motion.div>
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 artistic-text-shadow">
+            Why Privacy-First <span className="text-gradient relative">Matters
+              <motion.div 
+                className="absolute -bottom-3 left-0 right-0 h-1 bg-accent-warm-gold/60 rounded-full"
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                transition={{ duration: 1.5, delay: 0.5 }}
+                viewport={{ once: true }}
+              ></motion.div>
+            </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             The current social architecture is broken. We're building something fundamentally different.
@@ -109,7 +128,7 @@ export const VisionSection = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="gradient-subtle border-border/50 p-8 hover:shadow-card transition-smooth hover-glow group">
+                <Card className="layered-card gradient-subtle border-border/50 p-8 hover:shadow-card transition-smooth hover-glow group organic-shape">
                   <div className="flex flex-col items-center text-center">
                     <motion.div 
                       className="w-16 h-16 rounded-full bg-destructive/10 flex items-center justify-center mb-6"
@@ -143,7 +162,7 @@ export const VisionSection = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="gradient-subtle border-primary/20 p-8 hover:shadow-glow transition-smooth hover-glow group">
+                <Card className="layered-card gradient-subtle border-primary/20 p-8 hover:shadow-glow transition-smooth hover-glow group organic-shape">
                   <div className="flex flex-col items-center text-center">
                     <motion.div 
                       className="w-16 h-16 rounded-full gradient-primary flex items-center justify-center mb-6"

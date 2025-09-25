@@ -9,6 +9,7 @@ import {
   Key,
   Users
 } from "lucide-react";
+import { motion } from "framer-motion";
 
 export const FeaturesSection = () => {
   const features = [
@@ -71,12 +72,27 @@ export const FeaturesSection = () => {
   ];
 
   return (
-    <section id="features" className="py-32 px-4">
-      <div className="container max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            Core <span className="text-gradient">Features</span>
+    <section id="features" className="py-32 px-4 relative overflow-hidden" style={{ background: 'var(--gradient-warm)' }}>
+      {/* Artistic Background Elements */}
+      <div className="absolute top-1/4 right-0 w-1/3 h-1/2 bg-gradient-to-l from-accent-earth-brown/10 to-transparent organic-shape"></div>
+      <div className="absolute bottom-0 left-0 w-2/5 h-3/4 bg-gradient-to-tr from-accent-deep-teal/8 to-transparent asymmetric-layout"></div>
+      <div className="container max-w-7xl mx-auto relative z-10">
+        {/* Artistic Header */}
+        <div className="text-center mb-20 relative">
+          <motion.div 
+            className="absolute -top-12 left-1/2 transform -translate-x-1/2 w-32 h-32 rounded-full bg-accent-warm-gold/10 blur-2xl"
+            animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
+            transition={{ duration: 8, repeat: Infinity }}
+          ></motion.div>
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 artistic-text-shadow relative">
+            <span className="relative">
+              Core <span className="text-gradient">Features</span>
+              <motion.div 
+                className="absolute -top-6 -right-6 w-4 h-4 rounded-full bg-accent-warm-gold"
+                animate={{ y: [0, -10, 0], opacity: [0.5, 1, 0.5] }}
+                transition={{ duration: 3, repeat: Infinity }}
+              ></motion.div>
+            </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Built with cutting-edge technology to ensure your privacy, security, and sovereignty 
@@ -89,7 +105,7 @@ export const FeaturesSection = () => {
           {features.map((feature, index) => (
             <Card 
               key={index} 
-              className="group gradient-subtle border-border/50 p-6 hover:shadow-elegant transition-all duration-500 hover:-translate-y-2 hover-glow"
+              className="group layered-card gradient-subtle border-border/50 p-6 hover:shadow-elegant transition-all duration-500 hover:-translate-y-2 hover-glow organic-shape"
             >
               {/* Icon with Gradient Background */}
               <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
