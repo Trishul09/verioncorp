@@ -1,8 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, Network, MessageCircle } from "lucide-react";
+import { ArrowRight, Shield, Network } from "lucide-react";
 import { AnimatedBackground } from "./AnimatedBackground";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 
 export const HeroSection = () => {
   return (
@@ -140,16 +139,6 @@ export const HeroSection = () => {
               Join Waitlist
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
-            <Link to="/chat">
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="text-lg px-8 py-6 organic-shape hover:bg-primary/10 border-primary/30 text-primary hover:text-primary"
-              >
-                <MessageCircle className="mr-2 w-5 h-5" />
-                Try Chat Demo
-              </Button>
-            </Link>
             <Button 
               variant="secondary" 
               size="lg" 
