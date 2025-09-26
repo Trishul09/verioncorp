@@ -7,72 +7,73 @@
 
 @layer base {
   :root {
-    --background: 217 19% 3%;
-    --foreground: 210 40% 98%;
+    /* Arctic Aesthetic Theme - Light & Soothing */
+    --background: 210 20% 98%;
+    --foreground: 215 25% 15%;
 
-    --card: 217 19% 6%;
-    --card-foreground: 210 40% 98%;
+    --card: 210 15% 96%;
+    --card-foreground: 215 25% 15%;
 
-    --popover: 217 19% 6%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 210 15% 96%;
+    --popover-foreground: 215 25% 15%;
 
-    --primary: 230 100% 65%;
-    --primary-foreground: 217 19% 3%;
+    --primary: 200 85% 65%;
+    --primary-foreground: 210 20% 98%;
 
-    --secondary: 217 19% 12%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 210 10% 92%;
+    --secondary-foreground: 215 25% 15%;
 
-    --muted: 217 19% 10%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 210 8% 94%;
+    --muted-foreground: 215 15% 45%;
 
-    --accent: 260 100% 70%;
-    --accent-foreground: 217 19% 3%;
+    --accent: 270 60% 75%;
+    --accent-foreground: 215 25% 15%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 65% 60%;
+    --destructive-foreground: 210 20% 98%;
 
-    --border: 217 19% 15%;
-    --input: 217 19% 15%;
-    --ring: 230 100% 65%;
+    --border: 210 12% 88%;
+    --input: 210 12% 88%;
+    --ring: 200 85% 65%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
-    /* Custom Design Tokens - Artistic Privacy Theme */
-    --gradient-primary: linear-gradient(135deg, hsl(230 100% 65%), hsl(260 100% 70%));
-    --gradient-subtle: linear-gradient(135deg, hsl(217 19% 6%) 0%, hsl(217 19% 12%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(217 19% 3%) 0%, hsl(217 19% 8%) 50%, hsl(217 19% 3%) 100%);
+    /* Arctic Aesthetic Design Tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(200 85% 65%), hsl(270 60% 75%));
+    --gradient-subtle: linear-gradient(135deg, hsl(210 15% 96%) 0%, hsl(210 10% 92%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(210 20% 98%) 0%, hsl(200 25% 95%) 50%, hsl(270 15% 96%) 100%);
     
-    /* Artistic Gradients */
-    --gradient-warm: linear-gradient(135deg, hsl(30 50% 25%) 0%, hsl(45 40% 35%) 50%, hsl(25 45% 20%) 100%);
-    --gradient-earth: linear-gradient(135deg, hsl(25 35% 15%) 0%, hsl(35 30% 25%) 100%);
-    --gradient-artistic: linear-gradient(135deg, hsl(200 30% 12%) 0%, hsl(230 25% 18%) 50%, hsl(180 20% 15%) 100%);
-    --gradient-organic: radial-gradient(ellipse at center, hsl(240 25% 8%) 0%, hsl(220 30% 12%) 50%, hsl(200 25% 6%) 100%);
+    /* Soothing Arctic Gradients */
+    --gradient-warm: linear-gradient(135deg, hsl(200 40% 92%) 0%, hsl(210 35% 88%) 50%, hsl(220 40% 90%) 100%);
+    --gradient-earth: linear-gradient(135deg, hsl(190 35% 90%) 0%, hsl(200 30% 88%) 100%);
+    --gradient-artistic: linear-gradient(135deg, hsl(200 30% 94%) 0%, hsl(210 25% 90%) 50%, hsl(270 20% 92%) 100%);
+    --gradient-organic: radial-gradient(ellipse at center, hsl(210 25% 96%) 0%, hsl(200 30% 94%) 50%, hsl(270 25% 95%) 100%);
     
-    /* Professional Tech Themes */
-    --theme-steel: linear-gradient(135deg, hsl(210 15% 8%) 0%, hsl(215 20% 12%) 100%);
-    --theme-carbon: linear-gradient(135deg, hsl(225 12% 6%) 0%, hsl(230 18% 10%) 100%);
-    --theme-quantum: linear-gradient(135deg, hsl(195 25% 8%) 0%, hsl(200 30% 12%) 100%);
-    --theme-matrix: linear-gradient(135deg, hsl(165 20% 8%) 0%, hsl(170 25% 12%) 100%);
-    --theme-neural: linear-gradient(135deg, hsl(45 15% 8%) 0%, hsl(50 20% 12%) 100%);
-    --theme-crypto: linear-gradient(135deg, hsl(270 18% 8%) 0%, hsl(275 22% 12%) 100%);
+    /* Mental Health Soothing Themes */
+    --theme-steel: linear-gradient(135deg, hsl(210 20% 94%) 0%, hsl(215 25% 90%) 100%);
+    --theme-carbon: linear-gradient(135deg, hsl(200 18% 92%) 0%, hsl(210 22% 88%) 100%);
+    --theme-quantum: linear-gradient(135deg, hsl(195 30% 94%) 0%, hsl(200 35% 90%) 100%);
+    --theme-matrix: linear-gradient(135deg, hsl(180 25% 92%) 0%, hsl(190 30% 88%) 100%);
+    --theme-neural: linear-gradient(135deg, hsl(270 20% 94%) 0%, hsl(280 25% 90%) 100%);
+    --theme-crypto: linear-gradient(135deg, hsl(270 25% 92%) 0%, hsl(280 30% 88%) 100%);
     
-    /* Accent Colors - Artistic & Professional */
-    --accent-steel: hsl(210 25% 35%);
-    --accent-carbon: hsl(225 20% 30%);
-    --accent-quantum: hsl(195 35% 40%);
-    --accent-matrix: hsl(165 30% 35%);
-    --accent-neural: hsl(45 25% 40%);
-    --accent-crypto: hsl(270 25% 35%);
+    /* Calming Accent Colors */
+    --accent-steel: hsl(210 40% 65%);
+    --accent-carbon: hsl(200 35% 60%);
+    --accent-quantum: hsl(195 50% 70%);
+    --accent-matrix: hsl(180 45% 65%);
+    --accent-neural: hsl(270 40% 70%);
+    --accent-crypto: hsl(280 35% 65%);
     
-    /* New Artistic Accents */
-    --accent-warm-gold: hsl(40 60% 55%);
-    --accent-earth-brown: hsl(25 45% 35%);
-    --accent-deep-teal: hsl(180 40% 45%);
-    --accent-muted-lavender: hsl(260 30% 60%);
+    /* Arctic Artistic Accents */
+    --accent-warm-gold: hsl(40 40% 75%);
+    --accent-earth-brown: hsl(200 30% 70%);
+    --accent-deep-teal: hsl(180 50% 75%);
+    --accent-muted-lavender: hsl(270 45% 80%);
     
-    --shadow-glow: 0 0 40px hsl(230 100% 65% / 0.1);
-    --shadow-card: 0 8px 32px hsl(217 19% 3% / 0.5);
-    --shadow-elegant: 0 20px 60px hsl(217 19% 3% / 0.3);
+    --shadow-glow: 0 0 40px hsl(200 85% 65% / 0.15);
+    --shadow-card: 0 8px 32px hsl(210 25% 15% / 0.08);
+    --shadow-elegant: 0 20px 60px hsl(210 25% 15% / 0.06);
     
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -101,60 +102,62 @@
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Keep the same light theme for both modes in arctic design */
+    --background: 210 20% 98%;
+    --foreground: 215 25% 15%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 210 15% 96%;
+    --card-foreground: 215 25% 15%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 210 15% 96%;
+    --popover-foreground: 215 25% 15%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 200 85% 65%;
+    --primary-foreground: 210 20% 98%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 210 10% 92%;
+    --secondary-foreground: 215 25% 15%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 210 8% 94%;
+    --muted-foreground: 215 15% 45%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 270 60% 75%;
+    --accent-foreground: 215 25% 15%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 65% 60%;
+    --destructive-foreground: 210 20% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-
-    /* Chat Page Design Tokens - Calming Privacy Theme */
-    --chat-bg-primary: linear-gradient(135deg, hsl(240 30% 8%) 0%, hsl(270 25% 12%) 50%, hsl(180 20% 10%) 100%);
-    --chat-bg-secondary: linear-gradient(180deg, hsl(240 35% 6%) 0%, hsl(270 30% 8%) 100%);
-    --chat-glass-lavender: hsl(270 40% 85% / 0.08);
-    --chat-glass-teal: hsl(180 35% 75% / 0.08);
-    --chat-glass-blue: hsl(240 35% 80% / 0.08);
+    --border: 210 12% 88%;
+    --input: 210 12% 88%;
+    --ring: 200 85% 65%;
     
-    --chat-accent-gold: hsl(45 60% 70%);
-    --chat-accent-teal: hsl(180 45% 65%);
-    --chat-accent-lavender: hsl(270 40% 75%);
+    --sidebar-background: 210 15% 96%;
+    --sidebar-foreground: 215 25% 15%;
+    --sidebar-primary: 200 85% 65%;
+    --sidebar-primary-foreground: 210 20% 98%;
+    --sidebar-accent: 210 10% 92%;
+    --sidebar-accent-foreground: 215 25% 15%;
+    --sidebar-border: 210 12% 88%;
+    --sidebar-ring: 200 85% 65%;
+
+    /* Arctic Chat Page Design Tokens */
+    --chat-bg-primary: linear-gradient(135deg, hsl(210 25% 96%) 0%, hsl(200 20% 94%) 50%, hsl(270 15% 95%) 100%);
+    --chat-bg-secondary: linear-gradient(180deg, hsl(210 20% 98%) 0%, hsl(200 15% 96%) 100%);
+    --chat-glass-lavender: hsl(270 40% 85% / 0.12);
+    --chat-glass-teal: hsl(180 35% 75% / 0.12);
+    --chat-glass-blue: hsl(200 35% 80% / 0.12);
     
-    --chat-text-primary: hsl(210 15% 92%);
-    --chat-text-muted: hsl(215 10% 65%);
-    --chat-text-soft: hsl(220 15% 75%);
+    --chat-accent-gold: hsl(45 40% 75%);
+    --chat-accent-teal: hsl(180 50% 70%);
+    --chat-accent-lavender: hsl(270 45% 80%);
     
-    --chat-shadow-soft: 0 8px 32px hsl(240 40% 3% / 0.3);
-    --chat-shadow-glow: 0 0 20px hsl(270 40% 65% / 0.1);
-    --chat-shadow-token: 0 0 15px hsl(45 60% 70% / 0.2);
+    --chat-text-primary: hsl(215 25% 15%);
+    --chat-text-muted: hsl(215 15% 45%);
+    --chat-text-soft: hsl(215 20% 35%);
+    
+    --chat-shadow-soft: 0 8px 32px hsl(210 25% 15% / 0.08);
+    --chat-shadow-glow: 0 0 20px hsl(270 45% 80% / 0.15);
+    --chat-shadow-token: 0 0 15px hsl(45 40% 75% / 0.2);
   }
 }
 
