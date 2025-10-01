@@ -1,19 +1,122 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Mail, Wallet, Users, Zap, Shield, Globe } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 export const WaitlistSection = () => {
   const [email, setEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [totalUsers, setTotalUsers] = useState<number>(0);
+  const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Fetch total registrations count
+  useEffect(() => {
+    const fetchCount = async () => {
+      const { count } = await supabase
+        .from('registrations')
+        .select('*', { count: 'exact', head: true });
+      setTotalUsers(count || 0);
+    };
+    fetchCount();
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
-      setIsSubmitted(true);
-      // Here you would integrate with your actual waitlist service
+    if (!email) return;
+
+    setIsLoading(true);
+    try {
+      const { data, error } = await supabase.functions.invoke('register-user', {
+        body: { email }
+      });
+
+      if (error) throw error;
+
+      if (data?.error) {
+        if (data.error === 'Already registered') {
+          toast({
+            title: "Already registered",
+            description: "This email is already on the waitlist!",
+            variant: "destructive"
+          });
+        } else {
+          throw new Error(data.error);
+        }
+      } else {
+        setIsSubmitted(true);
+        setTotalUsers(data.totalRegistrations);
+        toast({
+          title: "Success!",
+          description: "You've been added to the waitlist."
+        });
+      }
+    } catch (error: any) {
+      console.error('Registration error:', error);
+      toast({
+        title: "Error",
+        description: "Failed to register. Please try again.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleWalletConnect = async () => {
+    setIsLoading(true);
+    try {
+      // Request wallet connection (MetaMask or similar)
+      if (typeof window.ethereum !== 'undefined') {
+        const accounts = await window.ethereum.request({ 
+          method: 'eth_requestAccounts' 
+        });
+        const walletAddress = accounts[0];
+
+        const { data, error } = await supabase.functions.invoke('register-user', {
+          body: { walletAddress }
+        });
+
+        if (error) throw error;
+
+        if (data?.error) {
+          if (data.error === 'Already registered') {
+            toast({
+              title: "Already registered",
+              description: "This wallet is already on the waitlist!",
+              variant: "destructive"
+            });
+          } else {
+            throw new Error(data.error);
+          }
+        } else {
+          setIsSubmitted(true);
+          setTotalUsers(data.totalRegistrations);
+          toast({
+            title: "Success!",
+            description: "Wallet connected and added to waitlist."
+          });
+        }
+      } else {
+        toast({
+          title: "Wallet not found",
+          description: "Please install MetaMask or another Web3 wallet.",
+          variant: "destructive"
+        });
+      }
+    } catch (error: any) {
+      console.error('Wallet connection error:', error);
+      toast({
+        title: "Error",
+        description: error.message || "Failed to connect wallet.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -73,7 +176,7 @@ export const WaitlistSection = () => {
             </p>
             <Badge variant="secondary" className="px-6 py-2">
               <Users className="w-4 h-4 mr-2" />
-              Position #2,847 in queue
+              You're one of {totalUsers} early adopters!
             </Badge>
           </Card>
         </div>
@@ -93,6 +196,12 @@ export const WaitlistSection = () => {
             Be part of building the future of digital interaction. Get early access, 
             shape the platform, and help create a more private, user-owned internet.
           </p>
+          {totalUsers > 0 && (
+            <Badge variant="secondary" className="mt-6 px-6 py-2 text-lg">
+              <Users className="w-5 h-5 mr-2" />
+              {totalUsers} users have registered already!
+            </Badge>
+          )}
         </div>
 
         {/* Main Signup */}
@@ -123,10 +232,10 @@ export const WaitlistSection = () => {
                 <Button 
                   type="submit" 
                   className="w-full gradient-primary hover:shadow-glow text-lg py-6"
-                  disabled={!email}
+                  disabled={!email || isLoading}
                 >
                   <Mail className="w-5 h-5 mr-2" />
-                  Join Waitlist
+                  {isLoading ? 'Joining...' : 'Join Waitlist'}
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
               </form>
@@ -135,9 +244,14 @@ export const WaitlistSection = () => {
                 <p className="text-sm text-muted-foreground mb-4">
                   Or connect with your wallet
                 </p>
-                <Button variant="secondary" className="glass-morphism hover-glow">
+                <Button 
+                  variant="secondary" 
+                  className="glass-morphism hover-glow"
+                  onClick={handleWalletConnect}
+                  disabled={isLoading}
+                >
                   <Wallet className="w-4 h-4 mr-2" />
-                  Connect Wallet
+                  {isLoading ? 'Connecting...' : 'Connect Wallet'}
                 </Button>
               </div>
 
