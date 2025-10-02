@@ -59,10 +59,15 @@ serve(async (req) => {
       throw error;
     }
 
-    // Get total count
-    const { count } = await supabase
-      .from('registrations')
-      .select('*', { count: 'exact', head: true });
+    // Get total count using secure function
+    const { data: countData, error: countError } = await supabase
+      .rpc('get_registrations_count');
+    
+    if (countError) {
+      console.error('Error getting count:', countError);
+    }
+    
+    const count = countData || 0;
 
     console.log('Registration successful:', { id: data.id, count });
 

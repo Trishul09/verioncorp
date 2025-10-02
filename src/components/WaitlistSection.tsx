@@ -14,13 +14,13 @@ export const WaitlistSection = () => {
   const [totalUsers, setTotalUsers] = useState<number>(0);
   const { toast } = useToast();
 
-  // Fetch total registrations count
+  // Fetch total registrations count using secure function
   useEffect(() => {
     const fetchCount = async () => {
-      const { count } = await supabase
-        .from('registrations')
-        .select('*', { count: 'exact', head: true });
-      setTotalUsers(count || 0);
+      const { data, error } = await supabase.rpc('get_registrations_count');
+      if (!error && data !== null) {
+        setTotalUsers(data);
+      }
     };
     fetchCount();
   }, []);
