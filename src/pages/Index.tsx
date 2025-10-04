@@ -4,6 +4,7 @@ import { ArchitectureSection } from "@/components/ArchitectureSection";
 import { FeaturesSection } from "@/components/FeaturesSection";
 import { ComparisonSection } from "@/components/ComparisonSection";
 import { WaitlistSection } from "@/components/WaitlistSection";
+import { CEONote } from "@/components/CEONote";
 import { Footer } from "@/components/Footer";
 import { CursorFollower } from "@/components/CursorFollower";
 import { ScrollNavigation } from "@/components/ScrollNavigation";
@@ -56,6 +57,8 @@ const Index = () => {
           </div>
           <DataStream isVisible={true} theme="neural" />
         </SectionTheme>
+
+        <CEONote />
 
         <Footer />
       </div>

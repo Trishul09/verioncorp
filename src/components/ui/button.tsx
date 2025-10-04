@@ -11,13 +11,13 @@ const buttonVariants = cva(
       variant: {
         default: "gradient-primary text-primary-foreground hover:shadow-glow transition-smooth",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        outline: "border-2 border-primary/40 bg-background/50 backdrop-blur-sm text-foreground hover:bg-primary/10 hover:border-primary/60",
         secondary: "glass-morphism hover:bg-secondary/80 hover-glow",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "gradient-primary text-primary-foreground hover:shadow-glow hover:scale-105 transition-all duration-300",
-        artistic: "relative overflow-hidden bg-gradient-to-r from-accent-warm-gold/20 to-accent-deep-teal/20 text-foreground border border-accent-warm-gold/30 hover:border-accent-warm-gold/60 hover:shadow-glow backdrop-blur-sm transition-all duration-300 hover:scale-105",
-        organic: "organic-shape bg-gradient-to-br from-accent-earth-brown/10 to-accent-muted-lavender/10 text-foreground border border-accent-earth-brown/30 hover:from-accent-earth-brown/20 hover:to-accent-muted-lavender/20 transition-all duration-500 hover:scale-105"
+        hero: "gradient-primary text-primary-foreground hover:shadow-glow hover:scale-105 transition-all duration-300 shadow-warm",
+        artistic: "relative overflow-hidden bg-gradient-to-r from-warm-orange/20 to-warm-gold/20 text-foreground border-2 border-warm-orange/30 hover:border-warm-orange/60 hover:shadow-glow backdrop-blur-sm transition-all duration-300 hover:scale-105",
+        organic: "organic-shape bg-gradient-to-br from-warm-sienna/10 to-accent/10 text-foreground border-2 border-warm-sienna/30 hover:from-warm-sienna/20 hover:to-accent/20 transition-all duration-500 hover:scale-105"
       },
       size: {
         default: "h-10 px-4 py-2",

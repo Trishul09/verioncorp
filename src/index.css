@@ -6,33 +6,33 @@
 
 @layer base {
   :root {
-    --background: 217 19% 3%;
-    --foreground: 210 40% 98%;
+    --background: 28 25% 96%;
+    --foreground: 25 35% 12%;
 
-    --card: 217 19% 6%;
-    --card-foreground: 210 40% 98%;
+    --card: 30 30% 98%;
+    --card-foreground: 25 35% 12%;
 
-    --popover: 217 19% 6%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 30 30% 98%;
+    --popover-foreground: 25 35% 12%;
 
-    --primary: 230 100% 65%;
-    --primary-foreground: 217 19% 3%;
+    --primary: 24 88% 58%;
+    --primary-foreground: 30 30% 98%;
 
-    --secondary: 217 19% 12%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 35 40% 88%;
+    --secondary-foreground: 25 35% 12%;
 
-    --muted: 217 19% 10%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 30 25% 92%;
+    --muted-foreground: 25 20% 45%;
 
-    --accent: 260 100% 70%;
-    --accent-foreground: 217 19% 3%;
+    --accent: 18 80% 62%;
+    --accent-foreground: 30 30% 98%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 30 30% 98%;
 
-    --border: 217 19% 15%;
-    --input: 217 19% 15%;
-    --ring: 230 100% 65%;
+    --border: 30 20% 85%;
+    --input: 30 20% 85%;
+    --ring: 24 88% 58%;
 
     --radius: 0.75rem;
 
@@ -44,25 +44,25 @@
     --earth-terracotta: 12 50% 45%;
 
     /* Enhanced Gradients - Organic & Warm */
-    --gradient-primary: linear-gradient(135deg, hsl(230 100% 65%), hsl(260 100% 70%));
-    --gradient-hero: radial-gradient(ellipse at top, hsl(217 19% 8%) 0%, hsl(217 19% 3%) 60%),
-                     radial-gradient(ellipse at bottom right, hsl(18 60% 12%) 0%, transparent 70%);
-    --gradient-warm-tech: linear-gradient(135deg, hsl(18 60% 18%) 0%, hsl(230 100% 25%) 50%, hsl(260 100% 30%) 100%);
-    --gradient-earth-dark: linear-gradient(135deg, hsl(25 40% 8%) 0%, hsl(217 19% 5%) 100%);
-    --gradient-organic: radial-gradient(ellipse at center, hsl(240 25% 8%) 0%, hsl(220 30% 12%) 50%, hsl(18 40% 8%) 100%);
-    --gradient-artistic: linear-gradient(135deg, hsl(200 30% 12%) 0%, hsl(230 25% 18%) 50%, hsl(40 25% 15%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(24 88% 58%), hsl(18 80% 62%));
+    --gradient-hero: radial-gradient(ellipse at top, hsl(28 25% 96%) 0%, hsl(35 30% 92%) 60%),
+                     radial-gradient(ellipse at bottom right, hsl(18 60% 88%) 0%, transparent 70%);
+    --gradient-warm-tech: linear-gradient(135deg, hsl(18 60% 75%) 0%, hsl(24 88% 58%) 50%, hsl(35 80% 62%) 100%);
+    --gradient-earth-dark: linear-gradient(135deg, hsl(25 40% 92%) 0%, hsl(30 35% 95%) 100%);
+    --gradient-organic: radial-gradient(ellipse at center, hsl(35 25% 94%) 0%, hsl(30 30% 90%) 50%, hsl(18 40% 92%) 100%);
+    --gradient-artistic: linear-gradient(135deg, hsl(35 30% 88%) 0%, hsl(28 25% 92%) 50%, hsl(40 25% 90%) 100%);
     
     /* Warm overlay gradients */
-    --gradient-warm-overlay: linear-gradient(135deg, hsl(18 60% 62% / 0.1) 0%, transparent 50%, hsl(260 100% 70% / 0.1) 100%);
-    --gradient-spotlight: radial-gradient(circle at 30% 40%, hsl(40 70% 68% / 0.15) 0%, transparent 60%);
+    --gradient-warm-overlay: linear-gradient(135deg, hsl(18 60% 62% / 0.2) 0%, transparent 50%, hsl(35 80% 70% / 0.2) 100%);
+    --gradient-spotlight: radial-gradient(circle at 30% 40%, hsl(40 70% 68% / 0.25) 0%, transparent 60%);
     
     /* Professional Tech Themes (Enhanced) */
-    --theme-steel: linear-gradient(135deg, hsl(210 15% 8%) 0%, hsl(215 20% 12%) 100%);
-    --theme-carbon: linear-gradient(135deg, hsl(225 12% 6%) 0%, hsl(230 18% 10%) 100%);
-    --theme-quantum: linear-gradient(135deg, hsl(195 25% 8%) 0%, hsl(200 30% 12%) 100%);
-    --theme-matrix: linear-gradient(135deg, hsl(165 20% 8%) 0%, hsl(170 25% 12%) 100%);
-    --theme-neural: linear-gradient(135deg, hsl(45 15% 8%) 0%, hsl(50 20% 12%) 100%);
-    --theme-crypto: linear-gradient(135deg, hsl(270 18% 8%) 0%, hsl(275 22% 12%) 100%);
+    --theme-steel: linear-gradient(135deg, hsl(30 20% 92%) 0%, hsl(35 25% 88%) 100%);
+    --theme-carbon: linear-gradient(135deg, hsl(28 22% 94%) 0%, hsl(32 28% 90%) 100%);
+    --theme-quantum: linear-gradient(135deg, hsl(35 25% 92%) 0%, hsl(40 30% 88%) 100%);
+    --theme-matrix: linear-gradient(135deg, hsl(25 20% 92%) 0%, hsl(30 25% 88%) 100%);
+    --theme-neural: linear-gradient(135deg, hsl(45 25% 92%) 0%, hsl(50 30% 88%) 100%);
+    --theme-crypto: linear-gradient(135deg, hsl(20 28% 92%) 0%, hsl(25 32% 88%) 100%);
     
     /* Accent Colors - Artistic & Professional */
     --accent-steel: hsl(210 25% 35%);
@@ -77,11 +77,11 @@
     --accent-muted-lavender: hsl(260 30% 60%);
     
     /* Enhanced Shadow System */
-    --shadow-glow: 0 0 40px hsl(230 100% 65% / 0.15);
-    --shadow-card: 0 8px 32px hsl(217 19% 3% / 0.5);
-    --shadow-elegant: 0 20px 60px hsl(217 19% 3% / 0.35);
-    --shadow-warm: 0 12px 48px hsl(18 60% 22% / 0.25);
-    --shadow-organic: 0 16px 56px hsl(240 30% 6% / 0.4), 0 0 80px hsl(18 50% 40% / 0.1);
+    --shadow-glow: 0 0 40px hsl(24 88% 58% / 0.25);
+    --shadow-card: 0 8px 32px hsl(25 35% 12% / 0.15);
+    --shadow-elegant: 0 20px 60px hsl(25 35% 12% / 0.12);
+    --shadow-warm: 0 12px 48px hsl(18 60% 55% / 0.20);
+    --shadow-organic: 0 16px 56px hsl(25 30% 60% / 0.15), 0 0 80px hsl(18 50% 60% / 0.12);
     
     /* Smooth Organic Transitions */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -90,14 +90,14 @@
     --transition-elegant: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     
     /* Glass Effects */
-    --glass-bg: hsl(217 19% 6% / 0.7);
-    --glass-border: hsl(210 40% 98% / 0.1);
-    --glass-warm: hsl(25 40% 15% / 0.6);
+    --glass-bg: hsl(30 25% 98% / 0.8);
+    --glass-border: hsl(25 35% 12% / 0.15);
+    --glass-warm: hsl(25 40% 92% / 0.7);
     
     /* Network Effects */
-    --network-primary: hsl(230 100% 65% / 0.5);
-    --network-secondary: hsl(260 100% 70% / 0.35);
-    --network-warm: hsl(40 70% 68% / 0.3);
+    --network-primary: hsl(24 88% 58% / 0.5);
+    --network-secondary: hsl(18 80% 62% / 0.35);
+    --network-warm: hsl(40 70% 68% / 0.4);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
