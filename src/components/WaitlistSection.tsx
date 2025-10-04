@@ -138,29 +138,91 @@ export const WaitlistSection = () => {
     }
   ];
 
-  const milestones = [
+  const developmentTimeline = [
     {
-      phase: "Phase 1",
-      title: "Private Beta",
-      status: "In Progress",
-      features: ["Core architecture", "Personal Space", "Basic encryption"],
-      timeline: "Q1 2024"
+      role: "Dev 1",
+      title: "Backend Architect",
+      quarters: {
+        "Q4 2025": "core",
+        "Q1 2026": "support",
+        "Q2 2026": "support"
+      },
+      deliverables: [
+        "Design and build the core Architecture, Database Schema, and initial APIs",
+        "Provide support and consultation to Frontend and Android developers integrating with backend"
+      ],
+      trl: "TRL 3-5"
     },
     {
-      phase: "Phase 2", 
-      title: "Community Beta",
-      status: "Coming Soon",
-      features: ["Crowds layer", "Group privacy", "AI assistants"],
-      timeline: "Q2 2024"
+      role: "Dev 2",
+      title: "Frontend Developer",
+      quarters: {
+        "Q1 2026": "core",
+        "Q2 2026": "core",
+        "Q3 2026": "support"
+      },
+      deliverables: [
+        "Build the Web App MVP, including UI component library and onboarding flow",
+        "Complete all MVP features and implement fixes based on internal and pilot feedback"
+      ],
+      trl: "TRL 5-6"
     },
     {
-      phase: "Phase 3",
-      title: "Public Launch",
-      status: "Planned",
-      features: ["Town Square", "Full decentralization", "Global network"],
-      timeline: "Q3 2024"
+      role: "Dev 3",
+      title: "Android Developer",
+      quarters: {
+        "Q2 2026": "core",
+        "Q3 2026": "core",
+        "Q4 2026": "support"
+      },
+      deliverables: [
+        "Build the Native Android MVP for the pilot launch",
+        "Provide pilot support, fix bugs, and begin implementing advanced features for V1 release"
+      ],
+      trl: "TRL 6-7"
+    },
+    {
+      role: "Dev 4",
+      title: "Security & DevOps",
+      quarters: {
+        "Q3 2026": "core",
+        "Q4 2026": "core",
+        "Q1 2027": "support"
+      },
+      deliverables: [
+        "Harden all servers for pilot, set up monitoring, and implement robust security protocols (E2E Encryption)",
+        "Manage third-party security audits, conduct penetration testing, and ensure infrastructure is ready to scale"
+      ],
+      trl: "TRL 7-8"
+    },
+    {
+      role: "Dev 5",
+      title: "iOS & Desktop Dev",
+      quarters: {
+        "Q4 2026": "core",
+        "Q1 2027": "core"
+      },
+      deliverables: [
+        "Build the native iOS and Windows Desktop applications for the V1 launch",
+        "Finalize the apps, integrate feedback, and manage the App Store submission process"
+      ],
+      trl: "TRL 8-9"
+    },
+    {
+      role: "Dev 6",
+      title: "Backend Scaling",
+      quarters: {
+        "Q1 2027": "core"
+      },
+      deliverables: [
+        "Refactor and optimize the entire backend for the V1 public launch",
+        "Focus on performance, scalability, and efficiency to handle large influx of users"
+      ],
+      trl: "TRL 9"
     }
   ];
+
+  const timelineQuarters = ["Q4 2025", "Q1 2026", "Q2 2026", "Q3 2026", "Q4 2026", "Q1 2027"];
 
   if (isSubmitted) {
     return (
@@ -293,42 +355,109 @@ export const WaitlistSection = () => {
         <div id="roadmap" className="text-center mb-12">
           <h3 className="text-3xl font-bold mb-4">Development Roadmap</h3>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Track our progress and see what's coming next in the journey toward digital sovereignty.
+            Track our progress from initial architecture to global launch. Technology Readiness Level (TRL) progression: 3 → 9
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {milestones.map((milestone, index) => (
+        {/* Timeline Overview */}
+        <Card className="glass-dark border-accent/20 p-8 mb-8 overflow-x-auto">
+          <div className="min-w-[800px]">
+            <div className="grid grid-cols-7 gap-2 mb-4">
+              <div className="font-semibold text-sm">Developer Role</div>
+              {timelineQuarters.map((quarter) => (
+                <div key={quarter} className="font-semibold text-sm text-center">
+                  {quarter}
+                </div>
+              ))}
+            </div>
+            
+            {developmentTimeline.map((dev, index) => (
+              <div key={index} className="grid grid-cols-7 gap-2 mb-3 items-center">
+                <div className="text-sm">
+                  <span className="font-mono text-accent">{dev.role}</span>
+                  <span className="block text-xs text-muted-foreground mt-1">{dev.title}</span>
+                </div>
+                {timelineQuarters.map((quarter) => {
+                  const status = dev.quarters[quarter];
+                  return (
+                    <div key={quarter} className="text-center">
+                      {status === "core" ? (
+                        <div className="h-8 bg-gradient-to-r from-accent/80 to-accent rounded flex items-center justify-center text-xs font-bold">
+                          ████
+                        </div>
+                      ) : status === "support" ? (
+                        <div className="h-8 bg-accent/30 rounded flex items-center justify-center text-xs">
+                          ░░░░
+                        </div>
+                      ) : (
+                        <div className="h-8"></div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            ))}
+            
+            <div className="grid grid-cols-7 gap-2 mt-6 pt-4 border-t border-border/50">
+              <div className="font-semibold text-sm">TRL Progress</div>
+              {["TRL 3", "TRL 5", "TRL 6", "TRL 7", "TRL 8", "TRL 9"].map((trl, idx) => (
+                <div key={idx} className="text-center text-xs font-mono text-accent">
+                  {trl}
+                </div>
+              ))}
+            </div>
+            
+            <div className="mt-4 flex gap-6 text-xs text-muted-foreground">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-4 bg-gradient-to-r from-accent/80 to-accent rounded"></div>
+                <span>Core Development Quarter</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-4 bg-accent/30 rounded"></div>
+                <span>Support & Iteration</span>
+              </div>
+            </div>
+          </div>
+        </Card>
+
+        {/* Detailed Deliverables */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {developmentTimeline.map((dev, index) => (
             <Card key={index} className={`
-              gradient-subtle border-border/50 p-6 relative
-              ${index === 0 ? 'border-primary/30 shadow-glow' : ''}
+              gradient-subtle border-border/50 p-6 hover-glow transition-smooth
+              ${index === 0 ? 'border-accent/30 shadow-glow' : ''}
             `}>
               {index === 0 && (
                 <Badge className="absolute -top-3 left-4 gradient-primary">
-                  Current
+                  In Progress
                 </Badge>
               )}
               
               <div className="flex items-center justify-between mb-4">
-                <h4 className="font-semibold">{milestone.phase}</h4>
-                <Badge variant={index === 0 ? "default" : "secondary"} className="text-xs">
-                  {milestone.status}
+                <h4 className="font-mono text-accent font-semibold">{dev.role}</h4>
+                <Badge variant="secondary" className="text-xs">
+                  {dev.trl}
                 </Badge>
               </div>
               
-              <h5 className="text-lg font-bold mb-3">{milestone.title}</h5>
+              <h5 className="text-lg font-bold mb-4">{dev.title}</h5>
               
-              <ul className="space-y-2 mb-4">
-                {milestone.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="text-sm text-muted-foreground flex items-center gap-2">
-                    <div className="w-1 h-1 rounded-full bg-current flex-shrink-0"></div>
-                    {feature}
+              <ul className="space-y-3">
+                {dev.deliverables.map((deliverable, delIndex) => (
+                  <li key={delIndex} className="text-sm text-muted-foreground flex items-start gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0 mt-1.5"></div>
+                    <span className="leading-relaxed">{deliverable}</span>
                   </li>
                 ))}
               </ul>
               
-              <div className="text-xs text-primary font-medium">
-                {milestone.timeline}
+              <div className="mt-4 pt-4 border-t border-border/30">
+                <div className="text-xs text-muted-foreground">
+                  Active: {Object.entries(dev.quarters)
+                    .filter(([_, status]) => status === "core")
+                    .map(([quarter]) => quarter)
+                    .join(", ")}
+                </div>
               </div>
             </Card>
           ))}
