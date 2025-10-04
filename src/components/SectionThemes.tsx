@@ -34,46 +34,60 @@ export const SectionTheme = ({ children, theme, sectionId }: SectionThemeProps) 
   const getThemeStyles = () => {
     const themes = {
       hero: {
-        bg: 'bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950',
-        accent: 'from-slate-700/20 to-slate-600/20',
-        particles: 'bg-slate-400/20',
-        glow: 'hsl(210 25% 35% / 0.1)'
+        bg: 'gradient-hero',
+        customBg: undefined,
+        accent: 'from-warm-orange/20 to-warm-gold/20',
+        particles: 'bg-primary/30',
+        glow: 'hsl(24 88% 58% / 0.2)',
+        textColor: ''
       },
       steel: {
-        bg: 'bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950',
-        accent: 'from-slate-600/15 to-blue-600/15',
-        particles: 'bg-slate-400/15',
-        glow: 'hsl(210 25% 35% / 0.1)'
+        bg: '',
+        customBg: 'var(--theme-steel)',
+        accent: 'from-accent-steel/20 to-accent-quantum/20',
+        particles: 'bg-accent-steel/30',
+        glow: 'hsl(210 35% 45% / 0.15)',
+        textColor: 'text-slate-100'
       },
       carbon: {
-        bg: 'bg-gradient-to-br from-gray-950 via-slate-950 to-gray-900',
-        accent: 'from-gray-600/15 to-slate-600/15',
-        particles: 'bg-gray-400/15',
-        glow: 'hsl(225 20% 30% / 0.1)'
+        bg: '',
+        customBg: 'var(--theme-carbon)',
+        accent: 'from-accent-luxury-bronze/20 to-accent-luxury-copper/20',
+        particles: 'bg-accent-luxury-bronze/30',
+        glow: 'hsl(30 60% 45% / 0.15)',
+        textColor: 'text-amber-50'
       },
       quantum: {
-        bg: 'bg-gradient-to-br from-slate-950 via-cyan-950 to-slate-900',
-        accent: 'from-cyan-600/15 to-teal-600/15',
-        particles: 'bg-cyan-400/15',
-        glow: 'hsl(195 35% 40% / 0.1)'
+        bg: '',
+        customBg: 'var(--theme-quantum)',
+        accent: 'from-accent-quantum/20 to-accent-muted-lavender/20',
+        particles: 'bg-accent-quantum/30',
+        glow: 'hsl(280 45% 55% / 0.15)',
+        textColor: 'text-purple-50'
       },
       matrix: {
-        bg: 'bg-gradient-to-br from-slate-950 via-emerald-950 to-slate-900',
-        accent: 'from-emerald-600/15 to-teal-600/15',
-        particles: 'bg-emerald-400/15',
-        glow: 'hsl(165 30% 35% / 0.1)'
+        bg: '',
+        customBg: 'var(--theme-matrix)',
+        accent: 'from-accent-matrix/20 to-accent-deep-teal/20',
+        particles: 'bg-accent-matrix/30',
+        glow: 'hsl(165 40% 45% / 0.15)',
+        textColor: 'text-teal-50'
       },
       neural: {
-        bg: 'bg-gradient-to-br from-slate-950 via-amber-950 to-slate-900',
-        accent: 'from-amber-600/15 to-yellow-600/15',
-        particles: 'bg-amber-400/15',
-        glow: 'hsl(45 25% 40% / 0.1)'
+        bg: '',
+        customBg: 'var(--theme-neural)',
+        accent: 'from-accent-neural/20 to-accent-warm-gold/20',
+        particles: 'bg-accent-neural/30',
+        glow: 'hsl(35 45% 50% / 0.15)',
+        textColor: 'text-amber-50'
       },
       crypto: {
-        bg: 'bg-gradient-to-br from-slate-950 via-violet-950 to-slate-900',
-        accent: 'from-violet-600/15 to-purple-600/15',
-        particles: 'bg-violet-400/15',
-        glow: 'hsl(270 25% 35% / 0.1)'
+        bg: '',
+        customBg: 'var(--theme-crypto)',
+        accent: 'from-accent-crypto/20 to-primary/20',
+        particles: 'bg-accent-crypto/30',
+        glow: 'hsl(15 55% 48% / 0.15)',
+        textColor: 'text-orange-50'
       }
     };
     return themes[theme];
@@ -83,8 +97,11 @@ export const SectionTheme = ({ children, theme, sectionId }: SectionThemeProps) 
 
   return (
     <motion.div
-      className={`relative ${themeStyles.bg} will-change-transform`}
-      style={{ opacity }}
+      className={`relative ${themeStyles.bg} ${themeStyles.textColor || ''} will-change-transform`}
+      style={{ 
+        opacity,
+        background: themeStyles.customBg || undefined
+      }}
     >
       {/* Animated Background Elements */}
       <motion.div
@@ -185,7 +202,7 @@ export const DataStream = ({ isVisible, theme }: { isVisible: boolean; theme: st
           animate={{ opacity: Math.max(0.8 - (index * 0.3), 0.2), x: 0 }}
           exit={{ opacity: 0, x: -15 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
-          className="px-2 py-1 rounded bg-slate-800/60 text-slate-300 border border-slate-600/30 backdrop-blur-sm"
+          className="px-2 py-1 rounded glass-dark text-orange-100 border border-primary/30 backdrop-blur-sm shadow-warm"
         >
           {point}: {Math.random().toString(36).substr(2, 6)}
         </motion.div>

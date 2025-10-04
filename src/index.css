@@ -6,23 +6,23 @@
 
 @layer base {
   :root {
-    --background: 28 25% 96%;
-    --foreground: 25 35% 12%;
+    --background: 30 20% 95%;
+    --foreground: 20 30% 8%;
 
-    --card: 30 30% 98%;
-    --card-foreground: 25 35% 12%;
+    --card: 28 25% 97%;
+    --card-foreground: 20 30% 8%;
 
-    --popover: 30 30% 98%;
-    --popover-foreground: 25 35% 12%;
+    --popover: 28 25% 97%;
+    --popover-foreground: 20 30% 8%;
 
     --primary: 24 88% 58%;
     --primary-foreground: 30 30% 98%;
 
     --secondary: 35 40% 88%;
-    --secondary-foreground: 25 35% 12%;
+    --secondary-foreground: 20 30% 8%;
 
-    --muted: 30 25% 92%;
-    --muted-foreground: 25 20% 45%;
+    --muted: 30 25% 88%;
+    --muted-foreground: 25 25% 35%;
 
     --accent: 18 80% 62%;
     --accent-foreground: 30 30% 98%;
@@ -30,8 +30,8 @@
     --destructive: 0 84% 60%;
     --destructive-foreground: 30 30% 98%;
 
-    --border: 30 20% 85%;
-    --input: 30 20% 85%;
+    --border: 30 20% 80%;
+    --input: 30 20% 88%;
     --ring: 24 88% 58%;
 
     --radius: 0.75rem;
@@ -43,38 +43,43 @@
     --deep-brown: 25 40% 22%;
     --earth-terracotta: 12 50% 45%;
 
-    /* Enhanced Gradients - Organic & Warm */
+    /* Enhanced Gradients - Luxurious & Rich */
     --gradient-primary: linear-gradient(135deg, hsl(24 88% 58%), hsl(18 80% 62%));
-    --gradient-hero: radial-gradient(ellipse at top, hsl(28 25% 96%) 0%, hsl(35 30% 92%) 60%),
-                     radial-gradient(ellipse at bottom right, hsl(18 60% 88%) 0%, transparent 70%);
-    --gradient-warm-tech: linear-gradient(135deg, hsl(18 60% 75%) 0%, hsl(24 88% 58%) 50%, hsl(35 80% 62%) 100%);
-    --gradient-earth-dark: linear-gradient(135deg, hsl(25 40% 92%) 0%, hsl(30 35% 95%) 100%);
-    --gradient-organic: radial-gradient(ellipse at center, hsl(35 25% 94%) 0%, hsl(30 30% 90%) 50%, hsl(18 40% 92%) 100%);
-    --gradient-artistic: linear-gradient(135deg, hsl(35 30% 88%) 0%, hsl(28 25% 92%) 50%, hsl(40 25% 90%) 100%);
+    --gradient-hero: radial-gradient(ellipse at top, hsl(28 30% 92%) 0%, hsl(25 35% 88%) 60%),
+                     radial-gradient(ellipse at bottom right, hsl(18 60% 75%) 0%, transparent 70%);
+    --gradient-warm-tech: linear-gradient(135deg, hsl(18 60% 65%) 0%, hsl(24 88% 58%) 50%, hsl(35 80% 62%) 100%);
+    --gradient-earth-dark: linear-gradient(135deg, hsl(25 40% 85%) 0%, hsl(30 35% 90%) 100%);
+    --gradient-organic: radial-gradient(ellipse at center, hsl(30 30% 88%) 0%, hsl(25 35% 82%) 50%, hsl(18 40% 85%) 100%);
+    --gradient-artistic: linear-gradient(135deg, hsl(280 30% 75%) 0%, hsl(260 35% 68%) 50%, hsl(240 30% 72%) 100%);
+    --gradient-luxury-bronze: linear-gradient(135deg, hsl(30 50% 35%) 0%, hsl(25 55% 28%) 50%, hsl(20 60% 22%) 100%);
+    --gradient-luxury-purple: linear-gradient(135deg, hsl(280 45% 30%) 0%, hsl(270 50% 24%) 50%, hsl(260 55% 18%) 100%);
+    --gradient-luxury-teal: linear-gradient(135deg, hsl(180 40% 28%) 0%, hsl(170 45% 22%) 50%, hsl(160 50% 16%) 100%);
     
     /* Warm overlay gradients */
     --gradient-warm-overlay: linear-gradient(135deg, hsl(18 60% 62% / 0.2) 0%, transparent 50%, hsl(35 80% 70% / 0.2) 100%);
     --gradient-spotlight: radial-gradient(circle at 30% 40%, hsl(40 70% 68% / 0.25) 0%, transparent 60%);
     
-    /* Professional Tech Themes (Enhanced) */
-    --theme-steel: linear-gradient(135deg, hsl(30 20% 92%) 0%, hsl(35 25% 88%) 100%);
-    --theme-carbon: linear-gradient(135deg, hsl(28 22% 94%) 0%, hsl(32 28% 90%) 100%);
-    --theme-quantum: linear-gradient(135deg, hsl(35 25% 92%) 0%, hsl(40 30% 88%) 100%);
-    --theme-matrix: linear-gradient(135deg, hsl(25 20% 92%) 0%, hsl(30 25% 88%) 100%);
-    --theme-neural: linear-gradient(135deg, hsl(45 25% 92%) 0%, hsl(50 30% 88%) 100%);
-    --theme-crypto: linear-gradient(135deg, hsl(20 28% 92%) 0%, hsl(25 32% 88%) 100%);
+    /* Luxurious Section Themes */
+    --theme-steel: linear-gradient(135deg, hsl(200 30% 20%) 0%, hsl(210 35% 15%) 100%);
+    --theme-carbon: linear-gradient(135deg, hsl(30 35% 25%) 0%, hsl(25 40% 18%) 100%);
+    --theme-quantum: linear-gradient(135deg, hsl(280 40% 22%) 0%, hsl(270 45% 16%) 100%);
+    --theme-matrix: linear-gradient(135deg, hsl(160 35% 20%) 0%, hsl(165 40% 14%) 100%);
+    --theme-neural: linear-gradient(135deg, hsl(35 45% 28%) 0%, hsl(25 50% 20%) 100%);
+    --theme-crypto: linear-gradient(135deg, hsl(15 50% 25%) 0%, hsl(10 55% 18%) 100%);
     
-    /* Accent Colors - Artistic & Professional */
-    --accent-steel: hsl(210 25% 35%);
-    --accent-carbon: hsl(225 20% 30%);
-    --accent-quantum: hsl(195 35% 40%);
-    --accent-matrix: hsl(165 30% 35%);
-    --accent-neural: hsl(45 25% 40%);
-    --accent-crypto: hsl(270 25% 35%);
-    --accent-warm-gold: hsl(40 70% 68%);
-    --accent-earth-brown: hsl(25 45% 35%);
-    --accent-deep-teal: hsl(180 40% 45%);
-    --accent-muted-lavender: hsl(260 30% 60%);
+    /* Accent Colors - Luxurious & Rich */
+    --accent-steel: hsl(210 35% 45%);
+    --accent-carbon: hsl(225 30% 40%);
+    --accent-quantum: hsl(280 45% 55%);
+    --accent-matrix: hsl(165 40% 45%);
+    --accent-neural: hsl(35 45% 50%);
+    --accent-crypto: hsl(15 55% 48%);
+    --accent-warm-gold: hsl(40 70% 65%);
+    --accent-earth-brown: hsl(25 50% 40%);
+    --accent-deep-teal: hsl(180 45% 50%);
+    --accent-muted-lavender: hsl(270 40% 65%);
+    --accent-luxury-bronze: hsl(30 60% 45%);
+    --accent-luxury-copper: hsl(18 65% 48%);
     
     /* Enhanced Shadow System */
     --shadow-glow: 0 0 40px hsl(24 88% 58% / 0.25);
@@ -89,10 +94,12 @@
     --transition-organic: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
     --transition-elegant: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     
-    /* Glass Effects */
-    --glass-bg: hsl(30 25% 98% / 0.8);
-    --glass-border: hsl(25 35% 12% / 0.15);
-    --glass-warm: hsl(25 40% 92% / 0.7);
+    /* Glass Effects - Luxurious */
+    --glass-bg: hsl(30 25% 95% / 0.85);
+    --glass-border: hsl(25 35% 12% / 0.2);
+    --glass-warm: hsl(25 40% 88% / 0.75);
+    --glass-dark: hsl(25 30% 15% / 0.7);
+    --glass-luxury: hsl(30 40% 20% / 0.8);
     
     /* Network Effects */
     --network-primary: hsl(24 88% 58% / 0.5);
@@ -185,6 +192,9 @@
   .gradient-earth-dark { background: var(--gradient-earth-dark); }
   .gradient-organic { background: var(--gradient-organic); }
   .gradient-artistic { background: var(--gradient-artistic); }
+  .gradient-luxury-bronze { background: var(--gradient-luxury-bronze); }
+  .gradient-luxury-purple { background: var(--gradient-luxury-purple); }
+  .gradient-luxury-teal { background: var(--gradient-luxury-teal); }
   
   /* Shadow Utilities */
   .shadow-glow { box-shadow: var(--shadow-glow); }
@@ -212,6 +222,20 @@
     border: 1px solid hsl(40 70% 68% / 0.15);
     backdrop-filter: blur(20px) saturate(160%);
     -webkit-backdrop-filter: blur(20px) saturate(160%);
+  }
+
+  .glass-dark {
+    background: var(--glass-dark);
+    border: 1px solid hsl(24 88% 58% / 0.2);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+  }
+
+  .glass-luxury {
+    background: var(--glass-luxury);
+    border: 1px solid hsl(40 70% 68% / 0.25);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
   }
   
   /* Hover Effects */
