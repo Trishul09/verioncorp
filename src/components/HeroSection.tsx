@@ -87,7 +87,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-5xl md:text-7xl font-bold mb-6 tracking-tight artistic-text-shadow"
+            className="text-5xl md:text-7xl font-black mb-6 tracking-tight artistic-text-shadow"
           >
             <div className="relative inline-block">
               Redefining{" "}
@@ -129,29 +129,19 @@ export const HeroSection = () => {
               variant="hero" 
               size="lg" 
               className="text-lg px-8 py-6"
-              onClick={() => {
-                const element = document.getElementById('waitlist');
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-              }}
+              onClick={() => window.location.href = '/waitlist'}
             >
               Join Waitlist
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             <Button 
-              variant="secondary" 
+              variant="ghost" 
               size="lg" 
               className="text-lg px-8 py-6"
-              onClick={() => {
-                const element = document.getElementById('vision');
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-              }}
+              onClick={() => window.location.href = '/vision'}
             >
               <Network className="mr-2 w-5 h-5" />
-              Explore Vision
+              Read Our Technical Vision
             </Button>
           </motion.div>
 
