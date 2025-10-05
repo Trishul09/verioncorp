@@ -55,7 +55,7 @@ export const Footer = () => {
               <div className="w-10 h-10 rounded-xl gradient-primary flex items-center justify-center">
                 <Shield className="w-6 h-6 text-primary-foreground" />
               </div>
-              <h3 className="text-2xl font-bold">PrivacyFirst</h3>
+              <h3 className="text-2xl font-bold">Verion</h3>
             </div>
             
             <p className="text-muted-foreground mb-6 leading-relaxed max-w-md">
@@ -138,7 +138,7 @@ export const Footer = () => {
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-border/50">
           <div className="text-sm text-muted-foreground mb-4 md:mb-0">
-            © 2025 PrivacyFirst. Building the decentralized future.
+            © 2025 Verion. Building the decentralized future.
           </div>
           
           <div className="flex items-center gap-6 text-sm">

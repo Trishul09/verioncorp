@@ -27,9 +27,9 @@ export const Header = () => {
           {/* Logo/Brand */}
           <Link to="/" className="flex items-center gap-2 font-bold text-xl text-foreground hover:text-primary transition-colors">
             <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-bold">
-              PF
+              V
             </div>
-            <span className="hidden sm:inline">PrivacyFirst</span>
+            <span className="hidden sm:inline">Verion</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -51,13 +51,6 @@ export const Header = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => navigate("/vision")}
-            >
-              Technical Vision
-            </Button>
             <Button
               variant="default"
               size="sm"
@@ -102,16 +95,6 @@ export const Header = () => {
                 </Link>
               ))}
               <div className="flex flex-col gap-2 pt-2">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => {
-                    navigate("/vision");
-                    setMobileMenuOpen(false);
-                  }}
-                >
-                  Technical Vision
-                </Button>
                 <Button
                   variant="default"
                   size="sm"
