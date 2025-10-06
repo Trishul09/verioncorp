@@ -67,7 +67,7 @@ export const SplashScreen = ({ onComplete }: SplashScreenProps) => {
           <div className="w-full h-full bg-white/30 rounded-full" />
         </motion.div>
 
-        {/* Logo */}
+        {/* Logo - Only V visible */}
         <motion.div
           initial={{ opacity: 0, scale: 0.5, rotateY: -180 }}
           animate={{ 
@@ -86,6 +86,10 @@ export const SplashScreen = ({ onComplete }: SplashScreenProps) => {
             src={verionLogoSplash} 
             alt="Verion" 
             className="w-64 h-64 md:w-80 md:h-80 object-contain drop-shadow-2xl"
+            style={{
+              mixBlendMode: 'screen',
+              filter: 'brightness(1.2) contrast(1.1)'
+            }}
           />
         </motion.div>
 
