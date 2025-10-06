@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, Network } from "lucide-react";
+import { ArrowRight, Shield } from "lucide-react";
 import { AnimatedBackground } from "./AnimatedBackground";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 export const HeroSection = () => {
+  const navigate = useNavigate();
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Artistic Background Layers */}
@@ -118,43 +120,43 @@ export const HeroSection = () => {
             A new social architecture for the future of human interaction.
           </motion.p>
 
-          {/* CTAs */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <Button 
-              variant="hero" 
-              size="lg" 
-              className="text-lg px-8 py-6"
-              onClick={() => window.location.href = '/waitlist'}
-            >
-              Join Waitlist
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-            <Button 
-              variant="ghost" 
-              size="lg" 
-              className="text-lg px-8 py-6"
-              onClick={() => window.location.href = '/vision'}
-            >
-              <Network className="mr-2 w-5 h-5" />
-              Read Our Technical Vision
-            </Button>
-          </motion.div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                size="lg" 
+                className="font-bold px-8 shadow-lg hover:shadow-xl transition-all"
+                onClick={() => navigate('/waitlist')}
+              >
+                Join Waitlist
+              </Button>
+              <Button 
+                size="lg" 
+                variant="ghost" 
+                className="font-semibold px-8 border border-primary/20 hover:border-primary/40"
+                onClick={() => navigate('/vision')}
+              >
+                Read Technical Vision
+              </Button>
+            </div>
 
           {/* Artistic Stats */}
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.0 }}
-            className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto"
+            className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto perspective-1000"
           >
             <motion.div 
-              whileHover={{ scale: 1.05, rotateY: 5 }}
-              className="layered-card glass-morphism rounded-2xl p-6 text-center"
+              whileHover={{ 
+                scale: 1.05, 
+                y: -10,
+                rotateX: 5,
+                rotateY: 5,
+                transition: { duration: 0.3 }
+              }}
+              className="layered-card glass-morphism rounded-2xl p-6 text-center transform-gpu hover:shadow-2xl hover:shadow-primary/20 transition-all"
+              style={{
+                transformStyle: "preserve-3d",
+              }}
             >
               <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-accent-warm-gold/20 flex items-center justify-center">
                 <div className="text-xl font-bold text-accent-warm-gold">100%</div>
@@ -162,8 +164,17 @@ export const HeroSection = () => {
               <div className="text-sm text-muted-foreground">Privacy Owned</div>
             </motion.div>
             <motion.div 
-              whileHover={{ scale: 1.05, rotateY: -5 }}
-              className="layered-card glass-morphism rounded-2xl p-6 text-center"
+              whileHover={{ 
+                scale: 1.05, 
+                y: -10,
+                rotateX: 5,
+                rotateY: -5,
+                transition: { duration: 0.3 }
+              }}
+              className="layered-card glass-morphism rounded-2xl p-6 text-center transform-gpu hover:shadow-2xl hover:shadow-accent-deep-teal/20 transition-all"
+              style={{
+                transformStyle: "preserve-3d",
+              }}
             >
               <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-accent-deep-teal/20 flex items-center justify-center">
                 <div className="text-xl font-bold text-accent-deep-teal">0</div>
@@ -171,8 +182,17 @@ export const HeroSection = () => {
               <div className="text-sm text-muted-foreground">Data Tracking</div>
             </motion.div>
             <motion.div 
-              whileHover={{ scale: 1.05, rotateY: 5 }}
-              className="layered-card glass-morphism rounded-2xl p-6 text-center"
+              whileHover={{ 
+                scale: 1.05, 
+                y: -10,
+                rotateX: 5,
+                rotateY: 5,
+                transition: { duration: 0.3 }
+              }}
+              className="layered-card glass-morphism rounded-2xl p-6 text-center transform-gpu hover:shadow-2xl hover:shadow-accent-muted-lavender/20 transition-all"
+              style={{
+                transformStyle: "preserve-3d",
+              }}
             >
               <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-accent-muted-lavender/20 flex items-center justify-center">
                 <div className="text-xl font-bold text-accent-muted-lavender">∞</div>

@@ -3,6 +3,7 @@ import { ArrowLeft, Menu, X } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import verionLogo from "@/assets/verion-logo.png";
 
 export const Header = () => {
   const navigate = useNavigate();
@@ -26,8 +27,8 @@ export const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo/Brand */}
           <Link to="/" className="flex items-center gap-2 font-bold text-xl text-foreground hover:text-primary transition-colors">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-bold">
-              V
+            <div className="w-8 h-8 flex items-center justify-center">
+              <img src={verionLogo} alt="Verion" className="w-full h-full object-contain" />
             </div>
             <span className="hidden sm:inline">Verion</span>
           </Link>
