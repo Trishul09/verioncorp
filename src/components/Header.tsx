@@ -3,7 +3,7 @@ import { ArrowLeft, Menu, X } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import verionLogo from "@/assets/verion-logo.png";
+import verionLogo from "@/assets/verion-logo-v.png";
 
 export const Header = () => {
   const navigate = useNavigate();

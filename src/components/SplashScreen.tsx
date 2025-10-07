@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import verionLogoSplash from "@/assets/verion-logo-splash.png";
+import verionLogoV from "@/assets/verion-logo-v.png";
 
 interface SplashScreenProps {
   onComplete: () => void;
@@ -32,19 +32,27 @@ export const SplashScreen = ({ onComplete }: SplashScreenProps) => {
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.8 }}
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-gradient-to-br from-gray-950 via-gray-900 to-black overflow-hidden"
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-background overflow-hidden"
     >
-      {/* Animated Stars */}
+      {/* Network Background Pattern - Similar to Index */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(var(--primary-rgb),0.1),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(var(--primary-rgb),0.15),transparent_40%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(var(--accent-rgb),0.1),transparent_40%)]" />
+      </div>
+
+      {/* Animated Network Lines */}
       {stars.map((star, i) => (
         <motion.div
           key={i}
-          className="absolute w-1 h-1 bg-white rounded-full"
+          className="absolute w-1 h-1 rounded-full"
           style={{
             left: `${star.x}%`,
             top: `${star.y}%`,
+            background: 'hsl(var(--primary))',
           }}
           animate={{
-            opacity: [0, 1, 0],
+            opacity: [0, 0.6, 0],
             scale: [0, 1, 0],
           }}
           transition={{
@@ -57,15 +65,16 @@ export const SplashScreen = ({ onComplete }: SplashScreenProps) => {
 
       {/* Main Logo Container */}
       <div className="relative">
-        {/* Glow Effect */}
+        {/* Glow Effect - Using Design System Colors */}
         <motion.div
           className="absolute inset-0 blur-3xl"
           initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: [0, 0.6, 0.4], scale: [0.8, 1.2, 1] }}
+          animate={{ opacity: [0, 0.5, 0.3], scale: [0.8, 1.2, 1] }}
           transition={{ duration: 2, times: [0, 0.5, 1] }}
-        >
-          <div className="w-full h-full bg-white/30 rounded-full" />
-        </motion.div>
+          style={{
+            background: 'radial-gradient(circle, hsl(var(--primary) / 0.4), transparent 70%)'
+          }}
+        />
 
         {/* Logo - Only V visible */}
         <motion.div
@@ -83,28 +92,30 @@ export const SplashScreen = ({ onComplete }: SplashScreenProps) => {
           className="relative z-10"
         >
           <img 
-            src={verionLogoSplash} 
+            src={verionLogoV} 
             alt="Verion" 
             className="w-64 h-64 md:w-80 md:h-80 object-contain drop-shadow-2xl"
             style={{
-              mixBlendMode: 'screen',
-              filter: 'brightness(1.2) contrast(1.1)'
+              filter: 'drop-shadow(0 0 30px hsl(var(--primary) / 0.5))'
             }}
           />
         </motion.div>
 
-        {/* Pulsing Ring */}
+        {/* Pulsing Ring - Using Design System Colors */}
         <motion.div
-          className="absolute inset-0 border-2 border-white/30 rounded-full"
+          className="absolute inset-0 rounded-full"
           initial={{ scale: 1, opacity: 0 }}
           animate={{ 
             scale: [1, 1.5, 2],
-            opacity: [0, 0.5, 0]
+            opacity: [0, 0.4, 0]
           }}
           transition={{ 
             duration: 2,
             repeat: Infinity,
             delay: 1
+          }}
+          style={{
+            border: '2px solid hsl(var(--primary) / 0.3)'
           }}
         />
       </div>
@@ -120,16 +131,20 @@ export const SplashScreen = ({ onComplete }: SplashScreenProps) => {
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
-            className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full"
+            className="w-5 h-5 rounded-full"
+            style={{
+              border: '2px solid hsl(var(--primary) / 0.3)',
+              borderTopColor: 'hsl(var(--primary))'
+            }}
           />
-          <span className="text-white/80 text-sm font-mono uppercase tracking-widest">
+          <span className="text-foreground/80 text-sm font-mono uppercase tracking-widest">
             Loading Verion
           </span>
         </div>
       </motion.div>
 
-      {/* Bottom Gradient */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/50 to-transparent" />
+      {/* Bottom Gradient - Using Design System */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
     </motion.div>
   );
 };
