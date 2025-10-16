@@ -14,6 +14,134 @@ export type Database = {
   }
   public: {
     Tables: {
+      job_applications: {
+        Row: {
+          additional_info: string | null
+          age: number
+          city: string
+          college_name: string | null
+          country: string
+          created_at: string
+          education_level: string
+          email: string
+          full_name: string
+          gender: string
+          github_url: string | null
+          gpa_percentage: number | null
+          id: string
+          job_id: string
+          phone: string | null
+          projects_description: string | null
+          resume_url: string
+          state: string
+          status: string
+          technical_achievement: string
+        }
+        Insert: {
+          additional_info?: string | null
+          age: number
+          city: string
+          college_name?: string | null
+          country: string
+          created_at?: string
+          education_level: string
+          email: string
+          full_name: string
+          gender: string
+          github_url?: string | null
+          gpa_percentage?: number | null
+          id?: string
+          job_id: string
+          phone?: string | null
+          projects_description?: string | null
+          resume_url: string
+          state: string
+          status?: string
+          technical_achievement: string
+        }
+        Update: {
+          additional_info?: string | null
+          age?: number
+          city?: string
+          college_name?: string | null
+          country?: string
+          created_at?: string
+          education_level?: string
+          email?: string
+          full_name?: string
+          gender?: string
+          github_url?: string | null
+          gpa_percentage?: number | null
+          id?: string
+          job_id?: string
+          phone?: string | null
+          projects_description?: string | null
+          resume_url?: string
+          state?: string
+          status?: string
+          technical_achievement?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "job_applications_job_id_fkey"
+            columns: ["job_id"]
+            isOneToOne: false
+            referencedRelation: "job_postings"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      job_postings: {
+        Row: {
+          commitment_period: string
+          compensation: string
+          country: string
+          created_at: string
+          description: string
+          id: string
+          job_type: Database["public"]["Enums"]["job_type"]
+          location_type: string
+          region: string
+          requirements: string
+          role: string
+          status: Database["public"]["Enums"]["job_status"]
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          commitment_period: string
+          compensation: string
+          country: string
+          created_at?: string
+          description: string
+          id?: string
+          job_type: Database["public"]["Enums"]["job_type"]
+          location_type: string
+          region: string
+          requirements: string
+          role: string
+          status?: Database["public"]["Enums"]["job_status"]
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          commitment_period?: string
+          compensation?: string
+          country?: string
+          created_at?: string
+          description?: string
+          id?: string
+          job_type?: Database["public"]["Enums"]["job_type"]
+          location_type?: string
+          region?: string
+          requirements?: string
+          role?: string
+          status?: Database["public"]["Enums"]["job_status"]
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       registrations: {
         Row: {
           created_at: string
@@ -46,7 +174,8 @@ export type Database = {
       }
     }
     Enums: {
-      [_ in never]: never
+      job_status: "open" | "closed"
+      job_type: "full_time" | "internship"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -173,6 +302,9 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      job_status: ["open", "closed"],
+      job_type: ["full_time", "internship"],
+    },
   },
 } as const
