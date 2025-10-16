@@ -16,6 +16,7 @@ export const Header = () => {
     { label: "Architecture", path: "/architecture" },
     { label: "Features", path: "/features" },
     { label: "Comparison", path: "/comparison" },
+    { label: "Careers", path: "/careers" },
     { label: "Waitlist", path: "/waitlist" },
   ];
 

@@ -17,7 +17,10 @@ export const Footer = () => {
   };
 
   const handleNavigation = (href: string, name: string) => {
-    if (href.startsWith('#') && !['#privacy', '#terms', '#security'].includes(href)) {
+    if (href.startsWith('/')) {
+      // Handle internal routes
+      window.location.href = href;
+    } else if (href.startsWith('#') && !['#privacy', '#terms', '#security'].includes(href)) {
       const sectionId = href.replace('#', '');
       smoothScrollTo(sectionId);
     } else if (['#privacy', '#terms', '#security'].includes(href)) {
@@ -30,6 +33,7 @@ export const Footer = () => {
       { name: "Vision", href: "#vision" },
       { name: "Architecture", href: "#architecture" },
       { name: "Features", href: "#features" },
+      { name: "Careers", href: "/careers" },
       { name: "Roadmap", href: "#roadmap" }
     ],
     community: [
