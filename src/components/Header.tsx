@@ -4,20 +4,23 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import verionLogo from "@/assets/verion-logo-v.png";
+import { LanguageSelector } from "@/components/LanguageSelector";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   const navItems = [
-    { label: "Home", path: "/" },
-    { label: "Vision", path: "/vision" },
-    { label: "Architecture", path: "/architecture" },
-    { label: "Features", path: "/features" },
-    { label: "Comparison", path: "/comparison" },
-    { label: "Careers", path: "/careers" },
-    { label: "Waitlist", path: "/waitlist" },
+    { label: t('nav.home'), path: "/" },
+    { label: t('nav.vision'), path: "/vision" },
+    { label: t('nav.architecture'), path: "/architecture" },
+    { label: t('nav.features'), path: "/features" },
+    { label: t('nav.comparison'), path: "/comparison" },
+    { label: t('nav.careers'), path: "/careers" },
+    { label: t('nav.waitlist'), path: "/waitlist" },
   ];
 
   const isHomePage = location.pathname === "/";
@@ -53,12 +56,13 @@ export const Header = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
+            <LanguageSelector />
             <Button
               variant="default"
               size="sm"
               onClick={() => navigate("/waitlist")}
             >
-              Join Waitlist
+              {t('nav.joinWaitlist')}
             </Button>
           </div>
 
@@ -97,6 +101,7 @@ export const Header = () => {
                 </Link>
               ))}
               <div className="flex flex-col gap-2 pt-2">
+                <LanguageSelector />
                 <Button
                   variant="default"
                   size="sm"
@@ -105,7 +110,7 @@ export const Header = () => {
                     setMobileMenuOpen(false);
                   }}
                 >
-                  Join Waitlist
+                  {t('nav.joinWaitlist')}
                 </Button>
               </div>
             </nav>
@@ -127,7 +132,7 @@ export const Header = () => {
             className="gap-2"
           >
             <ArrowLeft size={16} />
-            Back
+            {t('nav.back')}
           </Button>
         </motion.div>
       )}
