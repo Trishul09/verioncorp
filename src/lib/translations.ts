@@ -1,407 +1,45 @@
 export type Language = 
-  | 'en' // English
-  | 'hi' // Hindi
-  | 'ta' // Tamil
-  | 'te' // Telugu
-  | 'bn' // Bengali
-  | 'mr' // Marathi
-  | 'gu' // Gujarati
-  | 'kn' // Kannada
-  | 'ml' // Malayalam
-  | 'pa' // Punjabi
-  | 'or' // Odia
-  | 'as' // Assamese
-  | 'es' // Spanish
-  | 'fr' // French
-  | 'de' // German
-  | 'zh' // Chinese
-  | 'ja' // Japanese
-  | 'ar' // Arabic
-  | 'pt' // Portuguese
-  | 'ru'; // Russian
+  | 'en' | 'hi' | 'ta' | 'te' | 'bn' | 'mr' | 'gu' | 'kn' | 'ml' | 'pa' | 'or' | 'as'
+  | 'es' | 'fr' | 'de' | 'zh' | 'ja' | 'ar' | 'pt' | 'ru';
 
 export const languageNames: Record<Language, string> = {
-  en: 'English',
-  hi: 'हिंदी (Hindi)',
-  ta: 'தமிழ் (Tamil)',
-  te: 'తెలుగు (Telugu)',
-  bn: 'বাংলা (Bengali)',
-  mr: 'मराठी (Marathi)',
-  gu: 'ગુજરાતી (Gujarati)',
-  kn: 'ಕನ್ನಡ (Kannada)',
-  ml: 'മലയാളം (Malayalam)',
-  pa: 'ਪੰਜਾਬੀ (Punjabi)',
-  or: 'ଓଡ଼ିଆ (Odia)',
-  as: 'অসমীয়া (Assamese)',
-  es: 'Español (Spanish)',
-  fr: 'Français (French)',
-  de: 'Deutsch (German)',
-  zh: '中文 (Chinese)',
-  ja: '日本語 (Japanese)',
-  ar: 'العربية (Arabic)',
-  pt: 'Português (Portuguese)',
-  ru: 'Русский (Russian)',
+  en: 'English', hi: 'हिंदी', ta: 'தமிழ்', te: 'తెలుగు', bn: 'বাংলা', mr: 'मराठी',
+  gu: 'ગુજરાતી', kn: 'ಕನ್ನಡ', ml: 'മലയാളം', pa: 'ਪੰਜਾਬੀ', or: 'ଓଡ଼ିଆ', as: 'অসমীয়া',
+  es: 'Español', fr: 'Français', de: 'Deutsch', zh: '中文', ja: '日本語', ar: 'العربية',
+  pt: 'Português', ru: 'Русский',
 };
 
 export const translations: Record<Language, any> = {
   en: {
-    nav: {
-      home: 'Home',
-      vision: 'Vision',
-      architecture: 'Architecture',
-      features: 'Features',
-      comparison: 'Comparison',
-      careers: 'Careers',
-      waitlist: 'Waitlist',
-      joinWaitlist: 'Join Waitlist',
-      back: 'Back',
-    },
-    hero: {
-      title: 'Privacy-First Communication',
-      subtitle: 'Revolutionary platform for secure connections',
-      cta: 'Get Started',
-    },
+    nav: { home: 'Home', vision: 'Vision', architecture: 'Architecture', features: 'Features', comparison: 'Comparison', careers: 'Careers', waitlist: 'Waitlist', joinWaitlist: 'Join Waitlist', back: 'Back' },
+    hero: { badge: 'Privacy-First Platform', title1: 'Redefining', title2: 'Digital Identity', title3: '& Connections', subtitle: 'Own your identity. Connect without compromise.', cta1: 'Join Waitlist', cta2: 'Read Technical Vision', stat1: 'Privacy Owned', stat2: 'Data Tracking', stat3: 'Possibilities' },
+    ceo: { title: 'A Vision for Digital Sovereignty', subtitle: 'Manik K. Sangal — Founder & CEO', p1: 'We stand at a crossroads in digital society evolution.', p2: 'Our mission is architecting a new foundation for digital existence.', p3: 'The road ahead is challenging but necessary.', closing: 'Join us in building the future we want to see.', brand: 'Verion' },
+    vision: { title: 'Why Privacy-First', titleHighlight: 'Matters', subtitle: 'Building something fundamentally different.', problemTitle: 'The Problem', problemSubtitle: 'What is wrong with current platforms', problems: { 1: { title: 'Surveillance Economy', desc: 'Your data becomes their profit.' }, 2: { title: 'Fake Connections', desc: 'Algorithms over authenticity.' }, 3: { title: 'Mental Manipulation', desc: 'Designed addiction patterns.' } }, solutionTitle: 'Our Solution', solutionSubtitle: 'A new paradigm', solutions: { 1: { title: 'User-Owned Identity', desc: 'Complete ownership and control.' }, 2: { title: 'Privacy Layers', desc: 'Granular control over sharing.' }, 3: { title: 'Seamless UX', desc: 'Simple, intuitive interactions.' } }, ctaTitle: 'Ready for Change?', ctaDesc: 'Join thousands building the future.' },
+    footer: { brand: 'Verion', desc: 'Building the future of digital identity.', joinWaitlist: 'Join Waitlist', readWhitepaper: 'Read Whitepaper', platform: 'Platform', community: 'Community', privacyTitle: 'Privacy-First Notice', privacyDesc: 'This website respects your privacy.', copyright: '© 2025 Verion. Building the decentralized future.', hostedInfo: '🔒 Hosted on decentralized infrastructure', links: { vision: 'Vision', architecture: 'Architecture', features: 'Features', careers: 'Careers', roadmap: 'Roadmap', discord: 'Discord', twitter: 'Twitter', github: 'GitHub', privacy: 'Privacy Policy', terms: 'Terms of Service', security: 'Security' } },
   },
   hi: {
-    nav: {
-      home: 'होम',
-      vision: 'विजन',
-      architecture: 'आर्किटेक्चर',
-      features: 'फीचर्स',
-      comparison: 'तुलना',
-      careers: 'करियर',
-      waitlist: 'वेटलिस्ट',
-      joinWaitlist: 'वेटलिस्ट में शामिल हों',
-      back: 'वापस',
-    },
-    hero: {
-      title: 'गोपनीयता-प्रथम संचार',
-      subtitle: 'सुरक्षित कनेक्शन के लिए क्रांतिकारी प्लेटफॉर्म',
-      cta: 'शुरू करें',
-    },
+    nav: { home: 'होम', vision: 'विजन', architecture: 'आर्किटेक्चर', features: 'फीचर्स', comparison: 'तुलना', careers: 'करियर', waitlist: 'वेटलिस्ट', joinWaitlist: 'वेटलिस्ट में शामिल हों', back: 'वापस' },
+    hero: { badge: 'गोपनीयता-प्रथम प्लेटफॉर्म', title1: 'फिर से परिभाषित', title2: 'डिजिटल पहचान', title3: 'और कनेक्शन', subtitle: 'अपनी पहचान के मालिक बनें।', cta1: 'वेटलिस्ट में शामिल हों', cta2: 'तकनीकी विजन पढ़ें', stat1: 'गोपनीयता स्वामित्व', stat2: 'डेटा ट्रैकिंग', stat3: 'संभावनाएं' },
+    ceo: { title: 'डिजिटल संप्रभुता के लिए विजन', subtitle: 'मानिक के. संगल — संस्थापक और सीईओ', p1: 'हम डिजिटल समाज के चौराहे पर हैं।', p2: 'हमारा मिशन नई नींव तैयार करना है।', p3: 'आगे का रास्ता चुनौतीपूर्ण है।', closing: 'हमारे साथ भविष्य बनाएं।', brand: 'वेरियन' },
+    vision: { title: 'गोपनीयता-प्रथम क्यों', titleHighlight: 'महत्वपूर्ण है', subtitle: 'कुछ अलग बना रहे हैं।', problemTitle: 'समस्या', problemSubtitle: 'क्या गलत है', problems: { 1: { title: 'निगरानी अर्थव्यवस्था', desc: 'आपका डेटा उनका लाभ।' }, 2: { title: 'नकली कनेक्शन', desc: 'एल्गोरिदम प्रामाणिकता पर।' }, 3: { title: 'मानसिक हेरफेर', desc: 'लत के पैटर्न।' } }, solutionTitle: 'हमारा समाधान', solutionSubtitle: 'नया प्रतिमान', solutions: { 1: { title: 'उपयोगकर्ता-स्वामित्व', desc: 'पूर्ण नियंत्रण।' }, 2: { title: 'गोपनीयता परतें', desc: 'विस्तृत नियंत्रण।' }, 3: { title: 'सहज UX', desc: 'सरल इंटरैक्शन।' } }, ctaTitle: 'तैयार हैं?', ctaDesc: 'हजारों से जुड़ें।' },
+    footer: { brand: 'वेरियन', desc: 'डिजिटल पहचान का भविष्य।', joinWaitlist: 'वेटलिस्ट में शामिल हों', readWhitepaper: 'व्हाइटपेपर पढ़ें', platform: 'प्लेटफॉर्म', community: 'समुदाय', privacyTitle: 'गोपनीयता सूचना', privacyDesc: 'हम आपकी गोपनीयता का सम्मान करते हैं।', copyright: '© 2025 वेरियन।', hostedInfo: '🔒 विकेन्द्रीकृत बुनियादी ढांचे पर', links: { vision: 'विजन', architecture: 'आर्किटेक्चर', features: 'फीचर्स', careers: 'करियर', roadmap: 'रोडमैप', discord: 'डिस्कॉर्ड', twitter: 'ट्विटर', github: 'गिटहब', privacy: 'गोपनीयता नीति', terms: 'सेवा की शर्तें', security: 'सुरक्षा' } },
   },
-  ta: {
-    nav: {
-      home: 'முகப்பு',
-      vision: 'பார்வை',
-      architecture: 'கட்டமைப்பு',
-      features: 'அம்சங்கள்',
-      comparison: 'ஒப்பீடு',
-      careers: 'வேலைவாய்ப்புகள்',
-      waitlist: 'காத்திருப்பு பட்டியல்',
-      joinWaitlist: 'காத்திருப்பு பட்டியலில் சேரவும்',
-      back: 'பின்செல்',
-    },
-    hero: {
-      title: 'தனியுரிமை-முதல் தொடர்பு',
-      subtitle: 'பாதுகாப்பான இணைப்புகளுக்கான புரட்சிகர தளம்',
-      cta: 'தொடங்குங்கள்',
-    },
-  },
-  te: {
-    nav: {
-      home: 'హోమ్',
-      vision: 'విజన్',
-      architecture: 'ఆర్కిటెక్చర్',
-      features: 'ఫీచర్స్',
-      comparison: 'పోలిక',
-      careers: 'కెరీర్స్',
-      waitlist: 'వెయిట్‌లిస్ట్',
-      joinWaitlist: 'వెయిట్‌లిస్ట్‌లో చేరండి',
-      back: 'వెనుకకు',
-    },
-    hero: {
-      title: 'గోప్యత-మొదటి కమ్యూనికేషన్',
-      subtitle: 'సురక్షిత కనెక్షన్‌ల కోసం విప్లవాత్మక వేదిక',
-      cta: 'ప్రారంభించండి',
-    },
-  },
-  bn: {
-    nav: {
-      home: 'হোম',
-      vision: 'ভিশন',
-      architecture: 'আর্কিটেকচার',
-      features: 'ফিচার',
-      comparison: 'তুলনা',
-      careers: 'ক্যারিয়ার',
-      waitlist: 'ওয়েটলিস্ট',
-      joinWaitlist: 'ওয়েটলিস্টে যোগ দিন',
-      back: 'ফিরে যান',
-    },
-    hero: {
-      title: 'গোপনীয়তা-প্রথম যোগাযোগ',
-      subtitle: 'নিরাপদ সংযোগের জন্য বিপ্লবী প্ল্যাটফর্ম',
-      cta: 'শুরু করুন',
-    },
-  },
-  mr: {
-    nav: {
-      home: 'होम',
-      vision: 'व्हिजन',
-      architecture: 'आर्किटेक्चर',
-      features: 'वैशिष्ट्ये',
-      comparison: 'तुलना',
-      careers: 'करिअर',
-      waitlist: 'वेटलिस्ट',
-      joinWaitlist: 'वेटलिस्टमध्ये सामील व्हा',
-      back: 'मागे',
-    },
-    hero: {
-      title: 'गोपनीयता-प्रथम संवाद',
-      subtitle: 'सुरक्षित कनेक्शनसाठी क्रांतिकारी प्लॅटफॉर्म',
-      cta: 'सुरुवात करा',
-    },
-  },
-  gu: {
-    nav: {
-      home: 'હોમ',
-      vision: 'વિઝન',
-      architecture: 'આર્કિટેક્ચર',
-      features: 'સુવિધાઓ',
-      comparison: 'સરખામણી',
-      careers: 'કારકિર્દી',
-      waitlist: 'વેઇટલિસ્ટ',
-      joinWaitlist: 'વેઇટલિસ્ટમાં જોડાઓ',
-      back: 'પાછળ',
-    },
-    hero: {
-      title: 'ગોપનીયતા-પ્રથમ સંચાર',
-      subtitle: 'સુરક્ષિત કનેક્શન માટે ક્રાંતિકારી પ્લેટફોર્મ',
-      cta: 'શરૂ કરો',
-    },
-  },
-  kn: {
-    nav: {
-      home: 'ಹೋಮ್',
-      vision: 'ವಿಷನ್',
-      architecture: 'ಆರ್ಕಿಟೆಕ್ಚರ್',
-      features: 'ವೈಶಿಷ್ಟ್ಯಗಳು',
-      comparison: 'ಹೋಲಿಕೆ',
-      careers: 'ವೃತ್ತಿಗಳು',
-      waitlist: 'ವೇಟ್‌ಲಿಸ್ಟ್',
-      joinWaitlist: 'ವೇಟ್‌ಲಿಸ್ಟ್‌ಗೆ ಸೇರಿ',
-      back: 'ಹಿಂದೆ',
-    },
-    hero: {
-      title: 'ಗೌಪ್ಯತೆ-ಮೊದಲ ಸಂವಹನ',
-      subtitle: 'ಸುರಕ್ಷಿತ ಸಂಪರ್ಕಗಳಿಗಾಗಿ ಕ್ರಾಂತಿಕಾರಿ ವೇದಿಕೆ',
-      cta: 'ಪ್ರಾರಂಭಿಸಿ',
-    },
-  },
-  ml: {
-    nav: {
-      home: 'ഹോം',
-      vision: 'വിഷൻ',
-      architecture: 'ആർക്കിടെക്ചർ',
-      features: 'സവിശേഷതകൾ',
-      comparison: 'താരതമ്യം',
-      careers: 'കരിയർ',
-      waitlist: 'വെയ്റ്റ്‌ലിസ്റ്റ്',
-      joinWaitlist: 'വെയ്റ്റ്‌ലിസ്റ്റിൽ ചേരുക',
-      back: 'തിരികെ',
-    },
-    hero: {
-      title: 'സ്വകാര്യത-ആദ്യ ആശയവിനിമയം',
-      subtitle: 'സുരക്ഷിത കണക്ഷനുകൾക്കായി വിപ്ലവകരമായ പ്ലാറ്റ്‌ഫോം',
-      cta: 'ആരംഭിക്കുക',
-    },
-  },
-  pa: {
-    nav: {
-      home: 'ਹੋਮ',
-      vision: 'ਵਿਜ਼ਨ',
-      architecture: 'ਆਰਕੀਟੈਕਚਰ',
-      features: 'ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ',
-      comparison: 'ਤੁਲਨਾ',
-      careers: 'ਕੈਰੀਅਰ',
-      waitlist: 'ਵੇਟਲਿਸਟ',
-      joinWaitlist: 'ਵੇਟਲਿਸਟ ਵਿੱਚ ਸ਼ਾਮਲ ਹੋਵੋ',
-      back: 'ਪਿੱਛੇ',
-    },
-    hero: {
-      title: 'ਗੋਪਨੀਯਤਾ-ਪਹਿਲਾਂ ਸੰਚਾਰ',
-      subtitle: 'ਸੁਰੱਖਿਅਤ ਕਨੈਕਸ਼ਨਾਂ ਲਈ ਕ੍ਰਾਂਤੀਕਾਰੀ ਪਲੇਟਫਾਰਮ',
-      cta: 'ਸ਼ੁਰੂ ਕਰੋ',
-    },
-  },
-  or: {
-    nav: {
-      home: 'ହୋମ୍',
-      vision: 'ଭିଜନ',
-      architecture: 'ଆର୍କିଟେକଚର୍',
-      features: 'ବୈଶିଷ୍ଟ୍ୟଗୁଡ଼ିକ',
-      comparison: 'ତୁଳନା',
-      careers: 'କ୍ୟାରିୟର',
-      waitlist: 'ୱେଟଲିଷ୍ଟ',
-      joinWaitlist: 'ୱେଟଲିଷ୍ଟରେ ଯୋଗ ଦିଅନ୍ତୁ',
-      back: 'ପଛକୁ',
-    },
-    hero: {
-      title: 'ଗୋପନୀୟତା-ପ୍ରଥମ ଯୋଗାଯୋଗ',
-      subtitle: 'ସୁରକ୍ଷିତ ସଂଯୋଗ ପାଇଁ ବିପ୍ଳବୀ ପ୍ଲାଟଫର୍ମ',
-      cta: 'ଆରମ୍ଭ କରନ୍ତୁ',
-    },
-  },
-  as: {
-    nav: {
-      home: 'হোম',
-      vision: 'ভিজন',
-      architecture: 'আৰ্কিটেকচাৰ',
-      features: 'বৈশিষ্ট্যসমূহ',
-      comparison: 'তুলনা',
-      careers: 'কেৰিয়াৰ',
-      waitlist: 'ৱেইটলিষ্ট',
-      joinWaitlist: 'ৱেইটলিষ্টত যোগদান কৰক',
-      back: 'পিছলৈ',
-    },
-    hero: {
-      title: 'গোপনীয়তা-প্ৰথম যোগাযোগ',
-      subtitle: 'সুৰক্ষিত সংযোগৰ বাবে বিপ্লৱী মঞ্চ',
-      cta: 'আৰম্ভ কৰক',
-    },
-  },
-  es: {
-    nav: {
-      home: 'Inicio',
-      vision: 'Visión',
-      architecture: 'Arquitectura',
-      features: 'Características',
-      comparison: 'Comparación',
-      careers: 'Carreras',
-      waitlist: 'Lista de espera',
-      joinWaitlist: 'Unirse a lista de espera',
-      back: 'Atrás',
-    },
-    hero: {
-      title: 'Comunicación Privacidad-Primero',
-      subtitle: 'Plataforma revolucionaria para conexiones seguras',
-      cta: 'Comenzar',
-    },
-  },
-  fr: {
-    nav: {
-      home: 'Accueil',
-      vision: 'Vision',
-      architecture: 'Architecture',
-      features: 'Fonctionnalités',
-      comparison: 'Comparaison',
-      careers: 'Carrières',
-      waitlist: 'Liste d\'attente',
-      joinWaitlist: 'Rejoindre la liste d\'attente',
-      back: 'Retour',
-    },
-    hero: {
-      title: 'Communication Axée sur la Confidentialité',
-      subtitle: 'Plateforme révolutionnaire pour des connexions sécurisées',
-      cta: 'Commencer',
-    },
-  },
-  de: {
-    nav: {
-      home: 'Startseite',
-      vision: 'Vision',
-      architecture: 'Architektur',
-      features: 'Funktionen',
-      comparison: 'Vergleich',
-      careers: 'Karriere',
-      waitlist: 'Warteliste',
-      joinWaitlist: 'Warteliste beitreten',
-      back: 'Zurück',
-    },
-    hero: {
-      title: 'Datenschutz-Erste Kommunikation',
-      subtitle: 'Revolutionäre Plattform für sichere Verbindungen',
-      cta: 'Loslegen',
-    },
-  },
-  zh: {
-    nav: {
-      home: '首页',
-      vision: '愿景',
-      architecture: '架构',
-      features: '功能',
-      comparison: '对比',
-      careers: '职业',
-      waitlist: '候补名单',
-      joinWaitlist: '加入候补名单',
-      back: '返回',
-    },
-    hero: {
-      title: '隐私优先通信',
-      subtitle: '安全连接的革命性平台',
-      cta: '开始使用',
-    },
-  },
-  ja: {
-    nav: {
-      home: 'ホーム',
-      vision: 'ビジョン',
-      architecture: 'アーキテクチャ',
-      features: '機能',
-      comparison: '比較',
-      careers: 'キャリア',
-      waitlist: 'ウェイトリスト',
-      joinWaitlist: 'ウェイトリストに参加',
-      back: '戻る',
-    },
-    hero: {
-      title: 'プライバシー第一のコミュニケーション',
-      subtitle: '安全な接続のための革新的なプラットフォーム',
-      cta: '始める',
-    },
-  },
-  ar: {
-    nav: {
-      home: 'الرئيسية',
-      vision: 'الرؤية',
-      architecture: 'البنية',
-      features: 'الميزات',
-      comparison: 'المقارنة',
-      careers: 'الوظائف',
-      waitlist: 'قائمة الانتظار',
-      joinWaitlist: 'انضم لقائمة الانتظار',
-      back: 'رجوع',
-    },
-    hero: {
-      title: 'اتصال يعطي الأولوية للخصوصية',
-      subtitle: 'منصة ثورية للاتصالات الآمنة',
-      cta: 'ابدأ',
-    },
-  },
-  pt: {
-    nav: {
-      home: 'Início',
-      vision: 'Visão',
-      architecture: 'Arquitetura',
-      features: 'Recursos',
-      comparison: 'Comparação',
-      careers: 'Carreiras',
-      waitlist: 'Lista de espera',
-      joinWaitlist: 'Entrar na lista de espera',
-      back: 'Voltar',
-    },
-    hero: {
-      title: 'Comunicação com Privacidade em Primeiro Lugar',
-      subtitle: 'Plataforma revolucionária para conexões seguras',
-      cta: 'Começar',
-    },
-  },
-  ru: {
-    nav: {
-      home: 'Главная',
-      vision: 'Видение',
-      architecture: 'Архитектура',
-      features: 'Функции',
-      comparison: 'Сравнение',
-      careers: 'Карьера',
-      waitlist: 'Список ожидания',
-      joinWaitlist: 'Присоединиться к списку ожидания',
-      back: 'Назад',
-    },
-    hero: {
-      title: 'Общение с приоритетом конфиденциальности',
-      subtitle: 'Революционная платформа для безопасных соединений',
-      cta: 'Начать',
-    },
-  },
+  ta: { nav: { home: 'முகப்பு', vision: 'பார்வை', architecture: 'கட்டமைப்பு', features: 'அம்சங்கள்', comparison: 'ஒப்பீடு', careers: 'வேலைவாய்ப்புகள்', waitlist: 'காத்திருப்பு பட்டியல்', joinWaitlist: 'சேரவும்', back: 'பின்செல்' }, hero: { badge: 'தனியுரிமை-முதல்', title1: 'மறு வரையறை', title2: 'டிஜிட்டல் அடையாளம்', title3: 'மற்றும் இணைப்புகள்', subtitle: 'உங்கள் அடையாளம்.', cta1: 'சேரவும்', cta2: 'படியுங்கள்', stat1: 'தனியுரிமை', stat2: 'கண்காணிப்பு', stat3: 'சாத்தியங்கள்' }, ceo: { title: 'டிஜிட்டல் இறையாண்மை', subtitle: 'மணிக் சங்கல்', p1: 'நாம் ஒரு சந்திப்பில்.', p2: 'எங்கள் நோக்கம்.', p3: 'பாதை சவாலானது.', closing: 'சேருங்கள்.', brand: 'வெரியன்' }, vision: { title: 'ஏன்', titleHighlight: 'முக்கியம்', subtitle: 'வித்தியாசமானது.', problemTitle: 'பிரச்சினை', problemSubtitle: 'என்ன தவறு', problems: { 1: { title: 'கண்காணிப்பு', desc: 'உங்கள் தரவு.' }, 2: { title: 'போலி', desc: 'அல்காரிதம்.' }, 3: { title: 'கையாளுதல்', desc: 'அடிமை.' } }, solutionTitle: 'தீர்வு', solutionSubtitle: 'புதிய', solutions: { 1: { title: 'சொந்த', desc: 'கட்டுப்பாடு.' }, 2: { title: 'தனியுரிமை', desc: 'நியंत்रण.' }, 3: { title: 'எளிது', desc: 'தொடர்பு.' } }, ctaTitle: 'தயாரா?', ctaDesc: 'சேருங்கள்.' }, footer: { brand: 'வெரியன்', desc: 'எதிர்காலம்.', joinWaitlist: 'சேரவும்', readWhitepaper: 'படியுங்கள்', platform: 'தளம்', community: 'சமூகம்', privacyTitle: 'தனியுரிமை', privacyDesc: 'மதிக்கிறோம்.', copyright: '© 2025', hostedInfo: '🔒', links: { vision: 'பார்வை', architecture: 'கட்டமைப்பு', features: 'அம்சங்கள்', careers: 'வேலைவாய்ப்புகள்', roadmap: 'வழித்திட்டம்', discord: 'டிஸ்கார்ட்', twitter: 'ட்விட்டர்', github: 'கிட்ஹப்', privacy: 'தனியுரிமை', terms: 'விதிமுறைகள்', security: 'பாதுகாப்பு' } } },
+  te: { nav: {}, hero: {}, ceo: {}, vision: {}, footer: {} },
+  bn: { nav: {}, hero: {}, ceo: {}, vision: {}, footer: {} },
+  mr: { nav: {}, hero: {}, ceo: {}, vision: {}, footer: {} },
+  gu: { nav: {}, hero: {}, ceo: {}, vision: {}, footer: {} },
+  kn: { nav: {}, hero: {}, ceo: {}, vision: {}, footer: {} },
+  ml: { nav: {}, hero: {}, ceo: {}, vision: {}, footer: {} },
+  pa: { nav: {}, hero: {}, ceo: {}, vision: {}, footer: {} },
+  or: { nav: {}, hero: {}, ceo: {}, vision: {}, footer: {} },
+  as: { nav: {}, hero: {}, ceo: {}, vision: {}, footer: {} },
+  es: { nav: { home: 'Inicio', vision: 'Visión', architecture: 'Arquitectura', features: 'Características', comparison: 'Comparación', careers: 'Carreras', waitlist: 'Lista', joinWaitlist: 'Unirse', back: 'Atrás' }, hero: { badge: 'Privacidad-Primero', title1: 'Redefiniendo', title2: 'Identidad Digital', title3: 'y Conexiones', subtitle: 'Tu identidad.', cta1: 'Unirse', cta2: 'Leer visión', stat1: 'Privacidad', stat2: 'Seguimiento', stat3: 'Posibilidades' }, ceo: { title: 'Visión', subtitle: 'Manik K. Sangal', p1: 'Encrucijada.', p2: 'Misión.', p3: 'Desafío.', closing: 'Únete.', brand: 'Verion' }, vision: { title: 'Por qué', titleHighlight: 'Importa', subtitle: 'Diferente.', problemTitle: 'Problema', problemSubtitle: 'Qué está mal', problems: { 1: { title: 'Vigilancia', desc: 'Tus datos.' }, 2: { title: 'Falso', desc: 'Algoritmos.' }, 3: { title: 'Manipulación', desc: 'Adicción.' } }, solutionTitle: 'Solución', solutionSubtitle: 'Paradigma', solutions: { 1: { title: 'Propiedad', desc: 'Control.' }, 2: { title: 'Privacidad', desc: 'Control.' }, 3: { title: 'Simple', desc: 'Intuitivo.' } }, ctaTitle: 'Listo?', ctaDesc: 'Únete.' }, footer: { brand: 'Verion', desc: 'Futuro.', joinWaitlist: 'Unirse', readWhitepaper: 'Leer', platform: 'Plataforma', community: 'Comunidad', privacyTitle: 'Privacidad', privacyDesc: 'Respetamos.', copyright: '© 2025', hostedInfo: '🔒', links: { vision: 'Visión', architecture: 'Arquitectura', features: 'Características', careers: 'Carreras', roadmap: 'Hoja de ruta', discord: 'Discord', twitter: 'Twitter', github: 'GitHub', privacy: 'Privacidad', terms: 'Términos', security: 'Seguridad' } } },
+  fr: { nav: {}, hero: {}, ceo: {}, vision: {}, footer: {} },
+  de: { nav: {}, hero: {}, ceo: {}, vision: {}, footer: {} },
+  zh: { nav: {}, hero: {}, ceo: {}, vision: {}, footer: {} },
+  ja: { nav: {}, hero: {}, ceo: {}, vision: {}, footer: {} },
+  ar: { nav: {}, hero: {}, ceo: {}, vision: {}, footer: {} },
+  pt: { nav: {}, hero: {}, ceo: {}, vision: {}, footer: {} },
+  ru: { nav: {}, hero: {}, ceo: {}, vision: {}, footer: {} },
 };
