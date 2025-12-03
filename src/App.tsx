@@ -11,6 +11,7 @@ import VisionPage from "./pages/VisionPage";
 import ArchitecturePage from "./pages/ArchitecturePage";
 import FeaturesPage from "./pages/FeaturesPage";
 import ComparisonPage from "./pages/ComparisonPage";
+import RoadmapPage from "./pages/RoadmapPage";
 import WaitlistPage from "./pages/WaitlistPage";
 import CareerPage from "./pages/CareerPage";
 import JobDetailsPage from "./pages/JobDetailsPage";
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/architecture" element={<ArchitecturePage />} />
           <Route path="/features" element={<FeaturesPage />} />
           <Route path="/comparison" element={<ComparisonPage />} />
+          <Route path="/roadmap" element={<RoadmapPage />} />
           <Route path="/waitlist" element={<WaitlistPage />} />
           <Route path="/careers" element={<CareerPage />} />
           <Route path="/careers/:jobId" element={<JobDetailsPage />} />

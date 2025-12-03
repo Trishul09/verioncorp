@@ -116,8 +116,8 @@ export const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed"
           >
-            Own your identity. Connect without compromise. 
-            A new social architecture for the future of human interaction.
+            The Blind Vault: Server holds your data but ZERO keys.
+            Epoch-based identity. On-device algorithms. True digital sovereignty.
           </motion.p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
