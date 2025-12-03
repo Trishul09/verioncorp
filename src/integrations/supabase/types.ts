@@ -168,10 +168,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      get_registrations_count: {
-        Args: Record<PropertyKey, never>
-        Returns: number
-      }
+      get_registrations_count: { Args: never; Returns: number }
     }
     Enums: {
       job_status: "open" | "closed"
