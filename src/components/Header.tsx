@@ -18,6 +18,7 @@ export const Header = () => {
     { label: t('nav.vision'), path: "/vision" },
     { label: t('nav.architecture'), path: "/architecture" },
     { label: t('nav.features'), path: "/features" },
+    { label: "Roadmap", path: "/roadmap" },
     { label: t('nav.comparison'), path: "/comparison" },
     { label: t('nav.careers'), path: "/careers" },
     { label: t('nav.waitlist'), path: "/waitlist" },

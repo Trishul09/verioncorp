@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
-import { User, Users, Globe, Lock, Eye, Shield } from "lucide-react";
+import { Users, Globe, Lock, Eye, Shield } from "lucide-react";
 import { motion } from "framer-motion";
 
 export const ArchitectureSection = () => {
@@ -8,58 +8,58 @@ export const ArchitectureSection = () => {
 
   const layers = [
     {
-      id: "personal",
-      title: "Personal Space",
-      icon: User,
+      id: "blind-vault",
+      title: "Blind Vault",
+      icon: Lock,
       color: "text-warm-gold",
       bgColor: "bg-warm-gold/10",
       borderColor: "border-warm-gold/30",
       accentGradient: "from-warm-gold to-warm-orange",
-      description: "Your private realm. Complete control, end-to-end encryption.",
+      description: "Zero-knowledge storage. Server holds encrypted blobs but ZERO keys.",
       features: [
-        "Private conversations",
-        "Personal AI assistants",
-        "Encrypted file storage",
-        "Offline-first architecture"
+        "PostgreSQL encrypted blobs",
+        "MLS Protocol (Forward Secrecy)",
+        "Client-side encryption",
+        "No PII stored ever"
       ],
-      privacy: "100% Private",
-      visibility: "Only you"
+      privacy: "Zero-Knowledge",
+      visibility: "Nobody (encrypted)"
     },
     {
-      id: "crowds",
-      title: "Crowds",
-      icon: Users,
+      id: "blind-identity",
+      title: "Blind Identity",
+      icon: Eye,
       color: "text-primary",
       bgColor: "bg-primary/10",
       borderColor: "border-primary/30",
       accentGradient: "from-primary to-accent",
-      description: "Curated groups with selective sharing and privacy controls.",
+      description: "30-day Epoch Tokens. New month = New digital identity.",
       features: [
-        "Interest-based communities",
-        "Selective data sharing",
-        "Group AI collaboration",
-        "Reputation-based access"
+        "Privacy Pass (ECC)",
+        "Epoch-based anonymity",
+        "Linkable Ring Signatures",
+        "Institution OAuth (no PII)"
       ],
-      privacy: "Selective Sharing",
-      visibility: "Chosen groups"
+      privacy: "Server Blind",
+      visibility: "Anonymous tokens"
     },
     {
-      id: "townsquare",
-      title: "Town Square",
+      id: "polymorphic",
+      title: "Polymorphic UI",
       icon: Globe,
       color: "text-emerald-400",
       bgColor: "bg-emerald-400/10",
       borderColor: "border-emerald-400/30",
       accentGradient: "from-emerald-400 to-teal-400",
-      description: "Public interactions with privacy-preserving social discovery.",
+      description: "One backend, infinite experiences. Reddit, YouTube, Spotify - all private.",
       features: [
-        "Public discussions",
-        "Content discovery",
-        "Pseudonymous interactions",
-        "Zero-knowledge proofs"
+        "Dynamic rendering engine",
+        "On-device TensorFlow Lite",
+        "Venn diagram controls",
+        "Client-side compute only"
       ],
-      privacy: "Pseudonymous",
-      visibility: "Public (anonymous)"
+      privacy: "Contextual",
+      visibility: "You control"
     }
   ];
 
@@ -92,11 +92,11 @@ export const ArchitectureSection = () => {
             viewport={{ once: true }}
           />
           <h2 className="text-4xl md:text-6xl font-bold mb-6 artistic-text-shadow">
-            Three-Layer <span className="text-gradient-warm">Architecture</span>
+            Blind Vault <span className="text-gradient-warm">Architecture</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            A new model for digital interaction. Each layer provides different privacy levels 
-            and social contexts, all under your complete control.
+            Three-layer privacy model: Zero-knowledge storage, blind identity tokens, 
+            and polymorphic rendering. Server holds data it cannot read.
           </p>
         </div>
 
@@ -247,27 +247,27 @@ export const ArchitectureSection = () => {
         >
           <div className="layered-depth glass-warm rounded-3xl p-12 max-w-4xl mx-auto texture-overlay">
             <h3 className="text-3xl font-serif font-bold mb-8">
-              Why This Architecture Works
+              Mathematical Privacy Guarantees
             </h3>
             <div className="grid md:grid-cols-2 gap-10 text-left">
               <motion.div
                 whileHover={{ x: 5 }}
                 className="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-gradient-to-b before:from-warm-gold before:to-warm-orange before:rounded-full"
               >
-                <h4 className="font-semibold mb-3 text-warm-gold text-lg">Granular Privacy</h4>
+                <h4 className="font-semibold mb-3 text-warm-gold text-lg">Zero-Knowledge Storage</h4>
                 <p className="text-muted-foreground leading-relaxed">
-                  Choose exactly what to share at each layer. Your personal space stays completely private, 
-                  while you can selectively engage in communities and public discourse.
+                  Server stores encrypted blobs but holds ZERO decryption keys. Even under court order,
+                  we cannot read your data. This is mathematical protection, not policy promises.
                 </p>
               </motion.div>
               <motion.div
                 whileHover={{ x: 5 }}
                 className="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-gradient-to-b before:from-primary before:to-accent before:rounded-full"
               >
-                <h4 className="font-semibold mb-3 text-primary text-lg">Contextual Interaction</h4>
+                <h4 className="font-semibold mb-3 text-primary text-lg">Forward Secrecy</h4>
                 <p className="text-muted-foreground leading-relaxed">
-                  Different layers serve different social needs. Private reflection, community building, 
-                  and public engagement all have their proper place and protection level.
+                  MLS Protocol ensures compromising a key today reveals ZERO past messages.
+                  Combined with 30-day Epoch Tokens, your identity resets monthly.
                 </p>
               </motion.div>
             </div>

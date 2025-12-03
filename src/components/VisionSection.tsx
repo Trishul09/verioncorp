@@ -15,36 +15,36 @@ export const VisionSection = () => {
   const problems = [
     {
       icon: Eye,
-      title: "Surveillance Economy",
-      description: "Your data becomes their profit while you lose privacy and control."
+      title: "Zero-Knowledge Farming",
+      description: "Current platforms read everything you post. Our server holds encrypted blobs with NO keys."
     },
     {
       icon: Users,
-      title: "Fake Connections",
-      description: "Algorithmic feeds prioritize engagement over authentic relationships."
+      title: "Identity Exploitation",
+      description: "Platforms track you forever. We use 30-day Epoch Tokens - new month, new digital identity."
     },
     {
       icon: Zap,
-      title: "Mental Manipulation",
-      description: "Designed addiction patterns harm mental health and autonomy."
+      title: "Algorithmic Control",
+      description: "They decide what you see. Our on-device TensorFlow Lite puts YOU in control of your feed."
     }
   ];
 
   const solutions = [
     {
       icon: Shield,
-      title: "User-Owned Identity",
-      description: "Your identity, your keys, your data. Complete ownership and control."
+      title: "Blind Vault Architecture",
+      description: "Server stores content it cannot read. Zero-knowledge hosting with client-side encryption."
     },
     {
       icon: Users,
-      title: "Privacy Layers",
-      description: "Granular control over what's shared, when, and with whom."
+      title: "Polymorphic Communities",
+      description: "One backend powers Reddit-style threads, YouTube-style video, and Spotify-style audio."
     },
     {
       icon: Zap,
-      title: "Seamless UX",
-      description: "Privacy-first doesn't mean complex. Simple, intuitive interactions."
+      title: "Sovereign Governance",
+      description: "Blind DAO voting without Web3 wallets. Ban bad actors without revealing identities."
     }
   ];
 

@@ -51,20 +51,20 @@ export const CEONote = () => {
               {/* CEO Note Content */}
               <div className="space-y-8 text-base md:text-lg leading-relaxed text-foreground/80 font-light">
                 <p className="first-letter:text-5xl first-letter:font-black first-letter:text-primary first-letter:mr-2 first-letter:float-left first-letter:leading-tight">
-                  We stand at a crossroads in the evolution of digital society. The current paradigm—where our identities are commodified, our data harvested, and our connections algorithmically manipulated—is fundamentally broken. It erodes the very essence of human autonomy and dignity.
+                  The current paradigm is fundamentally broken. Platforms harvest your data, manipulate your attention, and profit from your digital existence. We're building something radically different: a Blind Vault architecture where the server literally cannot read your content, even under court order.
                 </p>
                 
                 <p>
-                  Our mission is not merely to build another platform. We are architecting a new foundation for digital existence—one where privacy is paramount, identity is self-sovereign, and connections are authentic. This is deep tech with a human heart; advanced cryptography meeting intuitive design; Web3 principles made accessible to everyone.
+                  Our 5-year roadmap begins with the foundation: MLS Protocol for forward secrecy, Epoch-Based Blind Tokens for anonymous identity, and client-side encryption that keeps your data mathematically unreadable. By Phase 3, we introduce Blind DAO governance—community voting without Web3 wallets, moderation through Ring Signatures that ban bad actors without revealing identities.
                 </p>
                 
                 <p>
-                  The road ahead is challenging. We're not just disrupting an industry; we're reimagining the social contract of the digital age. But I believe deeply that technology should empower individuals, not extract from them. That privacy should be a right, not a luxury. That we can build systems that are both technologically sophisticated and beautifully human.
+                  The Polymorphic UI is our secret weapon: one privacy-first backend that renders as Reddit-style threads, YouTube-style video, or Spotify-style audio. Your phone runs TensorFlow Lite to control your own feed—no central algorithm decides what you see. This is not incremental improvement; this is architectural revolution.
                 </p>
                 
                 <div className="pt-8 border-t border-primary/20 mt-12">
                   <p className="text-xl md:text-2xl font-semibold text-foreground leading-relaxed">
-                    Join us in building the future we want to see—a future where you truly own your digital life.
+                    Join us in building the Blind Vault—where your digital life is mathematically sovereign.
                   </p>
                   <div className="mt-6 flex items-center gap-3">
                     <div className="h-px flex-1 bg-gradient-to-r from-primary/50 to-transparent"></div>

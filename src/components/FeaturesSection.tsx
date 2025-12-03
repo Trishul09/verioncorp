@@ -15,58 +15,58 @@ export const FeaturesSection = () => {
   const features = [
     {
       icon: Fingerprint,
-      title: "Identity Ownership",
-      description: "DID, Verifiable Credentials, and UCAN tokens give you complete control over your digital identity.",
-      technologies: ["DID", "VC", "UCAN"],
+      title: "Blind Vault Storage",
+      description: "Server holds encrypted blobs with ZERO keys. We literally cannot read your data even if forced.",
+      technologies: ["PostgreSQL", "Client Encryption"],
       gradient: "from-warm-gold to-warm-orange"
     },
     {
       icon: ShieldCheck,
-      title: "Zero Surveillance",
-      description: "No server-side tracking, no content analysis, no behavioral profiling. Your activity stays yours.",
-      technologies: ["E2EE", "Zero-Knowledge"],
+      title: "Epoch-Based Identity",
+      description: "30-day anonymous tokens. New month = new digital identity. Server validates without knowing who.",
+      technologies: ["Privacy Pass", "ECC Tokens"],
       gradient: "from-emerald-500 to-teal-500"
     },
     {
       icon: Bot,
-      title: "AI Assistants",
-      description: "Personal AI that learns your preferences privately. Roleplay, translation, and smart automation.",
-      technologies: ["Local AI", "Privacy-First"],
+      title: "On-Device Algorithm",
+      description: "TensorFlow Lite runs on YOUR phone. No central ranking or manipulation. You control your feed.",
+      technologies: ["TensorFlow Lite", "Client-Side"],
       gradient: "from-purple-500 to-pink-500"
     },
     {
       icon: Zap,
-      title: "Gasless Web3",
-      description: "Interact with blockchain features without complexity or transaction fees. Seamless crypto integration.",
-      technologies: ["Layer 2", "Meta-Transactions"],
+      title: "Blind DAO Governance",
+      description: "Vote on community rules with cryptographic counters. One person, one vote, zero surveillance.",
+      technologies: ["Blind Voting", "No Web3 Wallet"],
       gradient: "from-orange-500 to-red-500"
     },
     {
       icon: HardDrive,
-      title: "Offline-First",
-      description: "Your personal space works completely offline. Sync when you want, stay private when you don't.",
-      technologies: ["Local Storage", "P2P Sync"],
+      title: "Polymorphic Rendering",
+      description: "Same backend powers Reddit threads, YouTube videos, Spotify audio. Infinite apps, one privacy model.",
+      technologies: ["React Native", "Dynamic UI"],
       gradient: "from-teal-500 to-blue-500"
     },
     {
       icon: Globe,
-      title: "Real-Time Translation",
-      description: "Communicate across languages instantly with privacy-preserving translation that runs locally.",
-      technologies: ["Local Models", "Real-Time"],
+      title: "Privacy Relays (MASQUE)",
+      description: "Optional routing hides your IP from servers. Tor-lite protection without the complexity.",
+      technologies: ["IP Masking", "Metadata Defense"],
       gradient: "from-indigo-500 to-purple-500"
     },
     {
       icon: Key,
-      title: "Cryptographic Privacy",
-      description: "Military-grade encryption, zero-knowledge proofs, and advanced cryptography protect your data.",
-      technologies: ["ZK-Proofs", "AES-256"],
+      title: "Forward Secrecy (MLS)",
+      description: "Compromising a key today reveals ZERO past messages. Military-grade cryptographic protection.",
+      technologies: ["MLS Protocol", "Zero-Knowledge"],
       gradient: "from-pink-500 to-rose-500"
     },
     {
       icon: Users,
-      title: "Social Discovery",
-      description: "Find like-minded people and communities without revealing personal information or preferences.",
-      technologies: ["Anonymous Matching", "Privacy-Preserving"],
+      title: "Ring Signature Bans",
+      description: "Communities can ban bad actors without revealing their identity. Privacy-preserving moderation.",
+      technologies: ["Linkable Ring Sigs", "Epoch Banning"],
       gradient: "from-cyan-500 to-blue-500"
     }
   ];
@@ -209,20 +209,19 @@ export const FeaturesSection = () => {
                 transition={{ duration: 4, repeat: Infinity }}
               />
               <h3 className="text-3xl font-serif font-bold mb-6 relative">
-                Built for the <span className="text-gradient-warm drop-cap-target">Next Generation</span>
+                Better Than <span className="text-gradient-warm drop-cap-target">Every Alternative</span>
               </h3>
             </div>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Every feature is designed with privacy-first principles. We use the latest 
-              cryptographic techniques, decentralized technologies, and user-centric design 
-              to create an experience that puts you back in control.
+              We don't just match existing platforms—we surpass them in every privacy metric.
+              Mathematical guarantees, not policy promises. Open source, not trust-us rhetoric.
             </p>
             
             <div className="space-y-4">
               {[
-                { icon: ShieldCheck, text: "End-to-end encryption by default" },
-                { icon: Key, text: "Your keys, your data, your control" },
-                { icon: Zap, text: "Lightning-fast, seamless interactions" }
+                { icon: ShieldCheck, text: "Server holds ZERO keys (unlike WhatsApp)" },
+                { icon: Key, text: "Epoch tokens reset monthly (unlike Signal)" },
+                { icon: Zap, text: "On-device algorithm (unlike Instagram)" }
               ].map((item, index) => (
                 <motion.div
                   key={index}
@@ -252,13 +251,13 @@ export const FeaturesSection = () => {
             <div className="artistic-frame layered-depth glass-warm rounded-3xl p-10 relative overflow-hidden texture-overlay">
               <div className="network-bg absolute inset-0 opacity-20"></div>
               <div className="relative z-10">
-                <h4 className="text-2xl font-serif font-semibold mb-8 text-center">Technical Excellence</h4>
+                <h4 className="text-2xl font-serif font-semibold mb-8 text-center">Privacy Guarantees</h4>
                 <div className="grid grid-cols-2 gap-6">
                   {[
-                    { value: "99.9%", label: "Uptime", color: "from-emerald-400 to-teal-400" },
-                    { value: "<100ms", label: "Latency", color: "from-warm-gold to-warm-orange" },
-                    { value: "256-bit", label: "Encryption", color: "from-purple-500 to-pink-500" },
-                    { value: "0", label: "Data Leaks", color: "from-primary to-accent" }
+                    { value: "0", label: "Keys on Server", color: "from-emerald-400 to-teal-400" },
+                    { value: "30d", label: "Identity Reset", color: "from-warm-gold to-warm-orange" },
+                    { value: "MLS", label: "Forward Secrecy", color: "from-purple-500 to-pink-500" },
+                    { value: "P2P", label: "Direct Calls", color: "from-primary to-accent" }
                   ].map((stat, index) => (
                     <motion.div
                       key={index}
