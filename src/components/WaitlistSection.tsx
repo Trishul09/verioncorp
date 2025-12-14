@@ -258,8 +258,19 @@ export const WaitlistSection = () => {
             Be part of building the future of digital interaction. Get early access, 
             shape the platform, and help create a more private, user-owned internet.
           </p>
+          
+          {/* Highlighted Offer */}
+          <div className="mt-8 inline-block px-8 py-4 rounded-2xl bg-gradient-to-r from-accent-warm-gold/20 via-secondary/20 to-accent-warm-gold/20 border-2 border-secondary/50 shadow-glow">
+            <p className="text-lg md:text-xl font-bold">
+              <span className="bg-gradient-to-r from-accent-warm-gold via-secondary to-accent-warm-gold bg-clip-text text-transparent">
+                🎁 First 100 users get lifetime supply of most secure cloud storage
+              </span>
+            </p>
+            <p className="text-sm text-muted-foreground mt-1">Better than best — Zero-knowledge encrypted, truly yours forever</p>
+          </div>
+          
           {totalUsers > 0 && (
-            <Badge variant="secondary" className="mt-6 px-6 py-2 text-lg">
+            <Badge variant="secondary" className="mt-6 px-6 py-2 text-lg block mx-auto w-fit">
               <Users className="w-5 h-5 mr-2" />
               {totalUsers} users have registered already!
             </Badge>

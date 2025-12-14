@@ -6,55 +6,55 @@
 
 @layer base {
   :root {
-    /* Base Colors - High Contrast Authoritative Palette */
-    --background: 0 0% 98%;
-    --foreground: 220 35% 8%;
+    /* Base Colors - Sleek Futuristic Palette */
+    --background: 220 25% 6%;
+    --foreground: 210 20% 95%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 35% 8%;
+    --card: 220 30% 10%;
+    --card-foreground: 210 20% 95%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 35% 8%;
+    --popover: 220 30% 10%;
+    --popover-foreground: 210 20% 95%;
 
-    --primary: 220 50% 15%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 195 100% 50%;
+    --primary-foreground: 220 30% 6%;
 
-    --secondary: 24 95% 52%;
-    --secondary-foreground: 220 35% 8%;
+    --secondary: 280 80% 60%;
+    --secondary-foreground: 210 20% 95%;
 
-    --muted: 220 15% 90%;
-    --muted-foreground: 220 25% 35%;
+    --muted: 220 20% 18%;
+    --muted-foreground: 210 15% 60%;
 
-    --accent: 24 95% 52%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 195 100% 50%;
+    --accent-foreground: 220 30% 6%;
 
     --destructive: 0 85% 55%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 20% 82%;
-    --input: 220 15% 85%;
-    --ring: 220 50% 15%;
+    --border: 220 25% 20%;
+    --input: 220 25% 15%;
+    --ring: 195 100% 50%;
 
     --radius: 0.75rem;
 
-    /* Artistic Warm Accents - More Vivid */
-    --warm-orange: 18 75% 55%;
-    --warm-gold: 42 85% 58%;
-    --burnt-sienna: 15 65% 45%;
-    --deep-brown: 25 50% 18%;
-    --earth-terracotta: 12 60% 42%;
+    /* Futuristic Accents - Cyan & Purple */
+    --warm-orange: 195 100% 50%;
+    --warm-gold: 45 100% 60%;
+    --burnt-sienna: 280 80% 60%;
+    --deep-brown: 220 30% 12%;
+    --earth-terracotta: 195 90% 45%;
 
-    /* Enhanced Gradients - Luxurious & Rich */
-    --gradient-primary: linear-gradient(135deg, hsl(24 95% 52%), hsl(18 85% 55%));
-    --gradient-hero: radial-gradient(ellipse at top, hsl(28 35% 95%) 0%, hsl(25 40% 90%) 60%),
-                     radial-gradient(ellipse at bottom right, hsl(18 70% 70%) 0%, transparent 70%);
-    --gradient-warm-tech: linear-gradient(135deg, hsl(18 70% 58%) 0%, hsl(24 95% 52%) 50%, hsl(40 90% 55%) 100%);
-    --gradient-earth-dark: linear-gradient(135deg, hsl(25 45% 82%) 0%, hsl(30 40% 88%) 100%);
-    --gradient-organic: radial-gradient(ellipse at center, hsl(30 35% 92%) 0%, hsl(25 40% 85%) 50%, hsl(18 45% 88%) 100%);
-    --gradient-artistic: linear-gradient(135deg, hsl(280 40% 70%) 0%, hsl(260 45% 62%) 50%, hsl(240 40% 68%) 100%);
-    --gradient-luxury-bronze: linear-gradient(135deg, hsl(30 60% 32%) 0%, hsl(25 65% 25%) 50%, hsl(20 70% 20%) 100%);
-    --gradient-luxury-purple: linear-gradient(135deg, hsl(280 55% 28%) 0%, hsl(270 60% 22%) 50%, hsl(260 65% 16%) 100%);
-    --gradient-luxury-teal: linear-gradient(135deg, hsl(180 50% 25%) 0%, hsl(170 55% 20%) 50%, hsl(160 60% 14%) 100%);
+    /* Futuristic Gradients - Sleek & Modern */
+    --gradient-primary: linear-gradient(135deg, hsl(195 100% 50%), hsl(280 80% 60%));
+    --gradient-hero: radial-gradient(ellipse at top, hsl(220 30% 12%) 0%, hsl(220 35% 6%) 60%),
+                     radial-gradient(ellipse at bottom right, hsl(195 100% 50% / 0.15) 0%, transparent 70%);
+    --gradient-warm-tech: linear-gradient(135deg, hsl(195 100% 50%) 0%, hsl(280 80% 60%) 50%, hsl(320 80% 55%) 100%);
+    --gradient-earth-dark: linear-gradient(135deg, hsl(220 30% 15%) 0%, hsl(220 35% 8%) 100%);
+    --gradient-organic: radial-gradient(ellipse at center, hsl(220 30% 12%) 0%, hsl(220 35% 8%) 50%, hsl(220 40% 5%) 100%);
+    --gradient-artistic: linear-gradient(135deg, hsl(195 100% 50%) 0%, hsl(260 80% 60%) 50%, hsl(320 80% 55%) 100%);
+    --gradient-luxury-bronze: linear-gradient(135deg, hsl(220 30% 18%) 0%, hsl(220 35% 12%) 50%, hsl(220 40% 8%) 100%);
+    --gradient-luxury-purple: linear-gradient(135deg, hsl(280 60% 40%) 0%, hsl(270 65% 30%) 50%, hsl(260 70% 20%) 100%);
+    --gradient-luxury-teal: linear-gradient(135deg, hsl(195 70% 35%) 0%, hsl(190 75% 25%) 50%, hsl(185 80% 18%) 100%);
     
     /* Warm overlay gradients */
     --gradient-warm-overlay: linear-gradient(135deg, hsl(18 70% 55% / 0.25) 0%, transparent 50%, hsl(40 90% 60% / 0.25) 100%);
@@ -68,26 +68,26 @@
     --theme-neural: linear-gradient(135deg, hsl(35 55% 24%) 0%, hsl(25 60% 16%) 100%);
     --theme-crypto: linear-gradient(135deg, hsl(15 60% 22%) 0%, hsl(10 65% 15%) 100%);
     
-    /* Accent Colors - Vibrant & Rich */
-    --accent-steel: hsl(210 45% 42%);
-    --accent-carbon: hsl(225 40% 38%);
-    --accent-quantum: hsl(280 55% 52%);
-    --accent-matrix: hsl(165 50% 42%);
-    --accent-neural: hsl(35 55% 48%);
-    --accent-crypto: hsl(15 65% 45%);
-    --accent-warm-gold: hsl(42 85% 58%);
-    --accent-earth-brown: hsl(25 60% 35%);
-    --accent-deep-teal: hsl(180 55% 45%);
-    --accent-muted-lavender: hsl(270 50% 60%);
-    --accent-luxury-bronze: hsl(30 70% 42%);
-    --accent-luxury-copper: hsl(18 75% 45%);
+    /* Accent Colors - Futuristic & Vibrant */
+    --accent-steel: hsl(195 100% 50%);
+    --accent-carbon: hsl(220 40% 25%);
+    --accent-quantum: hsl(280 80% 60%);
+    --accent-matrix: hsl(165 80% 50%);
+    --accent-neural: hsl(45 100% 60%);
+    --accent-crypto: hsl(320 80% 55%);
+    --accent-warm-gold: hsl(45 100% 60%);
+    --accent-earth-brown: hsl(220 30% 20%);
+    --accent-deep-teal: hsl(195 100% 50%);
+    --accent-muted-lavender: hsl(280 70% 65%);
+    --accent-luxury-bronze: hsl(195 80% 40%);
+    --accent-luxury-copper: hsl(280 70% 50%);
     
-    /* Enhanced Shadow System */
-    --shadow-glow: 0 0 50px hsl(24 95% 52% / 0.30);
-    --shadow-card: 0 10px 40px hsl(25 40% 10% / 0.18);
-    --shadow-elegant: 0 25px 70px hsl(25 40% 10% / 0.15);
-    --shadow-warm: 0 15px 55px hsl(18 70% 50% / 0.25);
-    --shadow-organic: 0 20px 65px hsl(25 35% 55% / 0.18), 0 0 90px hsl(18 60% 55% / 0.15);
+    /* Enhanced Shadow System - Futuristic Glow */
+    --shadow-glow: 0 0 50px hsl(195 100% 50% / 0.35);
+    --shadow-card: 0 10px 40px hsl(220 40% 3% / 0.5);
+    --shadow-elegant: 0 25px 70px hsl(220 40% 3% / 0.4);
+    --shadow-warm: 0 15px 55px hsl(195 100% 50% / 0.25);
+    --shadow-organic: 0 20px 65px hsl(280 80% 60% / 0.2), 0 0 90px hsl(195 100% 50% / 0.15);
     
     /* Smooth Organic Transitions */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -95,17 +95,17 @@
     --transition-organic: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
     --transition-elegant: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     
-    /* Glass Effects - Luxurious */
-    --glass-bg: hsl(30 30% 96% / 0.88);
-    --glass-border: hsl(25 40% 10% / 0.25);
-    --glass-warm: hsl(25 40% 88% / 0.75);
-    --glass-dark: hsl(25 30% 15% / 0.7);
-    --glass-luxury: hsl(30 40% 20% / 0.8);
+    /* Glass Effects - Futuristic */
+    --glass-bg: hsl(220 30% 12% / 0.85);
+    --glass-border: hsl(195 100% 50% / 0.2);
+    --glass-warm: hsl(220 30% 15% / 0.8);
+    --glass-dark: hsl(220 35% 8% / 0.9);
+    --glass-luxury: hsl(220 30% 10% / 0.9);
     
-    /* Network Effects */
-    --network-primary: hsl(24 88% 58% / 0.5);
-    --network-secondary: hsl(18 80% 62% / 0.35);
-    --network-warm: hsl(40 70% 68% / 0.4);
+    /* Network Effects - Futuristic */
+    --network-primary: hsl(195 100% 50% / 0.4);
+    --network-secondary: hsl(280 80% 60% / 0.3);
+    --network-warm: hsl(45 100% 60% / 0.3);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;

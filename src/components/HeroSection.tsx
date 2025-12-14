@@ -120,14 +120,21 @@ export const HeroSection = () => {
             Epoch-based identity. On-device algorithms. True digital sovereignty.
           </motion.p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
-                className="font-bold px-8 shadow-lg hover:shadow-xl transition-all"
-                onClick={() => navigate('/waitlist')}
-              >
-                Join Waitlist
-              </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <div className="flex flex-col items-center">
+                <Button 
+                  size="lg" 
+                  className="font-bold px-8 shadow-lg hover:shadow-xl transition-all"
+                  onClick={() => navigate('/waitlist')}
+                >
+                  Join Waitlist
+                </Button>
+                <p className="mt-3 text-sm font-semibold text-center">
+                  <span className="bg-gradient-to-r from-accent-warm-gold via-secondary to-accent-warm-gold bg-clip-text text-transparent animate-pulse">
+                    🎁 First 100 users get lifetime supply of most secure cloud storage
+                  </span>
+                </p>
+              </div>
               <Button 
                 size="lg" 
                 variant="ghost" 
