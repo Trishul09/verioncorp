@@ -52,65 +52,67 @@ export const VisionSection = () => {
     <motion.section 
       ref={ref}
       id="vision" 
-      className="py-32 px-4 relative overflow-hidden"
-      style={{ background: 'var(--gradient-artistic)' }}
+      className="py-32 px-4 relative overflow-hidden bg-background"
     >
-      {/* Artistic Background Elements */}
-      <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-br from-accent-earth-brown/8 to-transparent organic-shape"></div>
-      <div className="absolute bottom-0 right-0 w-2/3 h-2/3 bg-gradient-to-tl from-accent-warm-gold/5 to-transparent asymmetric-layout"></div>
-      {/* Floating Elements */}
+      {/* Dynamic Background - matching Architecture/Features sections */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.15),transparent_50%)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,hsl(var(--accent)/0.1),transparent_50%)]"></div>
+      
+      {/* Ambient light effects */}
       <motion.div
-        style={{ y }}
-        className="absolute top-20 left-10 w-20 h-20 rounded-full bg-primary/10 blur-xl"
-        animate={{ 
+        className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
+        animate={{
           scale: [1, 1.2, 1],
-          opacity: [0.3, 0.6, 0.3]
+          opacity: [0.3, 0.5, 0.3],
         }}
-        transition={{ 
-          duration: 4, 
+        transition={{
+          duration: 8,
           repeat: Infinity,
-          ease: "easeInOut"
+          ease: "easeInOut",
         }}
       />
       <motion.div
-        style={{ y: useTransform(scrollYProgress, [0, 1], [-30, 30]) }}
-        className="absolute bottom-20 right-10 w-32 h-32 rounded-full bg-accent/10 blur-xl"
-        animate={{ 
-          scale: [1, 1.1, 1],
-          opacity: [0.2, 0.5, 0.2]
+        className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/5 rounded-full blur-3xl"
+        animate={{
+          scale: [1.2, 1, 1.2],
+          opacity: [0.2, 0.4, 0.2],
         }}
-        transition={{ 
-          duration: 6, 
+        transition={{
+          duration: 10,
           repeat: Infinity,
           ease: "easeInOut",
-          delay: 1
+          delay: 2,
         }}
       />
       <div className="container max-w-7xl mx-auto">
-        {/* Artistic Header */}
-        <div className="text-center mb-20 relative">
-          <motion.div 
-            className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-24 h-2 bg-accent-warm-gold rounded-full"
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            transition={{ duration: 1 }}
+        {/* Header - matching Architecture/Features style */}
+        <motion.div 
+          className="text-center mb-20 relative"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <motion.span
+            className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 border border-primary/20"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-          ></motion.div>
-          <h2 className="text-4xl md:text-6xl font-bold mb-6 artistic-text-shadow">
-            Why Privacy-First <span className="text-gradient relative">Matters
-              <motion.div 
-                className="absolute -bottom-3 left-0 right-0 h-1 bg-accent-warm-gold/60 rounded-full"
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                transition={{ duration: 1.5, delay: 0.5 }}
-                viewport={{ once: true }}
-              ></motion.div>
+          >
+            Our Vision
+          </motion.span>
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 text-foreground">
+            Why Privacy-First{" "}
+            <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+              Matters
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             The current social architecture is broken. We're building something fundamentally different.
           </p>
-        </div>
+        </motion.div>
 
         {/* Problem Section */}
         <div className="mb-24">
@@ -128,7 +130,7 @@ export const VisionSection = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="layered-card gradient-subtle border-border/50 p-8 hover:shadow-card transition-smooth hover-glow group organic-shape">
+                <Card className="bg-card/50 backdrop-blur-sm border-border/30 p-8 hover:border-destructive/30 transition-all duration-300 hover:shadow-lg hover:shadow-destructive/5 group">
                   <div className="flex flex-col items-center text-center">
                     <motion.div 
                       className="w-16 h-16 rounded-full bg-destructive/10 flex items-center justify-center mb-6"
@@ -162,7 +164,7 @@ export const VisionSection = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="layered-card gradient-subtle border-primary/20 p-8 hover:shadow-glow transition-smooth hover-glow group organic-shape">
+                <Card className="bg-card/50 backdrop-blur-sm border-border/30 p-8 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 group">
                   <div className="flex flex-col items-center text-center">
                     <motion.div 
                       className="w-16 h-16 rounded-full gradient-primary flex items-center justify-center mb-6"
@@ -189,11 +191,11 @@ export const VisionSection = () => {
           viewport={{ once: true }}
         >
           <motion.div 
-            className="glass-morphism rounded-2xl p-12 max-w-2xl mx-auto"
-            whileHover={{ scale: 1.02 }}
+            className="bg-card/30 backdrop-blur-sm border border-border/30 rounded-2xl p-12 max-w-2xl mx-auto"
+            whileHover={{ scale: 1.02, borderColor: 'hsl(var(--primary) / 0.3)' }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <h3 className="text-2xl font-bold mb-4">Ready for Change?</h3>
+            <h3 className="text-2xl font-bold mb-4 text-foreground">Ready for Change?</h3>
             <p className="text-muted-foreground">
               Join thousands building the future of digital interaction.
             </p>
