@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Shield } from "lucide-react";
 import { AnimatedBackground } from "./AnimatedBackground";
 import { motion } from "framer-motion";
@@ -121,20 +122,13 @@ export const HeroSection = () => {
           </motion.p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <div className="flex flex-col items-center">
-                <Button 
-                  size="lg" 
-                  className="font-bold px-8 shadow-lg hover:shadow-xl transition-all"
-                  onClick={() => navigate('/waitlist')}
-                >
-                  Join Waitlist
-                </Button>
-                <p className="mt-3 text-sm font-semibold text-center">
-                  <span className="bg-gradient-to-r from-accent-warm-gold via-secondary to-accent-warm-gold bg-clip-text text-transparent animate-pulse">
-                    🎁 First 100 users get lifetime supply of most secure cloud storage
-                  </span>
-                </p>
-              </div>
+              <Button 
+                size="lg" 
+                className="font-bold px-8 shadow-lg hover:shadow-xl transition-all"
+                onClick={() => navigate('/waitlist')}
+              >
+                Join Waitlist
+              </Button>
               <Button 
                 size="lg" 
                 variant="ghost" 
@@ -144,6 +138,47 @@ export const HeroSection = () => {
                 Read Technical Vision
               </Button>
             </div>
+
+          {/* Pioneer Access Package */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="mt-10 max-w-2xl mx-auto"
+          >
+            <div className="glass-morphism rounded-2xl p-6 border-2 border-secondary/50 shadow-glow">
+              <Badge className="mb-4 bg-gradient-to-r from-accent-warm-gold to-secondary text-background font-bold">
+                Pioneer Access Package
+              </Badge>
+              <h3 className="text-2xl font-bold mb-2 text-gradient">
+                Claim Your Identity on the Verion Network.
+              </h3>
+              <p className="text-muted-foreground mb-6">
+                The first 1,000 users to join the waitlist unlock the <span className="text-secondary font-semibold">Pioneer Protocol</span>.
+              </p>
+              
+              <div className="space-y-3 text-left">
+                <div className="flex items-center gap-3">
+                  <div className="w-6 h-6 rounded-full bg-secondary/20 flex items-center justify-center">
+                    <span className="text-secondary text-sm">✓</span>
+                  </div>
+                  <span className="text-sm">Secure your unique <span className="font-mono text-secondary">@username</span> before public launch.</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-6 h-6 rounded-full bg-secondary/20 flex items-center justify-center">
+                    <span className="text-secondary text-sm">✓</span>
+                  </div>
+                  <span className="text-sm">Unlock the <span className="font-bold text-accent-warm-gold">"3-Year Lockdown"</span> deal <span className="text-secondary font-bold">(60% OFF storage)</span>.</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-6 h-6 rounded-full bg-accent-warm-gold/20 flex items-center justify-center">
+                    <span className="text-accent-warm-gold text-sm">★</span>
+                  </div>
+                  <span className="text-sm"><span className="font-bold text-accent-warm-gold">"Founding Member"</span> Gold Badge on your profile.</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
 
           {/* Artistic Stats */}
           <motion.div 

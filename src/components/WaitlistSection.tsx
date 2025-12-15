@@ -259,14 +259,40 @@ export const WaitlistSection = () => {
             shape the platform, and help create a more private, user-owned internet.
           </p>
           
-          {/* Highlighted Offer */}
-          <div className="mt-8 inline-block px-8 py-4 rounded-2xl bg-gradient-to-r from-accent-warm-gold/20 via-secondary/20 to-accent-warm-gold/20 border-2 border-secondary/50 shadow-glow">
-            <p className="text-lg md:text-xl font-bold">
-              <span className="bg-gradient-to-r from-accent-warm-gold via-secondary to-accent-warm-gold bg-clip-text text-transparent">
-                🎁 First 100 users get lifetime supply of most secure cloud storage
-              </span>
-            </p>
-            <p className="text-sm text-muted-foreground mt-1">Better than best — Zero-knowledge encrypted, truly yours forever</p>
+          {/* Pioneer Access Package */}
+          <div className="mt-10 max-w-2xl mx-auto">
+            <div className="glass-morphism rounded-2xl p-8 border-2 border-secondary/50 shadow-glow">
+              <Badge className="mb-4 bg-gradient-to-r from-accent-warm-gold to-secondary text-background font-bold text-sm px-4 py-1">
+                Pioneer Access Package
+              </Badge>
+              <h3 className="text-2xl md:text-3xl font-bold mb-2 text-gradient">
+                Claim Your Identity on the Verion Network.
+              </h3>
+              <p className="text-muted-foreground mb-6 text-lg">
+                The first 1,000 users to join the waitlist unlock the <span className="text-secondary font-semibold">Pioneer Protocol</span>.
+              </p>
+              
+              <div className="space-y-4 text-left max-w-md mx-auto">
+                <div className="flex items-center gap-4">
+                  <div className="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center flex-shrink-0">
+                    <span className="text-secondary text-lg">✓</span>
+                  </div>
+                  <span>Secure your unique <span className="font-mono text-secondary font-bold">@username</span> before public launch.</span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center flex-shrink-0">
+                    <span className="text-secondary text-lg">✓</span>
+                  </div>
+                  <span>Unlock the <span className="font-bold text-accent-warm-gold">"3-Year Lockdown"</span> deal <span className="text-secondary font-bold">(60% OFF storage)</span>.</span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="w-8 h-8 rounded-full bg-accent-warm-gold/20 flex items-center justify-center flex-shrink-0">
+                    <span className="text-accent-warm-gold text-lg">★</span>
+                  </div>
+                  <span><span className="font-bold text-accent-warm-gold">"Founding Member"</span> Gold Badge on your profile.</span>
+                </div>
+              </div>
+            </div>
           </div>
           
           {totalUsers > 0 && (
