@@ -417,6 +417,44 @@ export const WaitlistSection = () => {
           </div>
         </div>
 
+        {/* Anonymous Feedback Section */}
+        <div className="mb-20">
+          <Card className="glass-morphism border-secondary/30 p-8 max-w-2xl mx-auto">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center">
+                <MessageSquare className="w-6 h-6 text-secondary" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold">Share Your Feedback</h3>
+                <p className="text-sm text-muted-foreground">Your feedback is completely anonymous</p>
+              </div>
+            </div>
+            
+            <form onSubmit={handleFeedbackSubmit} className="space-y-4">
+              <Textarea
+                value={feedback}
+                onChange={(e) => setFeedback(e.target.value)}
+                placeholder="Tell us what you think, suggest features, or share your ideas..."
+                className="min-h-[120px] glass-morphism resize-none"
+                maxLength={1000}
+              />
+              <div className="flex items-center justify-between">
+                <p className="text-xs text-muted-foreground">
+                  {feedback.length}/1000 characters
+                </p>
+                <Button 
+                  type="submit" 
+                  disabled={!feedback.trim() || isFeedbackSubmitting}
+                  className="gradient-primary hover:shadow-glow"
+                >
+                  <Send className="w-4 h-4 mr-2" />
+                  {isFeedbackSubmitting ? 'Sending...' : 'Submit Feedback'}
+                </Button>
+              </div>
+            </form>
+          </Card>
+        </div>
+
         {/* Roadmap */}
         <div id="roadmap" className="text-center mb-12">
           <h3 className="text-3xl font-bold mb-4">Development Roadmap</h3>
@@ -527,44 +565,6 @@ export const WaitlistSection = () => {
               </div>
             </Card>
           ))}
-        </div>
-
-        {/* Anonymous Feedback Section */}
-        <div className="mt-20">
-          <Card className="glass-morphism border-secondary/30 p-8 max-w-2xl mx-auto">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center">
-                <MessageSquare className="w-6 h-6 text-secondary" />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold">Share Your Feedback</h3>
-                <p className="text-sm text-muted-foreground">Your feedback is completely anonymous</p>
-              </div>
-            </div>
-            
-            <form onSubmit={handleFeedbackSubmit} className="space-y-4">
-              <Textarea
-                value={feedback}
-                onChange={(e) => setFeedback(e.target.value)}
-                placeholder="Tell us what you think, suggest features, or share your ideas..."
-                className="min-h-[120px] glass-morphism resize-none"
-                maxLength={1000}
-              />
-              <div className="flex items-center justify-between">
-                <p className="text-xs text-muted-foreground">
-                  {feedback.length}/1000 characters
-                </p>
-                <Button 
-                  type="submit" 
-                  disabled={!feedback.trim() || isFeedbackSubmitting}
-                  className="gradient-primary hover:shadow-glow"
-                >
-                  <Send className="w-4 h-4 mr-2" />
-                  {isFeedbackSubmitting ? 'Sending...' : 'Submit Feedback'}
-                </Button>
-              </div>
-            </form>
-          </Card>
         </div>
       </div>
     </section>
