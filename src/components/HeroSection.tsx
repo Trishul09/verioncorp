@@ -115,10 +115,18 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed"
+            className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-3xl mx-auto leading-relaxed"
           >
             The Blind Vault: Server holds your data but ZERO keys.
             Epoch-based identity. On-device algorithms. True digital sovereignty.
+          </motion.p>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+            className="text-lg md:text-xl text-secondary font-medium mb-12 max-w-3xl mx-auto"
+          >
+            An AI-based social ecosystem built for privacy and best user experience.
           </motion.p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

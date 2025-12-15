@@ -3,7 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Mail, Wallet, Users, Zap, Shield, Globe } from "lucide-react";
+import { Textarea } from "@/components/ui/textarea";
+import { ArrowRight, Mail, Wallet, Users, Zap, Shield, Globe, MessageSquare, Send } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
@@ -12,7 +13,35 @@ export const WaitlistSection = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [totalUsers, setTotalUsers] = useState<number>(0);
+  const [feedback, setFeedback] = useState("");
+  const [isFeedbackSubmitting, setIsFeedbackSubmitting] = useState(false);
   const { toast } = useToast();
+
+  const handleFeedbackSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!feedback.trim()) return;
+
+    setIsFeedbackSubmitting(true);
+    try {
+      const { error } = await supabase.from('feedback').insert({ message: feedback.trim() });
+      if (error) throw error;
+      
+      setFeedback("");
+      toast({
+        title: "Thank you!",
+        description: "Your anonymous feedback has been submitted."
+      });
+    } catch (error) {
+      console.error('Feedback error:', error);
+      toast({
+        title: "Error",
+        description: "Failed to submit feedback. Please try again.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsFeedbackSubmitting(false);
+    }
+  };
 
   // Fetch total registrations count using secure function
   useEffect(() => {
@@ -498,6 +527,44 @@ export const WaitlistSection = () => {
               </div>
             </Card>
           ))}
+        </div>
+
+        {/* Anonymous Feedback Section */}
+        <div className="mt-20">
+          <Card className="glass-morphism border-secondary/30 p-8 max-w-2xl mx-auto">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center">
+                <MessageSquare className="w-6 h-6 text-secondary" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold">Share Your Feedback</h3>
+                <p className="text-sm text-muted-foreground">Your feedback is completely anonymous</p>
+              </div>
+            </div>
+            
+            <form onSubmit={handleFeedbackSubmit} className="space-y-4">
+              <Textarea
+                value={feedback}
+                onChange={(e) => setFeedback(e.target.value)}
+                placeholder="Tell us what you think, suggest features, or share your ideas..."
+                className="min-h-[120px] glass-morphism resize-none"
+                maxLength={1000}
+              />
+              <div className="flex items-center justify-between">
+                <p className="text-xs text-muted-foreground">
+                  {feedback.length}/1000 characters
+                </p>
+                <Button 
+                  type="submit" 
+                  disabled={!feedback.trim() || isFeedbackSubmitting}
+                  className="gradient-primary hover:shadow-glow"
+                >
+                  <Send className="w-4 h-4 mr-2" />
+                  {isFeedbackSubmitting ? 'Sending...' : 'Submit Feedback'}
+                </Button>
+              </div>
+            </form>
+          </Card>
         </div>
       </div>
     </section>
