@@ -167,6 +167,69 @@ export const WaitlistSection = () => {
     }
   ];
 
+  const developmentTimeline = [
+    {
+      role: "Dev 1",
+      title: "Backend Architect",
+      quarters: ["Q4 2025", "Q1 2026"],
+      deliverables: [
+        "Design and build the core Architecture, Database Schema, and initial APIs",
+        "Provide support and consultation to Frontend and Android developers integrating with backend"
+      ],
+      trl: "TRL 3-5"
+    },
+    {
+      role: "Dev 2",
+      title: "Frontend Developer",
+      quarters: ["Q1 2026", "Q2 2026"],
+      deliverables: [
+        "Build the Web App MVP, including UI component library and onboarding flow",
+        "Complete all MVP features and implement fixes based on internal and pilot feedback"
+      ],
+      trl: "TRL 5-6"
+    },
+    {
+      role: "Dev 3",
+      title: "Android Developer",
+      quarters: ["Q2 2026", "Q3 2026"],
+      deliverables: [
+        "Build the Native Android MVP for the pilot launch",
+        "Provide pilot support, fix bugs, and begin implementing advanced features for V1 release"
+      ],
+      trl: "TRL 6-7"
+    },
+    {
+      role: "Dev 4",
+      title: "Security & DevOps",
+      quarters: ["Q3 2026", "Q4 2026"],
+      deliverables: [
+        "Harden all servers for pilot, set up monitoring, and implement robust security protocols (E2E Encryption)",
+        "Manage third-party security audits, conduct penetration testing, and ensure infrastructure is ready to scale"
+      ],
+      trl: "TRL 7-8"
+    },
+    {
+      role: "Dev 5",
+      title: "iOS & Desktop Dev",
+      quarters: ["Q4 2026", "Q1 2027"],
+      deliverables: [
+        "Build the native iOS and Windows Desktop applications for the V1 launch",
+        "Finalize the apps, integrate feedback, and manage the App Store submission process"
+      ],
+      trl: "TRL 8-9"
+    },
+    {
+      role: "Dev 6",
+      title: "Backend Scaling",
+      quarters: ["Q1 2027"],
+      deliverables: [
+        "Refactor and optimize the entire backend for the V1 public launch",
+        "Focus on performance, scalability, and efficiency to handle large influx of users"
+      ],
+      trl: "TRL 9"
+    }
+  ];
+
   if (isSubmitted) {
     return (
       <section id="waitlist" className="py-32 px-4">
@@ -369,6 +432,53 @@ export const WaitlistSection = () => {
           </Card>
         </div>
 
+        {/* Roadmap */}
+        <div id="roadmap" className="text-center mb-12">
+          <h3 className="text-3xl font-bold mb-4">Development Roadmap</h3>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Track our progress from initial architecture to global launch. Technology Readiness Level (TRL) progression: 3 → 9
+          </p>
+        </div>
+
+        {/* Detailed Deliverables */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {developmentTimeline.map((dev, index) => (
+            <Card key={index} className={`
+              gradient-subtle border-border/50 p-6 hover-glow transition-smooth relative
+              ${index === 0 ? 'border-accent/30 shadow-glow' : ''}
+            `}>
+              {index === 0 && (
+                <Badge className="absolute -top-3 left-4 gradient-primary">
+                  In Progress
+                </Badge>
+              )}
+              
+              <div className="flex items-center justify-between mb-4">
+                <h4 className="font-mono text-accent font-semibold">{dev.role}</h4>
+                <Badge variant="secondary" className="text-xs">
+                  {dev.trl}
+                </Badge>
+              </div>
+              
+              <h5 className="text-lg font-bold mb-4">{dev.title}</h5>
+              
+              <ul className="space-y-3">
+                {dev.deliverables.map((deliverable, delIndex) => (
+                  <li key={delIndex} className="text-sm text-muted-foreground flex items-start gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0 mt-1.5"></div>
+                    <span className="leading-relaxed">{deliverable}</span>
+                  </li>
+                ))}
+              </ul>
+              
+              <div className="mt-4 pt-4 border-t border-border/30">
+                <div className="text-xs text-muted-foreground">
+                  Active: {dev.quarters.join(", ")}
+                </div>
+              </div>
+            </Card>
+          ))}
+        </div>
       </div>
     </section>
   );
