@@ -7,6 +7,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { ArrowRight, Mail, Wallet, Users, Zap, Shield, Globe, MessageSquare, Send } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import { AnimatedBackground } from "./AnimatedBackground";
+import { motion } from "framer-motion";
 
 export const WaitlistSection = () => {
   const [email, setEmail] = useState("");
@@ -232,41 +234,154 @@ export const WaitlistSection = () => {
 
   if (isSubmitted) {
     return (
-      <section id="waitlist" className="py-32 px-4">
-        <div className="container max-w-4xl mx-auto text-center">
-          <Card className="gradient-subtle border-primary/20 p-12">
-            <div className="w-20 h-20 rounded-full gradient-primary flex items-center justify-center mx-auto mb-6">
-              <Shield className="w-10 h-10 text-primary-foreground" />
-            </div>
-            <h2 className="text-3xl font-bold mb-4">Welcome to the Future!</h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              You're now on the waitlist. We'll notify you as soon as early access becomes available.
-            </p>
-            <Badge variant="secondary" className="px-6 py-2">
-              <Users className="w-4 h-4 mr-2" />
-              You're one of {totalUsers} early adopters!
-            </Badge>
-          </Card>
+      <section id="waitlist" className="relative py-32 px-4 overflow-hidden">
+        {/* Artistic Background */}
+        <div className="absolute inset-0 gradient-organic"></div>
+        <div className="absolute top-0 left-0 w-1/3 h-full bg-gradient-to-br from-accent-warm-gold/5 to-transparent"></div>
+        <div className="absolute bottom-0 right-0 w-2/5 h-3/4 bg-gradient-to-tl from-accent-deep-teal/5 to-transparent organic-shape"></div>
+        <AnimatedBackground />
+        
+        <div className="container max-w-4xl mx-auto text-center relative z-10">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+          >
+            <Card className="glass-morphism border-secondary/30 p-12 shadow-glow">
+              <div className="w-20 h-20 rounded-full gradient-primary flex items-center justify-center mx-auto mb-6">
+                <Shield className="w-10 h-10 text-primary-foreground" />
+              </div>
+              <h2 className="text-3xl font-bold mb-4">Welcome to the Future!</h2>
+              <p className="text-lg text-muted-foreground mb-8">
+                You're now on the waitlist. We'll notify you as soon as early access becomes available.
+              </p>
+              <Badge variant="secondary" className="px-6 py-2">
+                <Users className="w-4 h-4 mr-2" />
+                You're one of {totalUsers} early adopters!
+              </Badge>
+            </Card>
+          </motion.div>
         </div>
       </section>
     );
   }
 
   return (
-    <section id="waitlist" className="py-32 px-4">
-      <div className="container max-w-7xl mx-auto">
+    <section id="waitlist" className="relative py-32 px-4 overflow-hidden">
+      {/* Artistic Background Layers - matching HeroSection */}
+      <div className="absolute inset-0 gradient-organic"></div>
+      <div className="absolute top-0 left-0 w-1/3 h-full bg-gradient-to-br from-accent-warm-gold/5 to-transparent"></div>
+      <div className="absolute bottom-0 right-0 w-2/5 h-3/4 bg-gradient-to-tl from-accent-deep-teal/5 to-transparent organic-shape"></div>
+      <AnimatedBackground />
+      
+      {/* Artistic Floating Elements */}
+      <motion.div
+        className="absolute top-20 left-1/4 w-16 h-16 artistic-circle bg-accent-warm-gold/10"
+        animate={{
+          y: [0, -30, 0],
+          rotate: [0, 360],
+          opacity: [0.3, 0.7, 0.3]
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+      <motion.div
+        className="absolute top-32 right-1/4 w-24 h-24 organic-shape bg-accent-deep-teal/10"
+        animate={{
+          y: [0, 20, 0],
+          x: [0, -15, 0],
+          opacity: [0.2, 0.5, 0.2]
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2
+        }}
+      />
+      <motion.div
+        className="absolute bottom-40 left-1/6 w-12 h-32 bg-accent-muted-lavender/20 organic-shape"
+        animate={{
+          y: [0, -25, 0],
+          rotate: [0, 15, 0],
+          opacity: [0.3, 0.6, 0.3]
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 4
+        }}
+      />
+      <motion.div
+        className="absolute top-1/3 right-1/6 w-8 h-8 rounded-full bg-primary/40"
+        animate={{
+          scale: [1, 1.8, 1],
+          opacity: [0.4, 0.8, 0.4]
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1
+        }}
+      />
+
+      <div className="container max-w-7xl mx-auto relative z-10">
         {/* Header */}
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            Join the <span className="text-gradient">Revolution</span>
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-20"
+        >
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-morphism mb-8 hover-glow"
+          >
+            <Shield className="w-4 h-4 text-primary" />
+            <span className="text-sm font-medium">Join the Movement</span>
+          </motion.div>
+          
+          <motion.h2 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-4xl md:text-6xl font-black mb-6 tracking-tight artistic-text-shadow"
+          >
+            Join the{" "}
+            <span className="text-gradient relative">
+              Revolution
+              <motion.div 
+                className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-accent-warm-gold to-accent-deep-teal rounded-full"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 1.2, delay: 1 }}
+              />
+            </span>
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="text-xl text-muted-foreground max-w-3xl mx-auto"
+          >
             Be part of building the future of digital interaction. Get early access, 
             shape the platform, and help create a more private, user-owned internet.
-          </p>
+          </motion.p>
           
           {/* Pioneer Access Package */}
-          <div className="mt-10 max-w-2xl mx-auto">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="mt-10 max-w-2xl mx-auto"
+          >
             <div className="glass-morphism rounded-2xl p-8 border-2 border-secondary/50 shadow-glow">
               <Badge className="mb-4 bg-gradient-to-r from-accent-warm-gold to-secondary text-background font-bold text-sm px-4 py-1">
                 Pioneer Access Package
@@ -299,21 +414,31 @@ export const WaitlistSection = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
           
           {totalUsers > 0 && (
-            <Badge variant="secondary" className="mt-6 px-6 py-2 text-lg block mx-auto w-fit">
-              <Users className="w-5 h-5 mr-2" />
-              {totalUsers} users have registered already!
-            </Badge>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 1 }}
+            >
+              <Badge variant="secondary" className="mt-6 px-6 py-2 text-lg">
+                <Users className="w-5 h-5 mr-2" />
+                {totalUsers} users have registered already!
+              </Badge>
+            </motion.div>
           )}
-        </div>
+        </motion.div>
 
         {/* Main Signup */}
         <div className="grid lg:grid-cols-2 gap-16 mb-20">
           {/* Signup Form */}
-          <div>
-            <Card className="gradient-subtle border-primary/20 p-8">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <Card className="glass-morphism border-primary/20 p-8 hover:shadow-2xl hover:shadow-primary/10 transition-all">
               <h3 className="text-2xl font-bold mb-6">Get Early Access</h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -326,7 +451,7 @@ export const WaitlistSection = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="your@email.com"
-                    className="glass-morphism"
+                    className="glass-morphism border-border/50"
                     required
                   />
                   <p className="text-xs text-muted-foreground mt-2">
@@ -351,7 +476,7 @@ export const WaitlistSection = () => {
                 </p>
                 <Button 
                   variant="secondary" 
-                  className="glass-morphism hover-glow"
+                  className="glass-morphism hover-glow border-border/50"
                   onClick={handleWalletConnect}
                   disabled={isLoading}
                 >
@@ -361,42 +486,65 @@ export const WaitlistSection = () => {
               </div>
 
             </Card>
-          </div>
+          </motion.div>
 
           {/* Benefits */}
-          <div className="space-y-6">
+          <motion.div 
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="space-y-6"
+          >
             <h3 className="text-2xl font-bold mb-6">Why Join Early?</h3>
             {benefits.map((benefit, index) => (
-              <Card key={index} className="gradient-subtle border-border/50 p-6 hover-glow hover:shadow-card transition-smooth">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center flex-shrink-0">
-                    <benefit.icon className="w-6 h-6 text-primary-foreground" />
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
+              >
+                <Card className="glass-morphism border-border/30 p-6 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1 transition-all">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center flex-shrink-0">
+                      <benefit.icon className="w-6 h-6 text-primary-foreground" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-2">{benefit.title}</h4>
+                      <p className="text-muted-foreground text-sm leading-relaxed">
+                        {benefit.description}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-semibold mb-2">{benefit.title}</h4>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {benefit.description}
-                    </p>
-                  </div>
-                </div>
-              </Card>
+                </Card>
+              </motion.div>
             ))}
             
-            <Card className="gradient-subtle border-accent/20 p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <Globe className="w-6 h-6 text-accent" />
-                <h4 className="font-semibold">Global Community</h4>
-              </div>
-              <p className="text-muted-foreground text-sm">
-                Connect with privacy advocates, technologists, and forward-thinkers from around the world.
-              </p>
-            </Card>
-          </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.8 }}
+            >
+              <Card className="glass-morphism border-accent/20 p-6 hover:shadow-2xl hover:shadow-accent/10 transition-all">
+                <div className="flex items-center gap-3 mb-4">
+                  <Globe className="w-6 h-6 text-accent" />
+                  <h4 className="font-semibold">Global Community</h4>
+                </div>
+                <p className="text-muted-foreground text-sm">
+                  Connect with privacy advocates, technologists, and forward-thinkers from around the world.
+                </p>
+              </Card>
+            </motion.div>
+          </motion.div>
         </div>
 
         {/* Anonymous Feedback Section */}
-        <div className="mb-20">
-          <Card className="glass-morphism border-secondary/30 p-8 max-w-2xl mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="mb-20"
+        >
+          <Card className="glass-morphism border-secondary/30 p-8 max-w-2xl mx-auto shadow-glow">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center">
                 <MessageSquare className="w-6 h-6 text-secondary" />
@@ -412,7 +560,7 @@ export const WaitlistSection = () => {
                 value={feedback}
                 onChange={(e) => setFeedback(e.target.value)}
                 placeholder="Tell us what you think, suggest features, or share your ideas..."
-                className="min-h-[120px] glass-morphism resize-none"
+                className="min-h-[120px] glass-morphism border-border/50 resize-none"
                 maxLength={1000}
               />
               <div className="flex items-center justify-between">
@@ -430,53 +578,63 @@ export const WaitlistSection = () => {
               </div>
             </form>
           </Card>
-        </div>
+        </motion.div>
 
         {/* Roadmap */}
-        <div id="roadmap" className="text-center mb-12">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          id="roadmap" 
+          className="text-center mb-12"
+        >
           <h3 className="text-3xl font-bold mb-4">Development Roadmap</h3>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Track our progress from initial architecture to global launch. Technology Readiness Level (TRL) progression: 3 → 9
           </p>
-        </div>
+        </motion.div>
 
         {/* Detailed Deliverables */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {developmentTimeline.map((dev, index) => (
-            <Card key={index} className={`
-              gradient-subtle border-border/50 p-6 hover-glow transition-smooth relative
-              ${index === 0 ? 'border-accent/30 shadow-glow' : ''}
-            `}>
-              {index === 0 && (
-                <Badge className="absolute -top-3 left-4 gradient-primary">
-                  In Progress
-                </Badge>
-              )}
-              
-              <div className="flex items-center justify-between mb-4">
-                <h4 className="font-mono text-accent font-semibold">{dev.role}</h4>
-                <Badge variant="secondary" className="text-xs">
-                  {dev.trl}
-                </Badge>
-              </div>
-              
-              <h5 className="text-lg font-bold mb-4">{dev.title}</h5>
-              
-              <ul className="space-y-3">
-                {dev.deliverables.map((deliverable, delIndex) => (
-                  <li key={delIndex} className="text-sm text-muted-foreground flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0 mt-1.5"></div>
-                    <span className="leading-relaxed">{deliverable}</span>
-                  </li>
-                ))}
-              </ul>
-              
-              <div className="mt-4 pt-4 border-t border-border/30">
-                <div className="text-xs text-muted-foreground">
-                  Active: {dev.quarters.join(", ")}
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.9 + index * 0.1 }}
+            >
+              <Card className={`
+                glass-morphism border-border/30 p-6 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1 transition-all relative
+                ${index === 0 ? 'border-accent/30 shadow-glow' : ''}
+              `}>
+                {index === 0 && (
+                  <Badge className="absolute -top-3 left-4 gradient-primary">
+                    In Progress
+                  </Badge>
+                )}
+                
+                <div className="flex items-center justify-between mb-4">
+                  <h4 className="font-mono text-accent font-semibold">{dev.role}</h4>
+                  <Badge variant="secondary" className="text-xs">
+                    {dev.trl}
+                  </Badge>
                 </div>
-              </div>
-            </Card>
+                
+                <h5 className="font-bold mb-2">{dev.title}</h5>
+                <p className="text-sm text-muted-foreground mb-4">
+                  {dev.quarters.join(" → ")}
+                </p>
+                
+                <ul className="space-y-2">
+                  {dev.deliverables.map((deliverable, dIndex) => (
+                    <li key={dIndex} className="text-xs text-muted-foreground flex items-start gap-2">
+                      <span className="text-secondary mt-1">•</span>
+                      <span>{deliverable}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </div>
