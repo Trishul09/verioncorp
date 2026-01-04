@@ -441,17 +441,28 @@ export const WaitlistSection = () => {
             <Card className="glass-morphism border-primary/20 p-8 hover:shadow-2xl hover:shadow-primary/10 transition-all">
               <h3 className="text-2xl font-bold mb-6">Get Early Access</h3>
               
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form 
+                onSubmit={handleSubmit} 
+                className="space-y-6"
+                action="#"
+                method="POST"
+              >
                 <div>
-                  <label className="block text-sm font-medium mb-2">
+                  <label htmlFor="email-input" className="block text-sm font-medium mb-2">
                     Email Address
                   </label>
                   <Input
+                    id="email-input"
                     type="email"
+                    inputMode="email"
+                    autoComplete="email"
+                    autoCapitalize="off"
+                    autoCorrect="off"
+                    spellCheck="false"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="your@email.com"
-                    className="glass-morphism border-border/50"
+                    className="glass-morphism border-border/50 text-base"
                     required
                   />
                   <p className="text-xs text-muted-foreground mt-2">
@@ -461,8 +472,15 @@ export const WaitlistSection = () => {
 
                 <Button 
                   type="submit" 
-                  className="w-full gradient-primary hover:shadow-glow text-lg py-6"
+                  className="w-full gradient-primary hover:shadow-glow text-lg py-6 touch-manipulation"
                   disabled={!email || isLoading}
+                  onClick={(e) => {
+                    // Ensure form submission on mobile
+                    if (!email || isLoading) {
+                      e.preventDefault();
+                      return;
+                    }
+                  }}
                 >
                   <Mail className="w-5 h-5 mr-2" />
                   {isLoading ? 'Joining...' : 'Join Waitlist'}
