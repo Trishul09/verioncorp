@@ -1,137 +1,79 @@
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Menu, X } from "lucide-react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Menu, X, Shield } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import verionLogo from "@/assets/verion-logo-v.png";
 
 export const Header = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { label: "Home", path: "/" },
-    { label: "Vision", path: "/vision" },
-    { label: "Architecture", path: "/architecture" },
-    { label: "Features", path: "/features" },
-    { label: "Roadmap", path: "/roadmap" },
-    { label: "Comparison", path: "/comparison" },
-    { label: "Careers", path: "/careers" },
-    { label: "Waitlist", path: "/waitlist" },
+    { label: "About", href: "#about" },
+    { label: "Download", href: "#download" },
+    { label: "Contact", href: "#contact" },
   ];
 
-  const isHomePage = location.pathname === "/";
+  const scrollTo = (href: string) => {
+    const el = document.querySelector(href);
+    el?.scrollIntoView({ behavior: "smooth" });
+    setMobileMenuOpen(false);
+  };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
-      <div className="container mx-auto px-4">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/60 backdrop-blur-xl border-b border-border/30">
+      <div className="container max-w-5xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
-          {/* Logo/Brand */}
-          <Link to="/" className="flex items-center gap-2 font-bold text-xl text-foreground hover:text-primary transition-colors">
-            <div className="w-8 h-8 flex items-center justify-center">
-              <img src={verionLogo} alt="Verion" className="w-full h-full object-contain" />
+          <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center gap-2 font-bold text-lg text-foreground hover:text-primary transition-colors">
+            <div className="w-7 h-7 rounded-lg gradient-primary flex items-center justify-center">
+              <Shield className="w-4 h-4 text-primary-foreground" />
             </div>
-            <span className="hidden sm:inline">Verion</span>
-          </Link>
+            Aether
+          </button>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`text-sm font-semibold transition-colors hover:text-primary ${
-                  location.pathname === item.path
-                    ? "text-primary"
-                    : "text-foreground"
-                }`}
+              <button
+                key={item.href}
+                onClick={() => scrollTo(item.href)}
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 {item.label}
-              </Link>
+              </button>
             ))}
           </nav>
 
-          {/* Desktop CTA */}
-          <div className="hidden md:flex items-center gap-3">
-            <Button
-              variant="default"
-              size="sm"
-              onClick={() => navigate("/waitlist")}
-            >
-              Join Waitlist
+          <div className="hidden md:block">
+            <Button size="sm" className="gradient-primary text-primary-foreground font-semibold hover:shadow-glow" onClick={() => scrollTo("#contact")}>
+              Book a Demo
             </Button>
           </div>
 
-          {/* Mobile Menu Toggle */}
-          <button
-            className="md:hidden p-2 text-foreground hover:text-primary transition-colors"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          <button className="md:hidden p-2 text-foreground" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background border-t border-border"
+            className="md:hidden bg-background border-t border-border/30"
           >
-            <nav className="container mx-auto px-4 py-4 flex flex-col gap-3">
+            <nav className="container mx-auto px-6 py-4 flex flex-col gap-3">
               {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className={`text-sm font-semibold py-2 transition-colors hover:text-primary ${
-                    location.pathname === item.path
-                      ? "text-primary"
-                      : "text-foreground"
-                  }`}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
+                <button key={item.href} onClick={() => scrollTo(item.href)} className="text-sm text-muted-foreground hover:text-foreground py-2 text-left">
                   {item.label}
-                </Link>
+                </button>
               ))}
-              <div className="flex flex-col gap-2 pt-2">
-                <Button
-                  variant="default"
-                  size="sm"
-                  onClick={() => {
-                    navigate("/waitlist");
-                    setMobileMenuOpen(false);
-                  }}
-                >
-                  Join Waitlist
-                </Button>
-              </div>
+              <Button size="sm" className="gradient-primary text-primary-foreground mt-2" onClick={() => scrollTo("#contact")}>
+                Book a Demo
+              </Button>
             </nav>
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* Back Button for non-home pages */}
-      {!isHomePage && (
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="absolute left-4 top-20 hidden md:block"
-        >
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => navigate(-1)}
-            className="gap-2"
-          >
-            <ArrowLeft size={16} />
-            Back
-          </Button>
-        </motion.div>
-      )}
     </header>
   );
 };

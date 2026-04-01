@@ -138,7 +138,7 @@ export const SplashScreen = ({ onComplete }: SplashScreenProps) => {
             }}
           />
           <span className="text-foreground/80 text-sm font-mono uppercase tracking-widest">
-            Loading Verion
+            Loading Aether
           </span>
         </div>
       </motion.div>
