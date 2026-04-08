@@ -1,15 +1,31 @@
-const withBase = (file: string) => `${import.meta.env.BASE_URL}downloads/${file}`;
+const RELEASE_OWNER = "Trishul09";
+const RELEASE_REPO = "verioncorp";
+const RELEASE_TAG = "v0.1.0";
+
+const releaseAssetUrl = (file: string) =>
+  `https://github.com/${RELEASE_OWNER}/${RELEASE_REPO}/releases/download/${RELEASE_TAG}/${file}`;
+
+const resolveDownloadUrl = (
+  envUrl: string | undefined,
+  fallbackFile: string,
+) => envUrl?.trim() || releaseAssetUrl(fallbackFile);
 
 export const DOWNLOADS = {
   macOS: {
     label: "macOS",
-    href: withBase("Aether-0.1.0-mac-arm64.dmg"),
+    href: resolveDownloadUrl(
+      import.meta.env.VITE_DOWNLOAD_URL_MACOS,
+      "Aether-0.1.0-mac-arm64.dmg",
+    ),
     filename: "Aether-0.1.0-mac-arm64.dmg",
     available: true,
   },
   Windows: {
     label: "Windows",
-    href: withBase("Aether-Setup-0.1.0-x64.exe"),
+    href: resolveDownloadUrl(
+      import.meta.env.VITE_DOWNLOAD_URL_WINDOWS,
+      "Aether-Setup-0.1.0-x64.exe",
+    ),
     filename: "Aether-Setup-0.1.0-x64.exe",
     available: true,
   },

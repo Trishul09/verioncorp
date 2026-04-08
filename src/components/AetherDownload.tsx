@@ -74,7 +74,7 @@ export const AetherDownload = () => {
             )}
           </div>
           <p className="text-xs text-muted-foreground mt-6">
-            macOS and Windows installers are live. Mobile and Linux builds are not published yet.
+            macOS and Windows installers are delivered from GitHub Releases. Mobile and Linux builds are not published yet.
           </p>
         </motion.div>
       </div>
