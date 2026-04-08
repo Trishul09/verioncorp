@@ -1,20 +1,12 @@
 import { motion } from "framer-motion";
-import { Download, Apple, MonitorSmartphone } from "lucide-react";
+import { Download, MonitorSmartphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useMemo } from "react";
-
-const detectOS = (): string => {
-  const ua = navigator.userAgent.toLowerCase();
-  if (/iphone|ipad|ipod/.test(ua)) return "iOS";
-  if (/android/.test(ua)) return "Android";
-  if (/mac/.test(ua)) return "macOS";
-  if (/win/.test(ua)) return "Windows";
-  if (/linux/.test(ua)) return "Linux";
-  return "Unknown";
-};
+import { DOWNLOADS, detectOS, getPrimaryDownload } from "@/lib/downloads";
 
 export const AetherDownload = () => {
   const os = useMemo(() => detectOS(), []);
+  const primaryDownload = getPrimaryDownload(os);
 
   return (
     <section id="download" className="py-24 relative">
@@ -33,29 +25,56 @@ export const AetherDownload = () => {
           </h2>
           <p className="text-muted-foreground mb-8">
             {os !== "Unknown"
-              ? `Detected: ${os} — download coming soon.`
-              : "Available soon on all platforms."}
+              ? `Detected: ${os} - your best available installer is ready below.`
+              : "Desktop installers are ready for macOS and Windows."}
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            {["Windows", "macOS", "Linux", "iOS", "Android"].map((platform) => (
-              <Button
-                key={platform}
-                variant={platform === os ? "default" : "outline"}
-                className={
-                  platform === os
-                    ? "gradient-primary text-primary-foreground gap-2"
-                    : "border-border/50 text-muted-foreground hover:text-foreground gap-2"
-                }
-                disabled
-              >
+          <div className="flex justify-center mb-4">
+            <Button
+              asChild
+              size="lg"
+              className="gradient-primary text-primary-foreground gap-2 min-w-[220px]"
+            >
+              <a href={primaryDownload.href} download={primaryDownload.filename}>
                 <Download className="w-4 h-4" />
-                {platform}
-              </Button>
-            ))}
+                Download for {primaryDownload.label}
+              </a>
+            </Button>
+          </div>
+
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            {Object.entries(DOWNLOADS).map(([platform, config]) =>
+              config.available ? (
+                <Button
+                  key={platform}
+                  asChild
+                  variant={platform === primaryDownload.label ? "default" : "outline"}
+                  className={
+                    platform === primaryDownload.label
+                      ? "gradient-primary text-primary-foreground gap-2"
+                      : "border-border/50 text-foreground hover:text-foreground gap-2"
+                  }
+                >
+                  <a href={config.href} download={config.filename}>
+                    <Download className="w-4 h-4" />
+                    {platform}
+                  </a>
+                </Button>
+              ) : (
+                <Button
+                  key={platform}
+                  variant="outline"
+                  className="border-border/50 text-muted-foreground gap-2"
+                  disabled
+                >
+                  <Download className="w-4 h-4" />
+                  {platform}
+                </Button>
+              ),
+            )}
           </div>
           <p className="text-xs text-muted-foreground mt-6">
-            Coming soon — join the waitlist to get early access.
+            macOS and Windows installers are live. Mobile and Linux builds are not published yet.
           </p>
         </motion.div>
       </div>

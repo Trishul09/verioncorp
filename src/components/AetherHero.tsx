@@ -1,22 +1,14 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Download, Calendar, ChevronDown } from "lucide-react";
+import { Download, Calendar } from "lucide-react";
 import { useMemo } from "react";
-
-const detectOS = (): string => {
-  const ua = navigator.userAgent.toLowerCase();
-  if (/iphone|ipad|ipod/.test(ua)) return "iOS";
-  if (/android/.test(ua)) return "Android";
-  if (/mac/.test(ua)) return "macOS";
-  if (/win/.test(ua)) return "Windows";
-  if (/linux/.test(ua)) return "Linux";
-  return "Unknown";
-};
+import { detectOS, getPrimaryDownload } from "@/lib/downloads";
 
 export const AetherHero = () => {
   const os = useMemo(() => detectOS(), []);
+  const primaryDownload = getPrimaryDownload(os);
 
-  const downloadLabel = os === "Unknown" ? "Download App" : `Download for ${os}`;
+  const downloadLabel = os === "Unknown" ? "Download for macOS" : `Download for ${primaryDownload.label}`;
 
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -38,7 +30,7 @@ export const AetherHero = () => {
           transition={{ delay: 0.2 }}
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-mono uppercase tracking-widest mb-8"
         >
-          Agentic IAM — Reimagined
+          Agentic IAM - Reimagined
         </motion.div>
 
         {/* Headline */}
@@ -80,16 +72,17 @@ export const AetherHero = () => {
             Book a Demo
           </Button>
           <Button
+            asChild
             size="lg"
             variant="outline"
             className="border-primary/30 text-foreground hover:bg-primary/10 gap-2 px-8"
-            onClick={() => scrollTo("download")}
           >
-            <Download className="w-4 h-4" />
-            {downloadLabel}
+            <a href={primaryDownload.href} download={primaryDownload.filename}>
+              <Download className="w-4 h-4" />
+              {downloadLabel}
+            </a>
           </Button>
         </motion.div>
-
       </div>
     </section>
   );
