@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Fingerprint, Eye, ShieldCheck } from "lucide-react";
+import { Fingerprint, Eye, ShieldCheck, ScrollText } from "lucide-react";
 
 const pillars = [
   {
@@ -16,6 +16,11 @@ const pillars = [
     icon: ShieldCheck,
     title: "Control",
     description: "Secure, temporary access with economic guardrails — revocable in milliseconds.",
+  },
+  {
+    icon: ScrollText,
+    title: "Audit",
+    description: "Append-only immutable ledger with hash-chain verification — every action recorded, every decision replayable.",
   },
 ];
 
@@ -48,7 +53,7 @@ export const AetherVision = () => {
           .
         </motion.h2>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {pillars.map((pillar, i) => (
             <motion.div
               key={pillar.title}
