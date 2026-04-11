@@ -1,126 +1,86 @@
-import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useRef, useCallback } from 'react';
 
 export const CursorFollower = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
-  const [cursorVariant, setCursorVariant] = useState('default');
+  const mainRef = useRef<HTMLDivElement>(null);
+  const trailRef = useRef<HTMLDivElement>(null);
+  const pos = useRef({ x: 0, y: 0 });
+  const mainPos = useRef({ x: 0, y: 0 });
+  const trailPos = useRef({ x: 0, y: 0 });
+  const raf = useRef<number>(0);
+  const hovering = useRef(false);
 
-  useEffect(() => {
-    const updateMousePosition = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
+  const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 
-    const handleMouseEnter = (e: MouseEvent) => {
-      const target = e.target as Element;
-      if (target && typeof target.matches === 'function') {
-        if (target.matches('button, a, [data-cursor="pointer"]')) {
-          setIsHovering(true);
-          setCursorVariant('hover');
-        } else if (target.matches('h1, h2, h3, .text-gradient')) {
-          setIsHovering(true);
-          setCursorVariant('text');
-        }
-      }
-    };
+  const tick = useCallback(() => {
+    mainPos.current.x = lerp(mainPos.current.x, pos.current.x, 0.2);
+    mainPos.current.y = lerp(mainPos.current.y, pos.current.y, 0.2);
+    trailPos.current.x = lerp(trailPos.current.x, pos.current.x, 0.1);
+    trailPos.current.y = lerp(trailPos.current.y, pos.current.y, 0.1);
 
-    const handleMouseLeave = (e: MouseEvent) => {
-      const target = e.target as Element;
-      if (target && typeof target.matches === 'function') {
-        if (target.matches('button, a, [data-cursor="pointer"], h1, h2, h3, .text-gradient')) {
-          setIsHovering(false);
-          setCursorVariant('default');
-        }
-      }
-    };
+    if (mainRef.current) {
+      const s = hovering.current ? 2 : 1;
+      mainRef.current.style.transform = `translate3d(${mainPos.current.x - 8}px,${mainPos.current.y - 8}px,0) scale(${s})`;
+    }
+    if (trailRef.current) {
+      const s = hovering.current ? 2.5 : 1;
+      trailRef.current.style.transform = `translate3d(${trailPos.current.x - 16}px,${trailPos.current.y - 16}px,0) scale(${s})`;
+    }
 
-    window.addEventListener('mousemove', updateMousePosition);
-    document.addEventListener('mouseenter', handleMouseEnter, true);
-    document.addEventListener('mouseleave', handleMouseLeave, true);
-
-    return () => {
-      window.removeEventListener('mousemove', updateMousePosition);
-      document.removeEventListener('mouseenter', handleMouseEnter, true);
-      document.removeEventListener('mouseleave', handleMouseLeave, true);
-    };
+    raf.current = requestAnimationFrame(tick);
   }, []);
 
-  const variants = {
-    default: {
-      x: mousePosition.x - 8,
-      y: mousePosition.y - 8,
-      scale: 1,
-      backgroundColor: "hsl(210 25% 35% / 0.3)",
-    },
-    hover: {
-      x: mousePosition.x - 16,
-      y: mousePosition.y - 16,
-      scale: 2,
-      backgroundColor: "hsl(195 35% 40% / 0.5)",
-    },
-    text: {
-      x: mousePosition.x - 12,
-      y: mousePosition.y - 12,
-      scale: 1.5,
-      backgroundColor: "hsl(165 30% 35% / 0.4)",
-    }
-  };
+  useEffect(() => {
+    const onMove = (e: MouseEvent) => {
+      pos.current = { x: e.clientX, y: e.clientY };
+    };
+
+    const onEnter = (e: MouseEvent) => {
+      const t = e.target as Element;
+      if (t?.matches?.('button, a, [data-cursor="pointer"], h1, h2, h3, .text-gradient')) {
+        hovering.current = true;
+      }
+    };
+
+    const onLeave = (e: MouseEvent) => {
+      const t = e.target as Element;
+      if (t?.matches?.('button, a, [data-cursor="pointer"], h1, h2, h3, .text-gradient')) {
+        hovering.current = false;
+      }
+    };
+
+    window.addEventListener('mousemove', onMove, { passive: true });
+    document.addEventListener('mouseenter', onEnter, true);
+    document.addEventListener('mouseleave', onLeave, true);
+    raf.current = requestAnimationFrame(tick);
+
+    return () => {
+      window.removeEventListener('mousemove', onMove);
+      document.removeEventListener('mouseenter', onEnter, true);
+      document.removeEventListener('mouseleave', onLeave, true);
+      cancelAnimationFrame(raf.current);
+    };
+  }, [tick]);
 
   return (
     <>
-      {/* Main cursor */}
-      <motion.div
+      <div
+        ref={mainRef}
         className="fixed top-0 left-0 w-4 h-4 rounded-full pointer-events-none z-50 mix-blend-difference"
-        animate={variants[cursorVariant as keyof typeof variants]}
-        transition={{
-          type: "spring",
-          stiffness: 500,
-          damping: 28,
-        }}
-      />
-      
-      {/* Trailing cursor with tech pattern */}
-      <motion.div
-        className="fixed top-0 left-0 w-8 h-8 border rounded-full pointer-events-none z-40"
         style={{
-          borderColor: "hsl(210 25% 35% / 0.2)",
-          borderWidth: "1px",
-        }}
-        animate={{
-          x: mousePosition.x - 16,
-          y: mousePosition.y - 16,
-          scale: isHovering ? 2.5 : 1,
-          rotate: isHovering ? 45 : 0,
-        }}
-        transition={{
-          type: "spring",
-          stiffness: 150,
-          damping: 25,
+          backgroundColor: 'hsl(220 60% 35% / 0.3)',
+          willChange: 'transform',
+          transition: 'background-color 0.3s ease',
         }}
       />
-      
-      {/* Data trail effect */}
-      <motion.div
-        className="fixed top-0 left-0 pointer-events-none z-30"
-        animate={{
-          x: mousePosition.x - 1,
-          y: mousePosition.y - 1,
+      <div
+        ref={trailRef}
+        className="fixed top-0 left-0 w-8 h-8 rounded-full pointer-events-none z-40"
+        style={{
+          border: '1px solid hsl(220 60% 35% / 0.15)',
+          willChange: 'transform',
+          transition: 'border-color 0.3s ease',
         }}
-        transition={{
-          type: "spring",
-          stiffness: 100,
-          damping: 30,
-        }}
-      >
-        {isHovering && (
-          <motion.div
-            className="w-2 h-2 bg-gradient-to-r from-accent to-primary rounded-full"
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 0.6 }}
-            exit={{ scale: 0, opacity: 0 }}
-          />
-        )}
-      </motion.div>
+      />
     </>
   );
 };
