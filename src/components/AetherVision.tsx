@@ -41,7 +41,7 @@ export const AetherVision = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-3xl md:text-4xl font-bold text-center mb-16 max-w-2xl mx-auto leading-tight"
+          className="text-3xl md:text-4xl font-bold text-center mb-16 max-w-2xl mx-auto leading-tight tracking-wide"
         >
           Other platforms govern what agents{" "}
           <span className="text-muted-foreground">can do</span>.

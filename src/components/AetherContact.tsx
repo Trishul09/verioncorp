@@ -36,7 +36,7 @@ export const AetherContact = () => {
             <p className="text-primary font-mono text-xs uppercase tracking-widest mb-4">
               Get in Touch
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight tracking-wide">
               Ready to secure your AI infrastructure?
             </h2>
             <p className="text-muted-foreground mb-8 leading-relaxed">

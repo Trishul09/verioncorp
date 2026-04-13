@@ -12,7 +12,7 @@ export const AetherClosing = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-2xl md:text-3xl font-light leading-relaxed text-foreground/90 italic"
+          className="text-2xl md:text-3xl font-light leading-relaxed text-foreground/90 italic tracking-wide"
         >
           "In the future, companies won't manage employees — they'll manage AI agents.{" "}
           <span className="not-italic font-semibold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">

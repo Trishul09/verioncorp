@@ -1,12 +1,33 @@
 import { motion } from "framer-motion";
-import { Download, MonitorSmartphone } from "lucide-react";
+import { Download, MonitorSmartphone, Smartphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useMemo } from "react";
 import { DOWNLOADS, detectOS, getPrimaryDownload } from "@/lib/downloads";
 
+const getOSMessage = (os: string) => {
+  if (os === "macOS" || os === "Windows")
+    return `Detected: ${os} — your installer is ready below.`;
+  if (os === "iOS" || os === "Android")
+    return `Detected: ${os} — mobile builds are coming soon.`;
+  if (os === "Linux")
+    return "Detected: Linux — a native build is on the way.";
+  return "Desktop installers are ready for macOS and Windows.";
+};
+
+const getPrimaryLabel = (os: string, label: string) => {
+  if (os === "macOS" || os === "Windows") return `Download for ${label}`;
+  if (os === "iOS" || os === "Android") return "Mobile — Coming Soon";
+  if (os === "Linux") return "Linux — Coming Soon";
+  return `Download for ${label}`;
+};
+
+const isPrimaryAvailable = (os: string) =>
+  os === "macOS" || os === "Windows" || os === "Unknown";
+
 export const AetherDownload = () => {
   const os = useMemo(() => detectOS(), []);
   const primaryDownload = getPrimaryDownload(os);
+  const canDownload = isPrimaryAvailable(os);
 
   return (
     <section id="download" className="py-24 relative">
@@ -20,26 +41,35 @@ export const AetherDownload = () => {
           <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
             <MonitorSmartphone className="w-7 h-7 text-primary" />
           </div>
-          <h2 className="text-2xl md:text-3xl font-bold mb-3">
+          <h2 className="text-2xl md:text-3xl font-bold mb-3 tracking-wide">
             Download Aether
           </h2>
           <p className="text-muted-foreground mb-8">
-            {os !== "Unknown"
-              ? `Detected: ${os} - your best available installer is ready below.`
-              : "Desktop installers are ready for macOS and Windows."}
+            {getOSMessage(os)}
           </p>
 
           <div className="flex justify-center mb-4">
-            <Button
-              asChild
-              size="lg"
-              className="gradient-primary text-primary-foreground gap-2 min-w-[220px]"
-            >
-              <a href={primaryDownload.href} download={primaryDownload.filename}>
-                <Download className="w-4 h-4" />
-                Download for {primaryDownload.label}
-              </a>
-            </Button>
+            {canDownload ? (
+              <Button
+                asChild
+                size="lg"
+                className="gradient-primary text-primary-foreground gap-2 min-w-[220px]"
+              >
+                <a href={primaryDownload.href} download={primaryDownload.filename}>
+                  <Download className="w-4 h-4" />
+                  {getPrimaryLabel(os, primaryDownload.label)}
+                </a>
+              </Button>
+            ) : (
+              <Button
+                size="lg"
+                className="gap-2 min-w-[220px]"
+                disabled
+              >
+                <Smartphone className="w-4 h-4" />
+                {getPrimaryLabel(os, primaryDownload.label)}
+              </Button>
+            )}
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-3">
