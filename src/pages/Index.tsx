@@ -1,6 +1,7 @@
 import { Header } from "@/components/Header";
 import { AetherHero } from "@/components/AetherHero";
 import { AetherVision } from "@/components/AetherVision";
+import { AetherNoticeboard } from "@/components/AetherNoticeboard";
 import { AetherClosing } from "@/components/AetherClosing";
 import { AetherContact } from "@/components/AetherContact";
 import { AetherDownload } from "@/components/AetherDownload";
@@ -40,6 +41,7 @@ const Index = () => {
       <div className="min-h-screen text-foreground pt-16">
         <AetherHero />
         <AetherVision />
+        <AetherNoticeboard />
         <AetherClosing />
         <AetherDownload />
         <AetherContact />
